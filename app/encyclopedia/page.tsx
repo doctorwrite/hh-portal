@@ -1,3 +1,4 @@
+// app/encyclopedia/page.tsx
 import Link from 'next/link'
 
 const SECTIONS = [
@@ -114,11 +115,15 @@ export default function Encyclopedia() {
             </span>
             <div className="articles-list">
               {section.articles.map((article) => (
-                <div key={article.id} className="article-item">
+                <Link 
+                  key={article.id} 
+                  href={`/encyclopedia/${article.id}`}
+                  className="article-item"
+                >
                   <span className="art-icon">{article.icon}</span>
                   <span className="art-title">{article.title}</span>
                   <span className="art-badge">{article.badge}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
