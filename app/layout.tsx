@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Oswald } from 'next/font/google'
 import './globals.css'
@@ -90,8 +91,8 @@ export const viewport: Viewport = {
   themeColor: '#08080a',
 }
 
-// Schema.org микроразметка (JSON-LD)
-const jsonLd = {
+// Schema.org микроразметка (JSON-LD) — LocalBusiness
+const jsonLdLocalBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'HHRecords',
@@ -115,6 +116,118 @@ const jsonLd = {
   priceRange: '1500-5000 RUB',
 }
 
+// Schema.org микроразметка (JSON-LD) — FAQPage
+const jsonLdFAQ = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Что такое эквализация?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Эквализация (EQ) — это процесс изменения тембра и частотного баланса звука с помощью эквалайзера.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое компрессия?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Компрессия — это процесс автоматического уменьшения разницы между самыми громкими и самыми тихими частями звука.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое реверберация?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Реверберация — это процесс постепенного затухания звука из-за многократных отражений от поверхностей.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое дилей?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Дилей — это звуковой эффект, который создаёт повторения исходного сигнала через определённые промежутки времени.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое сатурация?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Сатурация — это эффект лёгкого искажения и насыщения звука, который добавляет теплоту, гармоники и характер.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое лимитер?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Лимитер — это устройство или плагин, который жёстко ограничивает уровень аудиосигнала, не позволяя ему превышать заданный порог.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое аудиоинтерфейс?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Аудиоинтерфейс — это устройство для преобразования аналогового звука в цифровой и обратно.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое MIDI?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'MIDI — это цифровой протокол, который позволяет музыкальным инструментам, контроллерам и компьютерам обмениваться информацией о нотах, громкости и других параметрах.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое битность в звукозаписи?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Битность — это количество бит для представления каждого сэмпла звука. Чем выше битность, тем больше уровней громкости и меньше шум квантования.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое частота дискретизации?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Частота дискретизации — это количество измерений звука в секунду при преобразовании аналогового сигнала в цифровой.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что такое LUFS?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'LUFS — это единица измерения воспринимаемой громкости, которая используется для нормализации громкости на стриминговых платформах.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как работает сведение?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Сведение — это процесс объединения и балансировки всех дорожек трека в единое целое с помощью эквализации, компрессии, панорамирования и пространственных эффектов.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Как работает мастеринг?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Мастеринг — это финальный этап обработки трека перед релизом, включающий увеличение громкости, выравнивание частот и подготовку к стримингам.',
+      },
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -126,10 +239,17 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        {/* JSON-LD: LocalBusiness */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
         />
+        {/* JSON-LD: FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
+        />
+        {/* Яндекс.Метрика */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -167,6 +287,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        {/* Скрипт для фона с нотами */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
