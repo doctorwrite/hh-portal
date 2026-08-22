@@ -1,6 +1,7 @@
-// app/encyclopedia/page.tsx (рабочая версия)
+// app/encyclopedia/page.tsx
 import Link from 'next/link'
 
+// Данные разделов и статей (оставлены как есть)
 const SECTIONS = [
   {
     id: 'basics',
@@ -83,12 +84,14 @@ const SECTIONS = [
 export default function Encyclopedia() {
   return (
     <div className="encyclopedia-container">
+      {/* ХЛЕБНЫЕ КРОШКИ */}
       <div className="breadcrumb">
         <a href="/">Главная</a>
         <span className="sep">›</span>
         <span className="current">Энциклопедия звукозаписи</span>
       </div>
 
+      {/* ГЕРОЙ-БЛОК */}
       <div className="hero-encyclopedia">
         <h1>🎧 Энциклопедия звукозаписи</h1>
         <p>6 разделов, 50+ статей: основы, оборудование, технические параметры, процессы, работа с вокалом и кейсы от студии HHRecords.</p>
@@ -97,12 +100,100 @@ export default function Encyclopedia() {
           <span className="hero-tag">📌 50+ статей</span>
           <span className="hero-tag">⭐ 4.9 на основе 87 отзывов</span>
           <span className="hero-tag">🎚️ Студия в Красноярске с 2016</span>
+          <span className="hero-tag">📚 Ссылки на источники</span>
         </div>
       </div>
 
+      {/* ДАТА ОБНОВЛЕНИЯ */}
+      <div className="update-date">📅 Обновлено: <strong>8 июля 2026</strong></div>
+
+      {/* СТАТИСТИКА */}
+      <div className="encyclopedia-stats">
+        <div className="stat">
+          <span className="num">6</span>
+          <span className="label">Разделов</span>
+        </div>
+        <div className="stat">
+          <span className="num">50+</span>
+          <span className="label">Статей</span>
+        </div>
+        <div className="stat">
+          <span className="num">30+</span>
+          <span className="label">Терминов</span>
+        </div>
+        <div className="stat">
+          <span className="num">15+</span>
+          <span className="label">Процессов</span>
+        </div>
+      </div>
+
+      {/* О ЭНЦИКЛОПЕДИИ */}
+      <div className="about-encyclopedia">
+        <p>
+          <strong>Энциклопедия звукозаписи HHRecords</strong> — это полный гид по звукозаписи, сведению и мастерингу. Мы собрали <strong>50+ статей</strong> в <strong>6 разделах</strong>: от базовых терминов до продвинутых техник и реальных кейсов.
+        </p>
+        <p>
+          Все статьи содержат определения, примеры, советы и ссылки на источники. Энциклопедия создана для музыкантов, вокалистов и звукорежиссёров, которые хотят разобраться в звукозаписи.
+        </p>
+      </div>
+
+      {/* ССЫЛКИ НА РАЗДЕЛЫ */}
+      <div className="section-links">
+        <span className="section-links-title">📌 Перейти к разделу:</span>
+        <a href="#basics">Основы</a>
+        <a href="#gear">Оборудование</a>
+        <a href="#technical">Параметры</a>
+        <a href="#processes">Процессы</a>
+        <a href="#vocal">Вокал</a>
+        <a href="#cases">Кейсы</a>
+      </div>
+
+      {/* КНОПКИ ПОДЕЛИТЬСЯ (БЕЗ onClick) */}
+      <div className="share-top">
+        <span className="share-label">📤 Поделиться энциклопедией:</span>
+        <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-vk">VK</a>
+        <a href="https://t.me/share/url?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-tg">Telegram</a>
+        <a
+          href="#"
+          className="share-copy"
+          onClick={(e) => {
+            e.preventDefault()
+            navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/')
+            alert('Ссылка скопирована!')
+          }}
+        >
+          📋 Копировать
+        </a>
+      </div>
+
+      {/* ЧАСТО ИЩУТ */}
+      <div className="popular-terms">
+        <div className="popular-title">🔥 Часто ищут:</div>
+        <div className="popular-list">
+          <a href="/encyclopedia/eq">Эквализация (EQ)</a>
+          <a href="/encyclopedia/compression">Компрессия</a>
+          <a href="/encyclopedia/reverb">Реверберация</a>
+          <a href="/encyclopedia/delay">Дилей</a>
+          <a href="/encyclopedia/saturation">Сатурация</a>
+          <a href="/encyclopedia/limiter">Лимитер</a>
+          <a href="/encyclopedia/audio-interface">Аудиоинтерфейс</a>
+          <a href="/encyclopedia/midi">MIDI</a>
+        </div>
+      </div>
+
+      {/* ПОИСК (БЕЗ ЛОГИКИ) */}
+      <div className="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Поиск по энциклопедии..."
+        />
+      </div>
+
+      {/* СЕТКА РАЗДЕЛОВ */}
       <div className="encyclopedia-sections-grid">
         {SECTIONS.map((section) => (
-          <div key={section.id} className={`section-card ${section.cssClass}`}>
+          <div key={section.id} id={section.id} className={`section-card ${section.cssClass}`}>
             <div className="card-header">
               <span className="icon">{section.icon}</span>
               <div className="title">
@@ -130,9 +221,11 @@ export default function Encyclopedia() {
         ))}
       </div>
 
+      {/* БРЕНДОВЫЙ БЛОК */}
       <div className="brand-block" id="contacts">
         <h2>🎧 HHRecords — студия звукозаписи в Красноярске и онлайн</h2>
         <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
+        <p>Работаем очно и удалённо из любого города. Присылайте треки — мы сделаем звук профессиональным.</p>
         <div className="btn-row">
           <a
             href="tel:+79138376772"
@@ -182,6 +275,12 @@ export default function Encyclopedia() {
         <p style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
           📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311
         </p>
+      </div>
+
+      {/* ФУТЕР ЭНЦИКЛОПЕДИИ */}
+      <div className="encyclopedia-footer">
+        © 2026 HHRecords. Все права защищены.<br />
+        <a href="/">hiphoprecords.ru</a>
       </div>
     </div>
   )
