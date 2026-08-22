@@ -2089,3 +2089,48 @@ section {
 .section-card .article-item:hover .art-title {
   color: var(--gold-mid);
 }
+/* ================================================================
+   ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ
+   ================================================================ */
+
+/* Оптимизация фона с нотами */
+.music-bg .note {
+  will-change: transform, opacity;
+  animation-play-state: running;
+}
+
+/* Отключаем анимации на мобильных */
+@media (max-width: 768px) {
+  .music-bg .note {
+    animation: none !important;
+    opacity: 0.04 !important;
+  }
+}
+
+/* Оптимизация карточек */
+.section-card {
+  will-change: transform;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 300px;
+}
+
+/* Отключаем анимации на мобильных */
+@media (max-width: 768px) {
+  .section-card:hover {
+    transform: none !important;
+  }
+  .section-card .article-item:hover {
+    background: none !important;
+  }
+  .hero-encyclopedia {
+    animation: none !important;
+  }
+}
+
+/* Оптимизация для всех hover-эффектов */
+@media (max-width: 768px) {
+  *:hover {
+    transition-duration: 0.01ms !important;
+  }
+}
