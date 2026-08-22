@@ -116,7 +116,6 @@ export default function Encyclopedia() {
     alert('Ссылка скопирована!')
   }
 
-  // ===== ПОИСК + ФИЛЬТР =====
   const filteredSections = useMemo(() => {
     if (!searchQuery.trim()) {
       return selectedSection
@@ -328,7 +327,9 @@ export default function Encyclopedia() {
                     className="article-item"
                   >
                     <span className="art-icon" aria-hidden="true">{article.icon}</span>
-                    <h3 className="art-title">{article.title}</h3>
+                    <article>
+                      <h3 className="art-title">{article.title}</h3>
+                    </article>
                     <span className="art-badge">{article.badge}</span>
                   </Link>
                 </li>
@@ -337,6 +338,29 @@ export default function Encyclopedia() {
           </section>
         ))}
       </div>
+
+      {/* ===== SEO-ТЕКСТ (для поисковиков) ===== */}
+      <section className="seo-text" aria-label="SEO-текст">
+        <h2 className="sr-only">SEO-текст</h2>
+        <div className="seo-content">
+          <p>
+            <strong>Энциклопедия звукозаписи HHRecords</strong> — это крупнейший русскоязычный сборник статей по 
+            <strong> сведению, мастерингу, эквализации, компрессии, реверберации, дилею, сатурации, лимитеру, 
+            стереопанораме, LUFS, битности, частоте дискретизации, MIDI, аудиоинтерфейсам, VST-плагинам, 
+            сэмплам, студийным мониторам и MIDI-контроллерам.</strong>
+          </p>
+          <p>
+            Мы собрали <strong>50+ статей</strong> для музыкантов, вокалистов, битмейкеров и звукорежиссёров. 
+            Здесь вы найдёте ответы на вопросы: <strong>как настроить эквалайзер под голос, как работает 
+            компрессор, что такое LUFS, как выбрать аудиоинтерфейс, как сделать сведение вокала с минусом, 
+            как добиться плотного баса в миксе, как работает параллельная компрессия и сайд-чейн.</strong>
+          </p>
+          <p>
+            Энциклопедия создана <strong>студией звукозаписи HHRecords в Красноярске</strong>, которая работает 
+            с 2016 года. Мы записываем и сводим треки для артистов со всей России.
+          </p>
+        </div>
+      </section>
 
       {/* ===== БРЕНДОВЫЙ БЛОК ===== */}
       <section className="brand-block" id="contacts" aria-label="Контакты студии">
