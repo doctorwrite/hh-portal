@@ -2332,3 +2332,29 @@ section {
     right: 8px;
   }
 }
+/* ================================================================
+   СТИЛИ ДЛЯ SEO-ТЕКСТА
+   ================================================================ */
+.seo-text {
+  margin: 32px 0 20px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.seo-text .seo-content p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.seo-text .seo-content p:last-child {
+  margin-bottom: 0;
+}
+
+.seo-text .seo-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
