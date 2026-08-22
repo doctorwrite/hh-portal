@@ -299,12 +299,6 @@ export default function Encyclopedia() {
           📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311
         </p>
       </div>
-
-      {/* ФУТЕР ЭНЦИКЛОПЕДИИ */}
-      <div className="encyclopedia-footer">
-        © 2026 HHRecords. Все права защищены.<br />
-        <a href="/">hiphoprecords.ru</a>
-      </div>
     </div>
   )
 }
