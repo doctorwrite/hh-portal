@@ -2,8 +2,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
+// ===== ДАННЫЕ =====
 const SECTIONS = [
   {
     id: 'basics',
@@ -108,39 +109,67 @@ const SECTIONS = [
 
 export default function Encyclopedia() {
   const [searchQuery, setSearchQuery] = useState('')
+  const [selectedSection, setSelectedSection] = useState<string | null>(null)
 
   const copyLink = () => {
     navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/')
     alert('Ссылка скопирована!')
   }
 
-  return (
-    <div className="encyclopedia-container">
-      {/* ХЛЕБНЫЕ КРОШКИ */}
-      <div className="breadcrumb">
-        <a href="/">Главная</a>
-        <span className="sep">›</span>
-        <span className="current">Энциклопедия звукозаписи</span>
-      </div>
+  // ===== ПОИСК + ФИЛЬТР =====
+  const filteredSections = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return selectedSection
+        ? SECTIONS.filter((s) => s.id === selectedSection)
+        : SECTIONS
+    }
 
-      {/* ГЕРОЙ */}
-      <div className="hero-encyclopedia">
+    const query = searchQuery.toLowerCase().trim()
+    return SECTIONS.map((section) => ({
+      ...section,
+      articles: section.articles.filter(
+        (article) =>
+          article.title.toLowerCase().includes(query) ||
+          section.title.toLowerCase().includes(query)
+      ),
+    })).filter((section) => section.articles.length > 0)
+  }, [searchQuery, selectedSection])
+
+  const totalArticles = SECTIONS.reduce((acc, s) => acc + s.articles.length, 0)
+
+  return (
+    <div className="encyclopedia-container" id="main-content">
+      {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
+      <nav className="breadcrumb" aria-label="Хлебные крошки">
+        <Link href="/">Главная</Link>
+        <span className="sep" aria-hidden="true">›</span>
+        <span className="current">Энциклопедия звукозаписи</span>
+      </nav>
+
+      {/* ===== ГЕРОЙ ===== */}
+      <header className="hero-encyclopedia">
         <h1>🎧 Энциклопедия звукозаписи</h1>
-        <p>6 разделов, 50+ статей: основы, оборудование, технические параметры, процессы, работа с вокалом и кейсы от студии HHRecords.</p>
+        <p>
+          Полный гид по звукозаписи, сведению и мастерингу. 
+          <strong> {totalArticles} статей</strong> по эквализации, компрессии, реверберации, 
+          оборудованию и вокалу. Создано для музыкантов и звукорежиссёров.
+        </p>
         <div className="hero-tags">
           <span className="hero-tag">📖 6 разделов</span>
-          <span className="hero-tag">📌 50+ статей</span>
+          <span className="hero-tag">📌 {totalArticles} статей</span>
           <span className="hero-tag">⭐ 4.9 на основе 87 отзывов</span>
           <span className="hero-tag">🎚️ Студия в Красноярске с 2016</span>
           <span className="hero-tag">📚 Ссылки на источники</span>
         </div>
+      </header>
+
+      {/* ===== ДАТА ОБНОВЛЕНИЯ ===== */}
+      <div className="update-date">
+        📅 Обновлено: <strong>8 июля 2026</strong>
       </div>
 
-      {/* ДАТА ОБНОВЛЕНИЯ */}
-      <div className="update-date">📅 Обновлено: <strong>8 июля 2026</strong></div>
-
-      {/* СТАТИСТИКА */}
-      <div className="encyclopedia-stats">
+      {/* ===== СТАТИСТИКА ===== */}
+      <section className="encyclopedia-stats" aria-label="Статистика энциклопедии">
         <div className="stat">
           <span className="num">6</span>
           <span className="label">Разделов</span>
@@ -157,20 +186,24 @@ export default function Encyclopedia() {
           <span className="num">15+</span>
           <span className="label">Процессов</span>
         </div>
-      </div>
+      </section>
 
-      {/* О ЭНЦИКЛОПЕДИИ */}
-      <div className="about-encyclopedia">
+      {/* ===== О ЭНЦИКЛОПЕДИИ ===== */}
+      <section className="about-encyclopedia">
         <p>
-          <strong>Энциклопедия звукозаписи HHRecords</strong> — это полный гид по звукозаписи, сведению и мастерингу. Мы собрали <strong>50+ статей</strong> в <strong>6 разделах</strong>: от базовых терминов до продвинутых техник и реальных кейсов.
+          <strong>Энциклопедия звукозаписи HHRecords</strong> — это полный гид по звукозаписи, сведению и мастерингу. 
+          Мы собрали <strong>{totalArticles} статей</strong> в <strong>6 разделах</strong>: 
+          от базовых терминов до продвинутых техник и реальных кейсов.
         </p>
         <p>
-          Все статьи содержат определения, примеры, советы и ссылки на источники. Энциклопедия создана для музыкантов, вокалистов и звукорежиссёров, которые хотят разобраться в звукозаписи.
+          Все статьи содержат определения, примеры, советы и ссылки на источники. 
+          Энциклопедия создана для музыкантов, вокалистов и звукорежиссёров, 
+          которые хотят разобраться в звукозаписи.
         </p>
-      </div>
+      </section>
 
-      {/* ССЫЛКИ НА РАЗДЕЛЫ */}
-      <div className="section-links">
+      {/* ===== ССЫЛКИ НА РАЗДЕЛЫ ===== */}
+      <nav className="section-links" aria-label="Навигация по разделам">
         <span className="section-links-title">📌 Перейти к разделу:</span>
         <a href="#basics">Основы</a>
         <a href="#gear">Оборудование</a>
@@ -178,77 +211,144 @@ export default function Encyclopedia() {
         <a href="#processes">Процессы</a>
         <a href="#vocal">Вокал</a>
         <a href="#cases">Кейсы</a>
-      </div>
+      </nav>
 
-      {/* ПОДЕЛИТЬСЯ */}
+      {/* ===== ПОДЕЛИТЬСЯ ===== */}
       <div className="share-top">
         <span className="share-label">📤 Поделиться энциклопедией:</span>
-        <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-vk">VK</a>
-        <a href="https://t.me/share/url?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-tg">Telegram</a>
-        <button className="share-copy" onClick={copyLink}>📋 Копировать</button>
+        <a
+          href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="share-vk"
+          aria-label="Поделиться в ВКонтакте"
+        >
+          VK
+        </a>
+        <a
+          href="https://t.me/share/url?url=https://hiphoprecords.ru/encyclopedia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="share-tg"
+          aria-label="Поделиться в Telegram"
+        >
+          Telegram
+        </a>
+        <button
+          className="share-copy"
+          onClick={copyLink}
+          aria-label="Копировать ссылку на энциклопедию"
+        >
+          📋 Копировать
+        </button>
       </div>
 
-      {/* ЧАСТО ИЩУТ */}
-      <div className="popular-terms">
+      {/* ===== ЧАСТО ИЩУТ ===== */}
+      <section className="popular-terms" aria-label="Популярные термины">
         <div className="popular-title">🔥 Часто ищут:</div>
         <div className="popular-list">
-          <a href="/encyclopedia/eq">Эквализация (EQ)</a>
-          <a href="/encyclopedia/compression">Компрессия</a>
-          <a href="/encyclopedia/reverb">Реверберация</a>
-          <a href="/encyclopedia/delay">Дилей</a>
-          <a href="/encyclopedia/saturation">Сатурация</a>
-          <a href="/encyclopedia/limiter">Лимитер</a>
-          <a href="/encyclopedia/audio-interface">Аудиоинтерфейс</a>
-          <a href="/encyclopedia/midi">MIDI</a>
+          <Link href="/encyclopedia/eq">Эквализация (EQ)</Link>
+          <Link href="/encyclopedia/compression">Компрессия</Link>
+          <Link href="/encyclopedia/reverb">Реверберация</Link>
+          <Link href="/encyclopedia/delay">Дилей</Link>
+          <Link href="/encyclopedia/saturation">Сатурация</Link>
+          <Link href="/encyclopedia/limiter">Лимитер</Link>
+          <Link href="/encyclopedia/audio-interface">Аудиоинтерфейс</Link>
+          <Link href="/encyclopedia/midi">MIDI</Link>
         </div>
-      </div>
+      </section>
 
-      {/* ПОИСК */}
+      {/* ===== ПОИСК ===== */}
       <div className="search-box">
+        <label htmlFor="searchInput" className="sr-only">
+          Поиск по энциклопедии
+        </label>
         <input
+          id="searchInput"
           type="text"
           placeholder="🔍 Поиск по энциклопедии..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="Поиск по энциклопедии"
         />
+        {searchQuery && (
+          <button
+            className="search-clear"
+            onClick={() => setSearchQuery('')}
+            aria-label="Очистить поиск"
+          >
+            ✕
+          </button>
+        )}
       </div>
 
-      {/* СЕТКА РАЗДЕЛОВ */}
+      {/* ===== ФИЛЬТР ПО РАЗДЕЛАМ ===== */}
+      <div className="section-filter">
+        <button
+          className={`filter-btn ${!selectedSection ? 'active' : ''}`}
+          onClick={() => setSelectedSection(null)}
+        >
+          Все разделы
+        </button>
+        {SECTIONS.map((s) => (
+          <button
+            key={s.id}
+            className={`filter-btn ${selectedSection === s.id ? 'active' : ''}`}
+            onClick={() => setSelectedSection(s.id)}
+          >
+            {s.icon} {s.title}
+          </button>
+        ))}
+      </div>
+
+      {/* ===== СЕТКА РАЗДЕЛОВ ===== */}
       <div className="encyclopedia-sections-grid">
-        {SECTIONS.map((section) => (
-          <div key={section.id} id={section.id} className={`section-card ${section.cssClass}`}>
+        {filteredSections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className={`section-card ${section.cssClass}`}
+            aria-labelledby={`heading-${section.id}`}
+          >
             <div className="card-header">
-              <span className="icon">{section.icon}</span>
+              <span className="icon" aria-hidden="true">{section.icon}</span>
               <div className="title">
-                <h2>{section.title}</h2>
+                <h2 id={`heading-${section.id}`}>{section.title}</h2>
               </div>
             </div>
             <div className="desc">{section.desc}</div>
             <span className="count">
               <strong>{section.articles.length}</strong> статей
             </span>
-            <div className="articles-list">
+            <ul className="articles-list" role="list">
               {section.articles.map((article) => (
-                <Link
-                  key={article.id}
-                  href={`/encyclopedia/${article.id}`}
-                  className="article-item"
-                >
-                  <span className="art-icon">{article.icon}</span>
-                  <h3 className="art-title">{article.title}</h3>
-                  <span className="art-badge">{article.badge}</span>
-                </Link>
+                <li key={article.id} role="listitem">
+                  <Link
+                    href={`/encyclopedia/${article.id}`}
+                    className="article-item"
+                  >
+                    <span className="art-icon" aria-hidden="true">{article.icon}</span>
+                    <h3 className="art-title">{article.title}</h3>
+                    <span className="art-badge">{article.badge}</span>
+                  </Link>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
         ))}
       </div>
 
-      {/* БРЕНДОВЫЙ БЛОК */}
-      <div className="brand-block" id="contacts">
+      {/* ===== БРЕНДОВЫЙ БЛОК ===== */}
+      <section className="brand-block" id="contacts" aria-label="Контакты студии">
         <h2>🎧 HHRecords — студия звукозаписи в Красноярске и онлайн</h2>
-        <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
-        <p>Работаем очно и удалённо из любого города. Присылайте треки — мы сделаем звук профессиональным.</p>
+        <p>
+          Запись вокала, сведение, мастеринг. 10 лет опыта, 
+          оборудование премиум-класса (Neumann, Focal, Apollo).
+        </p>
+        <p>
+          Работаем очно и удалённо из любого города. 
+          Присылайте треки — мы сделаем звук профессиональным.
+        </p>
         <div className="btn-row">
           <a
             href="tel:+79138376772"
@@ -257,6 +357,7 @@ export default function Encyclopedia() {
               background: 'linear-gradient(135deg, var(--gold-start), var(--gold-mid), var(--gold-end))',
               color: '#000',
             }}
+            aria-label="Позвонить в студию"
           >
             📞 Позвонить
           </a>
@@ -267,6 +368,7 @@ export default function Encyclopedia() {
               background: 'linear-gradient(135deg,#0088cc,#005f8a)',
               color: '#fff',
             }}
+            aria-label="Написать в Telegram"
           >
             ✈️ Telegram
           </a>
@@ -280,6 +382,7 @@ export default function Encyclopedia() {
               border: '2px solid var(--gold-start)',
               color: 'var(--gold-start)',
             }}
+            aria-label="Группа ВКонтакте"
           >
             📱 VK
           </a>
@@ -298,7 +401,7 @@ export default function Encyclopedia() {
         <p style={{ marginTop: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
           📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311
         </p>
-      </div>
+      </section>
     </div>
   )
 }
