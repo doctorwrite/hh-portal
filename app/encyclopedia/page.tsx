@@ -1,4 +1,6 @@
 // app/encyclopedia/page.tsx
+'use client'
+
 import Link from 'next/link'
 
 const SECTIONS = [
@@ -81,6 +83,12 @@ const SECTIONS = [
 ]
 
 export default function Encyclopedia() {
+  // Функция для копирования ссылки
+  const copyLink = () => {
+    navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/')
+    alert('Ссылка скопирована!')
+  }
+
   return (
     <div className="encyclopedia-container">
       {/* ХЛЕБНЫЕ КРОШКИ */}
@@ -152,7 +160,7 @@ export default function Encyclopedia() {
         <span className="share-label">📤 Поделиться энциклопедией:</span>
         <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-vk">VK</a>
         <a href="https://t.me/share/url?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-tg">Telegram</a>
-        <button className="share-copy" onClick={() => { navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/'); alert('Ссылка скопирована!') }}>📋 Копировать</button>
+        <button className="share-copy" onClick={copyLink}>📋 Копировать</button>
       </div>
 
       {/* ЧАСТО ИЩУТ */}
@@ -172,7 +180,15 @@ export default function Encyclopedia() {
 
       {/* ПОИСК */}
       <div className="search-box">
-        <input type="text" id="searchInput" placeholder="🔍 Поиск по энциклопедии..." />
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="🔍 Поиск по энциклопедии..."
+          onKeyUp={(e) => {
+            const query = (e.target as HTMLInputElement).value
+            // Можно добавить логику поиска позже
+          }}
+        />
       </div>
 
       {/* СЕТКА РАЗДЕЛОВ */}
