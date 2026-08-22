@@ -2505,3 +2505,169 @@ section {
     padding: 14px 12px;
   }
 }
+/* ================================================================
+   СТИЛИ ДЛЯ СТАТЕЙ (ВОССТАНОВЛЕНИЕ ОРИГИНАЛА)
+   ================================================================ */
+
+/* ===== МЕТА-ИНФОРМАЦИЯ ===== */
+.meta {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.meta a {
+  color: var(--gold-mid);
+}
+
+/* ===== ОГЛАВЛЕНИЕ ===== */
+.toc {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.toc:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+}
+
+.toc-title {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-list a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.toc-list a:hover {
+  color: var(--gold-mid);
+  border-bottom-color: var(--gold-mid);
+  text-decoration: none;
+}
+
+/* ===== КРАТКИЙ ОТВЕТ ===== */
+.quick-answer {
+  background: rgba(245, 197, 66, 0.04);
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.quick-answer:hover {
+  border-color: rgba(245, 197, 66, 0.2);
+}
+
+.quick-answer-label {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.quick-answer p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.quick-answer strong {
+  color: #fff;
+}
+
+/* ===== ВОПРОСЫ-ОТВЕТЫ ===== */
+.qa-block {
+  padding: 20px 24px;
+  margin: 16px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border-left: 3px solid var(--gold-mid);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  scroll-margin-top: 80px;
+}
+
+.qa-block:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-left-color: var(--gold-mid);
+  transform: translateX(6px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.qa-block .question {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qa-block .question .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: var(--gold-mid);
+}
+
+.qa-block .answer {
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.qa-block .answer strong {
+  color: #fff;
+}
+
+.qa-block .answer ul,
+.qa-block .answer ol {
+  padding-left: 24px;
+  margin: 6px 0;
+}
+
+.qa-block .answer li {
+  margin: 4px 0;
+}
+
+/* ===== КАРТИНКИ В ТЕКСТЕ ===== */
+.article-image {
+  float: right;
+  width: 220px;
+  margin: 4px 0 12px
