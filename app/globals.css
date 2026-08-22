@@ -2665,9 +2665,3 @@ section {
 .qa-block .answer li {
   margin: 4px 0;
 }
-
-/* ===== КАРТИНКИ В ТЕКСТЕ ===== */
-.article-image {
-  float: right;
-  width: 220px;
-  margin: 4px 0 12px
