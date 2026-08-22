@@ -46,6 +46,10 @@ const SECTIONS = [
       { id: 'bit-depth', icon: '💾', title: 'Битность', badge: '3 вопроса' },
       { id: 'sample-rate', icon: '📊', title: 'Частота дискретизации', badge: '4 вопроса' },
       { id: 'lufs', icon: '📈', title: 'LUFS (громкость для стримингов)', badge: '4 вопроса' },
+      { id: 'bitrate', icon: '📈', title: 'Битрейт (Bitrate)', badge: '3 вопроса' },
+      { id: 'filter', icon: '🔄', title: 'Фильтр (HPF, LPF)', badge: '4 вопроса' },
+      { id: 'clipping', icon: '⚠️', title: 'Цифровой клиппинг: что это и как избежать', badge: '3 вопроса' },
+      { id: 'phase', icon: '🔄', title: 'Фазокоррекция', badge: '4 вопроса' },
     ],
   },
   {
@@ -57,6 +61,15 @@ const SECTIONS = [
     articles: [
       { id: 'mixing', icon: '🎛️', title: 'Как работает сведение (Mixing)', badge: '4 вопроса' },
       { id: 'mastering', icon: '🎧', title: 'Как работает мастеринг (Mastering)', badge: '4 вопроса' },
+      { id: 'tracking', icon: '🎙️', title: 'Трекинг (Tracking) — как проходит запись', badge: '4 вопроса' },
+      { id: 'editing', icon: '✂️', title: 'Монтаж (Editing) — склейка и правка', badge: '4 вопроса' },
+      { id: 'automation', icon: '⚡', title: 'Автоматизация в сведении', badge: '4 вопроса' },
+      { id: 'prepare-tracks', icon: '📂', title: 'Как подготовить дорожки для сведения', badge: '4 вопроса' },
+      { id: 'vocal-mix-minus', icon: '🎤', title: 'Сведение голоса с минусом', badge: '4 вопроса' },
+      { id: 'parallel-compression', icon: '📊', title: 'Параллельная компрессия', badge: '5 вопросов' },
+      { id: 'sidechain', icon: '🔗', title: 'Сайд-чейн', badge: '4 вопроса' },
+      { id: 'depth-width', icon: '🌐', title: 'Как создать ширину и глубину в миксе', badge: '4 вопроса' },
+      { id: 'recording-mistakes', icon: '❌', title: 'Ошибки в записи, которые убивают сведение', badge: '3 вопроса' },
     ],
   },
   {
@@ -68,6 +81,10 @@ const SECTIONS = [
     articles: [
       { id: 'eq-vocal', icon: '🎛️', title: 'Как настроить эквалайзер под конкретный голос', badge: '3 вопроса' },
       { id: 'rap-vocal', icon: '🎤', title: 'Особенности сведения рэп-вокала', badge: '3 вопроса' },
+      { id: 'vocal-processing', icon: '🎤', title: 'Продвинутая обработка вокала', badge: '4 вопроса' },
+      { id: 'rock-guitar', icon: '🎸', title: 'Особенности сведения рока и металла', badge: '3 вопроса' },
+      { id: 'bass-mixing', icon: '🔊', title: 'Как добиться плотного баса в миксе', badge: '3 вопроса' },
+      { id: 'harmonics', icon: '🎵', title: 'Гармоники', badge: '4 вопроса' },
     ],
   },
   {
@@ -79,6 +96,12 @@ const SECTIONS = [
     articles: [
       { id: 'philosophy', icon: '💡', title: 'Наша философия', badge: '3 вопроса' },
       { id: 'gear-case', icon: '⚙️', title: 'Наше оборудование', badge: '3 вопроса' },
+      { id: 'case1', icon: '🎤', title: 'Кейс: как мы спасли трек с плохим вокалом', badge: '3 вопроса' },
+      { id: 'case2', icon: '🎸', title: 'Кейс: как мы спасли трек с плохим гитарным звуком', badge: '2 вопроса' },
+      { id: 'case3', icon: '🎧', title: 'Кейс: мастеринг за 2 часа (срочный заказ)', badge: '2 вопроса' },
+      { id: 'case4', icon: '🎵', title: 'Кейс: как мы работали с рэп-исполнителем', badge: '3 вопроса' },
+      { id: 'case5', icon: '🎛️', title: 'Кейс: работа с "сырым" материалом', badge: '3 вопроса' },
+      { id: 'case6', icon: '🔊', title: 'Кейс: создание "полного" и мощного звука', badge: '3 вопроса' },
     ],
   },
 ]
@@ -93,12 +116,14 @@ export default function Encyclopedia() {
 
   return (
     <div className="encyclopedia-container">
+      {/* ХЛЕБНЫЕ КРОШКИ */}
       <div className="breadcrumb">
         <a href="/">Главная</a>
         <span className="sep">›</span>
         <span className="current">Энциклопедия звукозаписи</span>
       </div>
 
+      {/* ГЕРОЙ */}
       <div className="hero-encyclopedia">
         <h1>🎧 Энциклопедия звукозаписи</h1>
         <p>6 разделов, 50+ статей: основы, оборудование, технические параметры, процессы, работа с вокалом и кейсы от студии HHRecords.</p>
@@ -111,8 +136,10 @@ export default function Encyclopedia() {
         </div>
       </div>
 
+      {/* ДАТА ОБНОВЛЕНИЯ */}
       <div className="update-date">📅 Обновлено: <strong>8 июля 2026</strong></div>
 
+      {/* СТАТИСТИКА */}
       <div className="encyclopedia-stats">
         <div className="stat">
           <span className="num">6</span>
@@ -132,6 +159,7 @@ export default function Encyclopedia() {
         </div>
       </div>
 
+      {/* О ЭНЦИКЛОПЕДИИ */}
       <div className="about-encyclopedia">
         <p>
           <strong>Энциклопедия звукозаписи HHRecords</strong> — это полный гид по звукозаписи, сведению и мастерингу. Мы собрали <strong>50+ статей</strong> в <strong>6 разделах</strong>: от базовых терминов до продвинутых техник и реальных кейсов.
@@ -141,6 +169,7 @@ export default function Encyclopedia() {
         </p>
       </div>
 
+      {/* ССЫЛКИ НА РАЗДЕЛЫ */}
       <div className="section-links">
         <span className="section-links-title">📌 Перейти к разделу:</span>
         <a href="#basics">Основы</a>
@@ -151,6 +180,7 @@ export default function Encyclopedia() {
         <a href="#cases">Кейсы</a>
       </div>
 
+      {/* ПОДЕЛИТЬСЯ */}
       <div className="share-top">
         <span className="share-label">📤 Поделиться энциклопедией:</span>
         <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/" target="_blank" rel="noopener noreferrer" className="share-vk">VK</a>
@@ -158,6 +188,7 @@ export default function Encyclopedia() {
         <button className="share-copy" onClick={copyLink}>📋 Копировать</button>
       </div>
 
+      {/* ЧАСТО ИЩУТ */}
       <div className="popular-terms">
         <div className="popular-title">🔥 Часто ищут:</div>
         <div className="popular-list">
@@ -172,6 +203,7 @@ export default function Encyclopedia() {
         </div>
       </div>
 
+      {/* ПОИСК */}
       <div className="search-box">
         <input
           type="text"
@@ -181,6 +213,7 @@ export default function Encyclopedia() {
         />
       </div>
 
+      {/* СЕТКА РАЗДЕЛОВ */}
       <div className="encyclopedia-sections-grid">
         {SECTIONS.map((section) => (
           <div key={section.id} id={section.id} className={`section-card ${section.cssClass}`}>
@@ -211,6 +244,7 @@ export default function Encyclopedia() {
         ))}
       </div>
 
+      {/* БРЕНДОВЫЙ БЛОК */}
       <div className="brand-block" id="contacts">
         <h2>🎧 HHRecords — студия звукозаписи в Красноярске и онлайн</h2>
         <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
@@ -266,6 +300,7 @@ export default function Encyclopedia() {
         </p>
       </div>
 
+      {/* ФУТЕР ЭНЦИКЛОПЕДИИ */}
       <div className="encyclopedia-footer">
         © 2026 HHRecords. Все права защищены.<br />
         <a href="/">hiphoprecords.ru</a>
