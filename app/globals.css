@@ -2075,3 +2075,17 @@ section {
 .encyclopedia-footer a:hover {
   color: var(--gold-mid);
 }
+/* === СТИЛИ ДЛЯ H3 В КАРТОЧКАХ СТАТЕЙ === */
+.section-card .article-item .art-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.section-card .article-item:hover .art-title {
+  color: var(--gold-mid);
+}
