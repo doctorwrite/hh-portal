@@ -30,6 +30,38 @@
   margin: 0 auto;
 }
 
+/* ===== ЖЕСТКОЕ УБИРАНИЕ ОТСТУПОВ У ВИДЖЕТА ===== */
+.hh-eq-container .hh-eq-wrapper,
+.hh-eq-container #eqContainer,
+.hh-eq-container .eq-graph-wrapper,
+.hh-eq-container .eq-header {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.hh-eq-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  min-height: auto !important;
+}
+
+#eqContainer {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  min-height: auto !important;
+}
+
+/* ===== УБИРАЕМ ЛИШНЮЮ ВЫСОТУ КОНТЕЙНЕРА ЭКВАЛАЙЗЕРА ===== */
+.hh-eq-wrapper {
+  height: auto !important;
+  min-height: 400px !important;
+}
+
+.hh-eq-wrapper #eqContainer {
+  height: auto !important;
+  min-height: 400px !important;
+}
+
 /* ===== ГАЙД ===== */
 .eq-guide {
   padding: 40px 0;
@@ -128,13 +160,32 @@
 @media (max-width: 768px) {
   .eq-page {
     padding: 12px;
-    padding-top: 10px !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   .eq-page-title {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .hh-eq-container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .hh-eq-wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: 320px !important;
+  }
+
+  #eqContainer {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: 320px !important;
   }
 
   .guide-grid {
