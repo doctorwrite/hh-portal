@@ -24,7 +24,8 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="article-container">
+    <div className="article-container" id="main-content">
+      {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
       <div className="breadcrumb">
         <Link href="/">Главная</Link>
         <span className="sep">›</span>
@@ -33,16 +34,18 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         <span className="current">{article.title}</span>
       </div>
 
+      {/* ===== СОДЕРЖАНИЕ СТАТЬИ ===== */}
       <div className="article-content">
         <h1>{article.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        
-        <div style={{ marginTop: '40px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-          <Link href="/encyclopedia" className="btn btn-outline">
-            ← Назад к энциклопедии
-          </Link>
-        </div>
       </div>
+
+      {/* ===== НАВИГАЦИЯ ВНИЗУ ===== */}
+      <nav className="bottom-nav">
+        <Link href="/encyclopedia">← Назад к энциклопедии</Link>
+        <Link href="/" className="bottom-home">🏠 На главную</Link>
+        <a href="#top" className="back-to-top">↑ Наверх</a>
+      </nav>
     </div>
   )
 }
