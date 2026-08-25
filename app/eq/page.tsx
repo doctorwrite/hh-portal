@@ -87,11 +87,13 @@ export default function EQPage() {
 
       <main id="main-content">
         <div className="eq-page">
-          {/* ===== ЗАГОЛОВОК БЕЗ ИКОНКИ ===== */}
           <h1>Онлайн-эквалайзер</h1>
 
           <div className="hh-eq-container">
-            <EQWrapper theme="dark" />
+            <div className="eq-widget-wrapper">
+              <div className="eq-widget-glow"></div>
+              <EQWrapper theme="dark" />
+            </div>
           </div>
 
           <div className="divider"></div>
