@@ -85,10 +85,10 @@ export default function EQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ===== ИСПОЛЬЗУЕМ СТАНДАРТНУЮ ОБЕРТКУ КАК НА ДРУГИХ СТРАНИЦАХ ===== */}
       <main id="main-content">
         <div className="eq-page">
-          <h1>🎛️ Онлайн-эквалайзер</h1>
+          {/* ===== ЗАГОЛОВОК БЕЗ ИКОНКИ ===== */}
+          <h1>Онлайн-эквалайзер</h1>
 
           <div className="hh-eq-container">
             <EQWrapper theme="dark" />
