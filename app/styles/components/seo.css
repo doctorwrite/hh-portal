@@ -1,0 +1,148 @@
+/* app/styles/components/seo.css */
+
+/* ===== БЛОК 11: SEO-ТЕКСТ ===== */
+.seo-text {
+  margin: 32px 0 20px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.04), rgba(0, 0, 0, 0.2));
+  border-radius: 16px;
+  border: 1px solid rgba(245, 197, 66, 0.08);
+}
+
+.seo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.seo-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seo-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-mid);
+  margin: 0 0 4px 0;
+  font-family: var(--font-oswald);
+  letter-spacing: 0.5px;
+}
+
+.seo-lead {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.seo-lead strong {
+  color: #fff;
+}
+
+.seo-main p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.seo-main p strong {
+  color: var(--gold-mid);
+}
+
+/* ⚠️ ЭТОТ СЕЛЕКТОР БЫЛ ОТСУТСТВОВАН — ДОБАВЛЯЮ */
+.seo-questions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.seo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+  width: 100%;
+}
+
+.seo-list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.seo-list li:last-child {
+  border-bottom: none;
+}
+
+.seo-footer {
+  padding-top: 14px;
+  border-top: 1px solid rgba(245, 197, 66, 0.06);
+}
+
+.seo-footer p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.seo-footer strong {
+  color: var(--gold-mid);
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  .seo-text {
+    padding: 18px 16px;
+  }
+
+  .seo-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .seo-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seo-heading {
+    font-size: 1rem;
+  }
+
+  .seo-lead {
+    font-size: 0.85rem;
+  }
+
+  .seo-main p {
+    font-size: 0.8rem;
+  }
+
+  .seo-list li {
+    font-size: 0.75rem;
+    padding: 3px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .seo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-text {
+    padding: 14px 12px;
+  }
+}
