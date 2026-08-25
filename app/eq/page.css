@@ -8,24 +8,6 @@
   min-height: 100vh;
 }
 
-.eq-page-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #f5c542;
-  margin-bottom: 16px;
-  margin-top: 0;
-  padding-top: 0;
-  text-align: center;
-  font-family: var(--font-oswald);
-  letter-spacing: 1px;
-}
-
-.eq-page-title span {
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .hh-eq-container {
   width: 100%;
   max-width: 1060px;
@@ -162,15 +144,8 @@
 @media (max-width: 768px) {
   .eq-page {
     padding: 12px;
-    padding-top: 0 !important;
+    padding-top: 10px !important;
     margin-top: 0 !important;
-  }
-
-  .eq-page-title {
-    font-size: 1rem !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    margin-bottom: 8px !important;
   }
 
   .hh-eq-container {
