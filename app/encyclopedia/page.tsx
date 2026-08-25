@@ -139,7 +139,7 @@ export default function Encyclopedia() {
   const totalArticles = SECTIONS.reduce((acc, s) => acc + s.articles.length, 0)
 
   return (
-    <div className="encyclopedia-container" id="main-content">
+    <div className="encyclopedia-container">  {/* ← УДАЛЕН id="main-content" */}
       {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
       <nav className="breadcrumb" aria-label="Хлебные крошки">
         <Link href="/">Главная</Link>
