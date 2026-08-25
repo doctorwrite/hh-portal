@@ -2,7 +2,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Oswald } from 'next/font/google'
 
-// ===== НОВЫЕ ИМПОРТЫ СТИЛЕЙ =====
+// ===== ИМПОРТЫ СТИЛЕЙ =====
 import './styles/globals.css'
 import './styles/layout.css'
 import './styles/performance.css'
@@ -126,7 +126,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <div className="music-bg" id="musicBg" aria-hidden="true" />
         <Header />
-        <main>{children}</main>
+        <main id="main-content">  {/* ← ДОБАВЛЕНО ID */}
+          {children}
+        </main>
         <Footer />
 
         <script
