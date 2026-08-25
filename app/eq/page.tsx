@@ -88,9 +88,7 @@ export default function EQPage() {
 
       <div className="eq-page">
         {/* ===== ЗАГОЛОВОК ===== */}
-        <div className="eq-page-title">
-          <span>🎛️ Онлайн-эквалайзер</span>
-        </div>
+        <h1>🎛️ Онлайн-эквалайзер</h1>
 
         {/* ===== САМ ЭКВАЛАЙЗЕР ===== */}
         <div className="hh-eq-container">
