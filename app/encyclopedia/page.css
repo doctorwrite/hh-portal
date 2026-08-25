@@ -1,4 +1,4 @@
-/* app/encyclopedia/page.css — стили для страницы энциклопедии */
+/* app/encyclopedia/page.css */
 
 .encyclopedia-container {
   max-width: 1200px;
@@ -6,6 +6,7 @@
   padding: 20px 20px 60px;
 }
 
+/* ===== ХЛЕБНЫЕ КРОШКИ ===== */
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +34,7 @@
   color: var(--gold-mid);
 }
 
+/* ===== ГЕРОЙ ЭНЦИКЛОПЕДИИ ===== */
 .hero-encyclopedia {
   text-align: center;
   padding: 20px 0 30px;
@@ -92,6 +94,7 @@
   box-shadow: 0 4px 15px rgba(245, 197, 66, 0.08);
 }
 
+/* ===== СТАТИСТИКА ===== */
 .encyclopedia-stats {
   display: flex;
   justify-content: center;
@@ -132,6 +135,7 @@
   letter-spacing: 0.5px;
 }
 
+/* ===== О ЭНЦИКЛОПЕДИИ ===== */
 .about-encyclopedia {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -163,6 +167,7 @@
   color: #fff;
 }
 
+/* ===== ССЫЛКИ НА РАЗДЕЛЫ ===== */
 .section-links {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -202,6 +207,7 @@
   text-decoration: none;
 }
 
+/* ===== ПОДЕЛИТЬСЯ ===== */
 .share-top {
   text-align: center;
   margin: 8px 0 16px;
@@ -258,6 +264,7 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* ===== ЧАСТО ИЩУТ ===== */
 .popular-terms {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -305,6 +312,7 @@
   text-decoration: none;
 }
 
+/* ===== ПОИСК ===== */
 .search-box {
   max-width: 500px;
   margin: 14px auto 24px;
@@ -357,6 +365,7 @@
   color: #fff;
 }
 
+/* ===== ДАТА ОБНОВЛЕНИЯ ===== */
 .update-date {
   text-align: center;
   color: #888;
@@ -371,6 +380,7 @@
   font-weight: 600;
 }
 
+/* ===== ФИЛЬТР ПО РАЗДЕЛАМ ===== */
 .section-filter {
   display: flex;
   flex-wrap: wrap;
@@ -403,6 +413,7 @@
   color: var(--gold-mid);
 }
 
+/* ===== СЕТКА РАЗДЕЛОВ ===== */
 .encyclopedia-sections-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -421,6 +432,9 @@
   box-shadow: var(--shadow-premium);
   position: relative;
   overflow: hidden;
+  /* ===== ОПТИМИЗАЦИЯ ===== */
+  content-visibility: auto;
+  contain-intrinsic-size: 200px 300px;
 }
 
 .section-card:hover {
@@ -539,6 +553,7 @@
   white-space: nowrap;
 }
 
+/* ===== ЦВЕТОВЫЕ ГРАНИЦЫ РАЗДЕЛОВ ===== */
 .section-card.basics {
   border-top: 3px solid #4a9eff;
 }
@@ -558,6 +573,7 @@
   border-top: 3px solid #f5c542;
 }
 
+/* ===== БРЕНДОВЫЙ БЛОК ===== */
 .brand-block {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
