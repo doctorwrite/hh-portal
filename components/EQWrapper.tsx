@@ -73,8 +73,8 @@ const EQWrapper: React.FC<EQWrapperProps> = ({
       className="hh-eq-wrapper"
       style={{ 
         width: '100%', 
-        height: '100%',
-        minHeight: '500px',
+        height: 'auto',
+        minHeight: '400px',
         position: 'relative'
       }}
     >
@@ -84,8 +84,8 @@ const EQWrapper: React.FC<EQWrapperProps> = ({
         className={className}
         style={{ 
           width: '100%', 
-          height: '100%',
-          minHeight: '500px'
+          height: 'auto',
+          minHeight: '400px'
         }}
       />
     </div>
