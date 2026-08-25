@@ -140,29 +140,10 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* ===== АДАПТАЦИЯ ===== */
+/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
 @media (max-width: 768px) {
   .eq-page {
     padding: 12px;
-    padding-top: 10px !important;
-    margin-top: 0 !important;
-  }
-
-  .hh-eq-container {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  .hh-eq-wrapper {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    min-height: 320px !important;
-  }
-
-  #eqContainer {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    min-height: 320px !important;
   }
 
   .guide-grid {
