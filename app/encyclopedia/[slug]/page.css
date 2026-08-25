@@ -1,0 +1,259 @@
+/* app/encyclopedia/[slug]/page.css — стили для страницы статьи */
+
+.article-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+}
+
+.article-content {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+  margin: 20px 0;
+  box-shadow: var(--shadow-premium);
+}
+
+.article-content h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 20px;
+  text-align: left;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-oswald);
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  margin: 32px 0 16px;
+  text-align: left;
+  padding-bottom: 8px;
+  background: none;
+  -webkit-text-fill-color: var(--gold-mid);
+}
+
+.article-content h2::after {
+  left: 0;
+  transform: none;
+  width: 60px;
+}
+
+.article-content h3 {
+  font-size: 1.15rem;
+  margin: 20px 0 10px;
+  color: var(--text-primary);
+}
+
+.article-content p {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 24px;
+  margin: 12px 0;
+  color: var(--text-secondary);
+}
+
+.article-content li {
+  margin: 4px 0;
+}
+
+.article-content strong {
+  color: #fff;
+}
+
+.article-content .article-image {
+  float: right;
+  width: 220px;
+  margin: 4px 0 12px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.article-content .article-image:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+  box-shadow: 0 4px 30px rgba(245, 197, 66, 0.05);
+}
+
+.article-content .article-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.article-content .article-image figcaption {
+  color: #888;
+  font-size: 0.6rem;
+  margin-top: 6px;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ===== МЕТА-ИНФОРМАЦИЯ ===== */
+.meta {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.meta a {
+  color: var(--gold-mid);
+}
+
+/* ===== ОГЛАВЛЕНИЕ ===== */
+.toc {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.toc:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+}
+
+.toc-title {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-list a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.toc-list a:hover {
+  color: var(--gold-mid);
+  border-bottom-color: var(--gold-mid);
+  text-decoration: none;
+}
+
+/* ===== КРАТКИЙ ОТВЕТ ===== */
+.quick-answer {
+  background: rgba(245, 197, 66, 0.04);
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  transition: all 0.3s;
+}
+
+.quick-answer:hover {
+  border-color: rgba(245, 197, 66, 0.2);
+}
+
+.quick-answer-label {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.quick-answer p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.quick-answer strong {
+  color: #fff;
+}
+
+/* ===== ВОПРОСЫ-ОТВЕТЫ ===== */
+.qa-block {
+  padding: 20px 24px;
+  margin: 16px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  border-left: 3px solid var(--gold-mid);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  scroll-margin-top: 80px;
+}
+
+.qa-block:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-left-color: var(--gold-mid);
+  transform: translateX(6px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.qa-block .question {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qa-block .question .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: rgba(245, 197, 66, 0.1);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: var(--gold-mid);
+}
+
+.qa-block .answer {
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.qa-block .answer strong {
+  color: #fff;
+}
+
+.qa-block .answer ul,
+.qa-block .answer ol {
+  padding-left: 24px;
+  margin: 6px 0;
+}
+
+.qa-block .answer li {
+  margin: 4px 0;
+}

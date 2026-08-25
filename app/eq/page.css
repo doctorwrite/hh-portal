@@ -1,0 +1,149 @@
+/* app/eq/page.css — стили для страницы эквалайзера */
+
+/* ===== СТРАНИЦА ЭКВАЛАЙЗЕРА ===== */
+.eq-page {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.eq-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f5c542;
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: var(--font-oswald);
+  letter-spacing: 1px;
+}
+
+.eq-page-title span {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hh-eq-container {
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+/* ===== ГАЙД ===== */
+.eq-guide {
+  padding: 40px 0;
+}
+
+.eq-guide h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.guide-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px 20px;
+  transition: all 0.3s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 197, 66, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.guide-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #bf953f, #b38728);
+  color: #000;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.guide-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-mid);
+  margin-bottom: 8px;
+}
+
+.guide-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.guide-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-card ul li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+.guide-card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold-mid);
+}
+
+/* ===== FAQ ===== */
+.eq-faq {
+  padding: 40px 0;
+}
+
+.eq-faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.eq-faq-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  .eq-page {
+    padding: 12px;
+  }
+
+  .eq-page-title {
+    font-size: 1.2rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .eq-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,494 @@
+/* ВСЯ АДАПТИВНОСТЬ из всех блоков */
+
+/* ===== ТЕЛЕФОНЫ (ДО 768PX) ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+    padding-top: 110px;
+  }
+
+  .header-inner {
+    padding: 6px 0;
+    gap: 6px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(8, 8, 10, 0.98);
+    padding: 20px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    font-size: 0.8rem;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo-name {
+    font-size: 1rem;
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    padding: 2px;
+  }
+
+  .logo-sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .cta-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .btn {
+    font-size: 0.65rem;
+    padding: 0 10px;
+    height: 32px;
+    min-height: 34px;
+  }
+
+  .btn svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+
+  .btn-label {
+    display: none;
+  }
+
+  section {
+    padding: 30px 0;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .services-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-list,
+  .contacts-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contacts-list {
+    padding: 16px 20px;
+  }
+
+  .map-container {
+    min-height: 250px;
+  }
+
+  .map-container iframe {
+    min-height: 250px;
+  }
+
+  .encyclopedia-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card .desc,
+  .section-card .count {
+    padding-left: 0;
+  }
+
+  .section-card .card-header {
+    flex-wrap: wrap;
+  }
+
+  .section-card .article-item {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .section-card .article-item .art-badge {
+    font-size: 0.55rem;
+    padding: 1px 8px;
+  }
+
+  .hero-encyclopedia h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-encyclopedia p {
+    font-size: 1rem;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .encyclopedia-stats {
+    gap: 12px;
+  }
+
+  .encyclopedia-stats .stat {
+    padding: 8px 12px;
+    min-width: 70px;
+  }
+
+  .encyclopedia-stats .stat .num {
+    font-size: 1.5rem;
+  }
+
+  .brand-block {
+    padding: 24px 16px;
+  }
+
+  .brand-block h2 {
+    font-size: 1.3rem;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding: 12px 44px 12px 16px;
+    min-height: 44px;
+  }
+
+  .search-clear {
+    min-width: 36px;
+    min-height: 36px;
+    right: 8px;
+  }
+
+  .section-filter {
+    gap: 4px;
+  }
+
+  .filter-btn {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    min-height: 36px;
+  }
+
+  .share-top a,
+  .share-top button {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .article-content {
+    padding: 20px 16px;
+  }
+
+  .article-content .article-image {
+    float: none;
+    width: 100%;
+    max-width: 280px;
+    margin: 16px auto;
+  }
+
+  .article-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .article-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .carousel-container {
+    height: 250px;
+  }
+
+  .carousel-btn {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-btn.prev {
+    left: 8px;
+  }
+
+  .carousel-btn.next {
+    right: 8px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .playlist-container,
+  .reviews-container {
+    flex: 1;
+  }
+
+  .widget-box iframe {
+    min-height: 300px;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    padding: 10px 14px;
+    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 16px;
+    font-size: 2rem;
+  }
+
+  .lightbox-image {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  .site-footer {
+    padding: 20px 10px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .site-footer .footer-links {
+    gap: 8px;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.7rem;
+  }
+
+  .site-footer p {
+    font-size: 0.7rem;
+    max-width: 280px;
+  }
+
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .not-found-page h1,
+  .error-page h1 {
+    font-size: 4rem;
+  }
+
+  .not-found-page h2,
+  .error-page h2 {
+    font-size: 1.4rem;
+  }
+
+  .seo-text {
+    padding: 18px 16px;
+  }
+
+  .seo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eq-page {
+    padding: 12px;
+  }
+
+  .eq-page-title {
+    font-size: 1.2rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .eq-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    padding: 16px;
+  }
+}
+
+/* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (ДО 480PX) ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 0 6px;
+    padding-top: 100px;
+  }
+
+  .main-nav a {
+    font-size: 0.7rem;
+  }
+
+  .btn {
+    font-size: 0.55rem;
+    padding: 0 6px;
+    height: 28px;
+    min-height: 30px;
+  }
+
+  .btn svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+
+  .logo-name {
+    font-size: 0.85rem;
+  }
+
+  .logo-img {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    padding: 2px;
+  }
+
+  .logo-sub {
+    font-size: 0.4rem;
+  }
+
+  .section-card {
+    padding: 16px;
+  }
+
+  .section-card .article-item {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .article-content {
+    padding: 14px 12px;
+  }
+
+  .brand-block {
+    padding: 20px 16px;
+  }
+
+  .brand-block h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-tag {
+    font-size: 0.6rem;
+    padding: 3px 10px;
+  }
+
+  .seo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-text {
+    padding: 14px 12px;
+  }
+
+  .site-footer {
+    padding: 15px 6px;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.6rem;
+  }
+
+  .site-footer p {
+    font-size: 0.6rem;
+    max-width: 220px;
+  }
+}
+
+/* ===== ПЛАНШЕТЫ (ДО 820PX) ===== */
+@media (max-width: 820px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+
+  .main-nav {
+    gap: 16px;
+    font-size: 0.8rem;
+  }
+
+  .cta-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0 14px;
+    height: 36px;
+    min-height: 38px;
+  }
+
+  .logo-name {
+    font-size: 1.3rem;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+}
