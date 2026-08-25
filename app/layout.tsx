@@ -126,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <div className="music-bg" id="musicBg" aria-hidden="true" />
         <Header />
-        <main id="main-content">  {/* ← ДОБАВЛЕНО ID */}
+        <main id="main-content">
           {children}
         </main>
         <Footer />
@@ -138,11 +138,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 const container = document.getElementById('musicBg');
                 if (!container) return;
 
-                // На мобильных устройствах — минимум нот или отключаем
+                // ===== ОПТИМИЗАЦИЯ =====
+                // На телефонах — НЕТ НОТ
                 const isMobile = window.innerWidth <= 768;
-                const totalNotes = isMobile ? 3 : 10;
-                const symbols = ['♪', '♫', '🎸', '🎧', '🎙️', '🎛️'];
+                const isTablet = window.innerWidth <= 1024;
+                
+                // Количество нот: 0 на телефоне, 4 на планшете, 8 на компьютере
+                let totalNotes = 8;
+                let createInterval = 4000;
+                
+                if (isMobile) {
+                  totalNotes = 0;           // ← НОТ НЕТ
+                  createInterval = 0;
+                } else if (isTablet) {
+                  totalNotes = 4;           // ← МЕНЬШЕ НОТ
+                  createInterval = 5000;    // ← РЕЖЕ
+                }
 
+                // Если нот нет — выходим
+                if (totalNotes === 0) {
+                  container.style.display = 'none';
+                  return;
+                }
+
+                const symbols = ['♪', '♫', '🎵', '🎶'];
                 let noteCount = 0;
                 let intervalId = null;
 
@@ -152,9 +171,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   note.classList.add('note');
                   note.textContent = symbols[Math.floor(Math.random() * symbols.length)];
                   note.style.left = Math.random() * 100 + '%';
-                  note.style.fontSize = (Math.random() * 24 + 12) + 'px';
-                  note.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                  note.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                  note.style.animationDuration = (Math.random() * 30 + 25) + 's';  // ← МЕДЛЕННЕЕ
                   note.style.animationDelay = (Math.random() * 5) + 's';
+                  note.style.opacity = '0.03';  // ← ПРОЗРАЧНЕЕ
                   container.appendChild(note);
                   noteCount++;
                   setTimeout(() => {
@@ -162,21 +182,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       note.remove();
                       noteCount--;
                     }
-                  }, 25000);
+                  }, 30000);
                 }
 
                 // Создаём начальные ноты с задержкой
                 for (let i = 0; i < totalNotes; i++) {
-                  setTimeout(createNote, Math.random() * 3000);
+                  setTimeout(createNote, Math.random() * 2000);
                 }
 
-                // Создаём новые ноты только если их меньше общего количества
-                if (!isMobile) {
+                // Создаём новые ноты реже
+                if (!isMobile && createInterval > 0) {
                   intervalId = setInterval(() => {
                     if (noteCount < totalNotes) {
                       createNote();
                     }
-                  }, 3000);
+                  }, createInterval);
                 }
 
                 // Очистка при уходе со страницы
