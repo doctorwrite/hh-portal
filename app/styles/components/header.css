@@ -1,4 +1,6 @@
-/* БЛОК 4: Шапка */
+/* app/styles/components/header.css */
+
+/* ===== ШАПКА ===== */
 .header {
   position: fixed;
   top: 0;
@@ -29,6 +31,7 @@
   gap: 16px;
 }
 
+/* ===== ЛОГОТИП ===== */
 .logo-block {
   display: flex;
   align-items: center;
@@ -90,6 +93,7 @@
   margin-top: 2px;
 }
 
+/* ===== НАВИГАЦИЯ ===== */
 .main-nav {
   display: flex;
   align-items: center;
@@ -138,6 +142,7 @@
   width: 100%;
 }
 
+/* ===== КНОПКИ В ШАПКЕ ===== */
 .cta-buttons {
   display: flex;
   align-items: center;
@@ -145,52 +150,124 @@
   flex-wrap: wrap;
 }
 
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 10;
+/* ===== АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ (ДО 820PX) ===== */
+@media (max-width: 820px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+
+  .main-nav {
+    gap: 16px;
+    font-size: 0.8rem;
+  }
+
+  .cta-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0 14px;
+    height: 36px;
+    min-height: 38px;
+  }
+
+  .logo-name {
+    font-size: 1.3rem;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
 }
 
-.hamburger {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #fff;
-  position: relative;
-  transition: var(--transition);
-}
+/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ (ДО 768PX) ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+    padding-top: 110px;
+  }
 
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background: #fff;
-  transition: var(--transition);
-}
+  .header-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 8px 0 !important;
+  }
 
-.hamburger::before {
-  top: -6px;
-}
+  .logo-block {
+    justify-content: center !important;
+  }
 
-.hamburger::after {
-  bottom: -6px;
-}
+  .logo-name {
+    font-size: 1rem !important;
+  }
 
-.hamburger.open {
-  background: transparent;
-}
+  .logo-img {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    padding: 2px !important;
+  }
 
-.hamburger.open::before {
-  transform: rotate(45deg);
-  top: 0;
-}
+  .logo-sub {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.5px !important;
+  }
 
-.hamburger.open::after {
-  transform: rotate(-45deg);
-  bottom: 0;
+  /* ===== МЕНЮ ВСЕГДА ВИДНО ===== */
+  .main-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 8px 0 !important;
+    border-bottom: none !important;
+    width: 100% !important;
+  }
+
+  .main-nav a {
+    font-size: 0.75rem !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+    text-align: center !important;
+  }
+
+  .cta-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+
+  .btn {
+    font-size: 0.6rem !important;
+    padding: 0 8px !important;
+    height: 28px !important;
+    min-height: 30px !important;
+  }
+
+  .btn svg {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 3px !important;
+  }
+
+  .btn-label {
+    display: none !important;
+  }
 }
