@@ -1,4 +1,6 @@
-/* БЛОК 17: Оптимизация производительности */
+/* app/styles/performance.css */
+
+/* ===== ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ ===== */
 .music-bg .note {
   will-change: transform, opacity;
   animation-play-state: running;
@@ -31,5 +33,27 @@
 
   *:hover {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== ОПТИМИЗАЦИЯ ФОНОВЫХ НОТ ===== */
+.music-bg .note {
+  animation-duration: 45s !important;
+  opacity: 0.03 !important;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .music-bg .note {
+    animation: none !important;
+    opacity: 0.01 !important;
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .music-bg .note {
+    animation-duration: 60s !important;
+    opacity: 0.02 !important;
   }
 }
