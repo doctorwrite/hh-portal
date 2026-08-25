@@ -1,4 +1,4 @@
-/* app/encyclopedia/[slug]/page.css */
+/* app/encyclopedia/[slug]/page.css — стили для страницы статьи */
 
 .article-container {
   max-width: 1200px;
@@ -284,4 +284,205 @@
   background: rgba(245, 197, 66, 0.1);
   color: var(--gold-mid);
   font-weight: 700;
+}
+
+/* ===== МИКРО-ГЛОССАРИЙ ===== */
+.micro-glossary {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 30px 0;
+}
+
+.micro-glossary-title {
+  color: var(--gold-mid);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: var(--font-oswald);
+  letter-spacing: 0.5px;
+}
+
+.micro-glossary dl {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 6px 20px;
+  margin: 0;
+}
+
+.micro-glossary dt {
+  color: var(--gold-mid);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.micro-glossary dd {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  padding: 6px 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.micro-glossary dt:last-child,
+.micro-glossary dd:last-child {
+  border-bottom: none;
+}
+
+/* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+.tip-with-photo {
+  background: linear-gradient(135deg, rgba(245, 197, 66, 0.04), rgba(0, 0, 0, 0.2));
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin: 30px 0;
+}
+
+.tip-with-photo .question {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-oswald);
+}
+
+.tip-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.tip-photo {
+  flex-shrink: 0;
+  width: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tip-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tip-text {
+  flex: 1;
+}
+
+.tip-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.tip-text ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.tip-text ul li {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 4px 0;
+}
+
+.tip-text ul li strong {
+  color: #fff;
+}
+
+/* ===== ПОХОЖИЕ ТЕРМИНЫ ===== */
+.related-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.related-terms a {
+  background: rgba(245, 197, 66, 0.06);
+  color: var(--gold-mid);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(245, 197, 66, 0.06);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.related-terms a:hover {
+  background: rgba(245, 197, 66, 0.12);
+  border-color: var(--gold-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.08);
+}
+
+/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА ===== */
+@media (max-width: 768px) {
+  .micro-glossary {
+    padding: 16px 18px;
+  }
+
+  .micro-glossary dl {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .micro-glossary dt {
+    padding-bottom: 2px;
+    border-bottom: none;
+  }
+
+  .micro-glossary dd {
+    padding-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .micro-glossary dt:last-child,
+  .micro-glossary dd:last-child {
+    border-bottom: none;
+  }
+
+  .tip-with-photo {
+    padding: 20px 18px;
+  }
+
+  .tip-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tip-photo {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .tip-text p,
+  .tip-text ul li {
+    font-size: 0.9rem;
+  }
+
+  .tip-text ul {
+    padding-left: 16px;
+  }
+
+  .related-terms {
+    gap: 8px;
+  }
+
+  .related-terms a {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+  }
 }
