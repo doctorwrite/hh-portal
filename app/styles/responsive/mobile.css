@@ -1,9 +1,9 @@
-/* ВСЯ АДАПТИВНОСТЬ из всех блоков */
+/* app/styles/responsive/mobile.css */
 
 /* ===== ТЕЛЕФОНЫ (ДО 768PX) ===== */
 @media (max-width: 768px) {
   body {
-    padding: 0 10px;
+    padding: 0;
     padding-top: 110px;
   }
 
@@ -97,14 +97,14 @@
     font-size: 1.6rem;
   }
 
+  /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
   .services-grid,
   .faq-grid {
     grid-template-columns: 1fr;
   }
 
-  .equipment-list,
-  .contacts-wrapper {
-    grid-template-columns: 1fr;
+  .equipment-list {
+    grid-template-columns: 1fr !important;
   }
 
   .equipment-item {
@@ -113,18 +113,23 @@
     text-align: center;
   }
 
+  .contacts-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
   .contacts-list {
     padding: 16px 20px;
   }
 
   .map-container {
-    min-height: 250px;
+    min-height: 200px !important;
   }
 
   .map-container iframe {
-    min-height: 250px;
+    min-height: 200px !important;
   }
 
+  /* ===== ЭНЦИКЛОПЕДИЯ ===== */
   .encyclopedia-sections-grid {
     grid-template-columns: 1fr;
   }
@@ -210,6 +215,7 @@
     padding: 4px 12px;
   }
 
+  /* ===== СТРАНИЦА СТАТЬИ ===== */
   .article-content {
     padding: 20px 16px;
   }
@@ -229,6 +235,7 @@
     font-size: 1.3rem;
   }
 
+  /* ===== КАРУСЕЛЬ ===== */
   .carousel-container {
     height: 250px;
   }
@@ -253,6 +260,7 @@
     height: 10px;
   }
 
+  /* ===== ВИДЖЕТЫ ===== */
   .flex-container {
     flex-direction: column;
     gap: 16px;
@@ -267,6 +275,7 @@
     min-height: 300px;
   }
 
+  /* ===== ЛАЙТБОКС ===== */
   .lightbox-prev,
   .lightbox-next {
     padding: 10px 14px;
@@ -294,6 +303,7 @@
     max-height: 80%;
   }
 
+  /* ===== ПОДВАЛ ===== */
   .site-footer {
     padding: 20px 10px;
     width: 100vw;
@@ -367,7 +377,7 @@
 /* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (ДО 480PX) ===== */
 @media (max-width: 480px) {
   body {
-    padding: 0 6px;
+    padding: 0;
     padding-top: 100px;
   }
 
@@ -461,6 +471,7 @@
   }
 
   body {
+    padding: 0;
     padding-top: 120px;
   }
 
