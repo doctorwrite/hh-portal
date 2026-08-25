@@ -57,3 +57,39 @@
     opacity: 0.02 !important;
   }
 }
+
+/* ===== ЖЕСТКАЯ ОПТИМИЗАЦИЯ ДЛЯ ВСЕХ КАРТОЧЕК ===== */
+.section-card,
+.article-content,
+.qa-block,
+.toc,
+.quick-answer,
+.brand-block {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  will-change: auto !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Отключаем hover на телефонах для всех элементов */
+@media (max-width: 768px) {
+  .section-card:hover,
+  .qa-block:hover,
+  .toc:hover,
+  .quick-answer:hover,
+  .article-item:hover,
+  .service-card:hover,
+  .equipment-item:hover,
+  .guide-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+}
+
+/* Оптимизация изображений */
+.article-content .article-image img {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px 200px;
+}
