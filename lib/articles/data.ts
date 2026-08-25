@@ -220,6 +220,7 @@ export const ARTICLES: Record<string, ArticleData> = {
 
         <!-- ===== НАВИГАЦИЯ ВНИЗУ ===== -->
         <nav class="bottom-nav">
+          <a href="/encyclopedia">← Назад к энциклопедии</a>
           <a href="/" class="bottom-home">🏠 На главную</a>
           <a href="#top" class="back-to-top">↑ Наверх</a>
         </nav>
