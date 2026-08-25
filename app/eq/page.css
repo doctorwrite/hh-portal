@@ -147,7 +147,7 @@
   }
 
   .guide-grid {
-    grid-columns: 1fr;
+    grid-template-columns: 1fr;  /* ← ИСПРАВЛЕНО! */
     gap: 16px;
   }
 
