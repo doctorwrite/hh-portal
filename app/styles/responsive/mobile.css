@@ -4,7 +4,7 @@
 @media (max-width: 768px) {
   body {
     padding: 0 10px;
-    padding-top: 140px;  /* ← УВЕЛИЧЕНО С 110 ДО 140 */
+    padding-top: 90px;
   }
 
   .header-inner {
@@ -532,7 +532,7 @@
 @media (max-width: 480px) {
   body {
     padding: 0 6px;
-    padding-top: 140px;
+    padding-top: 90px;
   }
 
   .main-nav a {
@@ -639,7 +639,7 @@
 
   body {
     padding: 0 16px;
-    padding-top: 140px;
+    padding-top: 90px;
   }
 
   .main-nav {
