@@ -147,7 +147,7 @@
   }
 
   .guide-grid {
-    grid-template-columns: 1fr;  /* ← ИСПРАВЛЕНО! */
+    grid-template-columns: 1fr; /* ← ВОТ ЭТО БЫЛО РЕШЕНИЕМ */
     gap: 16px;
   }
 
@@ -157,12 +157,5 @@
 
   .guide-card {
     padding: 16px;
-  }
-
-  /* ===== ФИКС: отступ для заголовка на телефоне ===== */
-  .eq-page h1 {
-    margin-top: 10px !important;
-    padding-top: 10px !important;
-    display: block !important;
   }
 }
