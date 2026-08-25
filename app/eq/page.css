@@ -140,7 +140,101 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
+/* ================================================================
+   ПРЕМИУМ-ОФОРМЛЕНИЕ ВИДЖЕТА ЭКВАЛАЙЗЕРА
+   ================================================================ */
+
+.eq-widget-wrapper {
+  position: relative;
+  background: linear-gradient(145deg, rgba(15, 15, 20, 0.95), rgba(8, 8, 10, 0.98));
+  border-radius: 24px;
+  padding: 20px;
+  margin: 10px 0 20px 0;
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  box-shadow: 
+    0 10px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(245, 197, 66, 0.05),
+    0 0 40px rgba(191, 149, 63, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+/* ===== ЗОЛОТОЕ СВЕЧЕНИЕ (ГЛОУ) ===== */
+.eq-widget-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(245, 197, 66, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== ВНУТРЕННЯЯ ОБВОДКА ===== */
+.eq-widget-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  border: 1px solid rgba(245, 197, 66, 0.06);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== УГОЛКИ (ДЕКОРАТИВНЫЕ) ===== */
+.eq-widget-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.3), transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: 2;
+}
+
+/* ===== ХОВЕР ===== */
+.eq-widget-wrapper:hover {
+  border-color: rgba(245, 197, 66, 0.3);
+  box-shadow: 
+    0 15px 80px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(245, 197, 66, 0.08),
+    0 0 60px rgba(191, 149, 63, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== ВИДЖЕТ ВНУТРИ ===== */
+.eq-widget-wrapper .hh-eq-wrapper,
+.eq-widget-wrapper #eqContainer {
+  position: relative;
+  z-index: 3;
+  min-height: 400px !important;
+}
+
+/* ===== ТЕНЬ ПОД ВИДЖЕТОМ (ДЛЯ ГЛУБИНЫ) ===== */
+.eq-widget-wrapper .hh-eq-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  right: 10%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(245, 197, 66, 0.04) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* ================================================================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
+   ================================================================ */
+
 @media (max-width: 768px) {
   .eq-page {
     padding: 12px;
@@ -159,10 +253,46 @@
     padding: 16px;
   }
 
-  /* ===== КОСТЫЛЬ: отступ для заголовка на телефоне ===== */
+  /* КОСТЫЛЬ: отступ для заголовка на телефоне */
   .eq-page h1 {
     margin-top: 15px !important;
     padding-top: 10px !important;
     display: block !important;
+  }
+
+  /* ПРЕМИУМ-ОБЕРТКА НА ТЕЛЕФОНЕ */
+  .eq-widget-wrapper {
+    padding: 8px;
+    border-radius: 16px;
+    margin: 5px 0 15px 0;
+  }
+
+  .eq-widget-wrapper::before {
+    border-radius: 14px;
+    inset: 1px;
+  }
+
+  .eq-widget-wrapper::after {
+    left: 20%;
+    right: 20%;
+  }
+
+  .eq-widget-wrapper:hover {
+    transform: none !important;
+  }
+
+  .eq-widget-wrapper .hh-eq-wrapper,
+  .eq-widget-wrapper #eqContainer {
+    min-height: 320px !important;
+  }
+}
+
+/* ================================================================
+   АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ
+   ================================================================ */
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .eq-widget-wrapper {
+    padding: 14px;
   }
 }
