@@ -3,8 +3,8 @@
 /* ===== ТЕЛЕФОНЫ (ДО 768PX) ===== */
 @media (max-width: 768px) {
   body {
-    padding: 0;
-    padding-top: 110px;
+    padding: 0 10px;
+    padding-top: 140px;  /* ← УВЕЛИЧЕНО С 110 ДО 140 */
   }
 
   .header-inner {
@@ -14,36 +14,24 @@
     align-items: center;
   }
 
-  .mobile-menu-btn {
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
   .main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(8, 8, 10, 0.98);
-    padding: 20px;
-    gap: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .main-nav.open {
-    display: flex;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    position: static !important;
+    background: transparent !important;
+    padding: 8px 0 !important;
+    border-bottom: none !important;
+    width: 100% !important;
   }
 
   .main-nav a {
-    font-size: 0.8rem;
-    padding: 8px 0;
-    width: 100%;
-    text-align: center;
+    font-size: 0.75rem !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+    text-align: center !important;
   }
 
   .logo-name {
@@ -69,16 +57,16 @@
   }
 
   .btn {
-    font-size: 0.65rem;
-    padding: 0 10px;
-    height: 32px;
-    min-height: 34px;
+    font-size: 0.6rem;
+    padding: 0 8px;
+    height: 28px;
+    min-height: 30px;
   }
 
   .btn svg {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
   }
 
   .btn-label {
@@ -328,6 +316,79 @@
     padding-bottom: 10px !important;
   }
 
+  /* ===== МИКРО-ГЛОССАРИЙ ===== */
+  .micro-glossary {
+    padding: 16px 18px !important;
+  }
+
+  .micro-glossary dl {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+
+  .micro-glossary dt {
+    padding-bottom: 2px !important;
+    border-bottom: none !important;
+  }
+
+  .micro-glossary dd {
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .micro-glossary dt:last-child,
+  .micro-glossary dd:last-child {
+    border-bottom: none !important;
+  }
+
+  /* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+  .tip-with-photo {
+    padding: 20px 18px !important;
+  }
+
+  .tip-content {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .tip-photo {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .tip-text p,
+  .tip-text ul li {
+    font-size: 0.9rem !important;
+  }
+
+  .tip-text ul {
+    padding-left: 16px !important;
+  }
+
+  /* ===== ПОХОЖИЕ ТЕРМИНЫ ===== */
+  .related-terms {
+    gap: 8px !important;
+  }
+
+  .related-terms a {
+    font-size: 0.75rem !important;
+    padding: 6px 14px !important;
+  }
+
+  /* ===== НАВИГАЦИЯ ВНИЗУ ===== */
+  .bottom-nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .bottom-nav a {
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    font-size: 0.8rem !important;
+  }
+
   /* ===== КАРУСЕЛЬ ===== */
   .carousel-container {
     height: 250px;
@@ -470,40 +531,41 @@
 /* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (ДО 480PX) ===== */
 @media (max-width: 480px) {
   body {
-    padding: 0;
-    padding-top: 100px;
+    padding: 0 6px;
+    padding-top: 140px;
   }
 
   .main-nav a {
-    font-size: 0.7rem;
+    font-size: 0.65rem !important;
+    padding: 3px 6px !important;
   }
 
   .btn {
-    font-size: 0.55rem;
-    padding: 0 6px;
-    height: 28px;
-    min-height: 30px;
+    font-size: 0.5rem !important;
+    padding: 0 6px !important;
+    height: 24px !important;
+    min-height: 26px !important;
   }
 
   .btn svg {
-    width: 12px;
-    height: 12px;
-    margin-right: 2px;
+    width: 10px !important;
+    height: 10px !important;
+    margin-right: 2px !important;
   }
 
   .logo-name {
-    font-size: 0.85rem;
+    font-size: 0.85rem !important;
   }
 
   .logo-img {
-    width: 28px;
-    height: 28px;
-    min-width: 28px;
-    padding: 2px;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    padding: 2px !important;
   }
 
   .logo-sub {
-    font-size: 0.4rem;
+    font-size: 0.4rem !important;
   }
 
   .section-card {
@@ -576,8 +638,8 @@
   }
 
   body {
-    padding: 0;
-    padding-top: 120px;
+    padding: 0 16px;
+    padding-top: 140px;
   }
 
   .main-nav {
