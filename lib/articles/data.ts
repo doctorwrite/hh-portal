@@ -218,10 +218,9 @@ export const ARTICLES: Record<string, ArticleData> = {
           <p style="margin-top:16px; font-size:0.85rem; color:var(--text-secondary);">📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311</p>
         </div>
 
-        <!-- ===== НАВИГАЦИЯ ===== -->
+        <!-- ===== НАВИГАЦИЯ ВНИЗУ ===== -->
         <nav class="bottom-nav">
-          <a href="/encyclopedia">← Назад к энциклопедии</a>
-          <a href="/">🏠 На главную</a>
+          <a href="/" class="bottom-home">🏠 На главную</a>
           <a href="#top" class="back-to-top">↑ Наверх</a>
         </nav>
 
