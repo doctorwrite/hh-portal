@@ -12,7 +12,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
-  padding: 40px 44px;
+  padding: 30px 32px;
   margin: 20px 0;
   box-shadow: var(--shadow-premium);
 }
@@ -29,7 +29,7 @@
 
 .article-content h2 {
   font-size: 1.5rem;
-  margin: 32px 0 16px;
+  margin: 28px 0 14px;
   text-align: left;
   padding-bottom: 8px;
   background: none;
@@ -44,25 +44,25 @@
 
 .article-content h3 {
   font-size: 1.15rem;
-  margin: 20px 0 10px;
+  margin: 18px 0 8px;
   color: var(--text-primary);
 }
 
 .article-content p {
   color: var(--text-secondary);
   line-height: 1.9;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .article-content ul,
 .article-content ol {
-  padding-left: 24px;
-  margin: 12px 0;
+  padding-left: 22px;
+  margin: 10px 0;
   color: var(--text-secondary);
 }
 
 .article-content li {
-  margin: 4px 0;
+  margin: 3px 0;
 }
 
 .article-content strong {
@@ -104,8 +104,8 @@
 .meta {
   color: #888;
   font-size: 0.85rem;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
 }
@@ -117,9 +117,9 @@
 .toc {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
   transition: all 0.3s;
 }
 
@@ -130,8 +130,8 @@
 .toc-title {
   color: var(--gold-mid);
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -141,7 +141,7 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 6px 14px;
   padding: 0;
   margin: 0;
 }
@@ -152,7 +152,7 @@
 
 .toc-list a {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all 0.3s;
   padding: 2px 0;
   border-bottom: 1px solid transparent;
@@ -167,9 +167,9 @@
 .quick-answer {
   background: rgba(245, 197, 66, 0.04);
   border: 1px solid rgba(245, 197, 66, 0.08);
-  border-radius: 16px;
-  padding: 16px 20px;
-  margin-bottom: 24px;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
   transition: all 0.3s;
 }
 
@@ -180,7 +180,7 @@
 .quick-answer-label {
   color: var(--gold-mid);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -189,7 +189,7 @@
 .quick-answer p {
   color: var(--text-secondary);
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .quick-answer strong {
@@ -197,10 +197,10 @@
 }
 
 .qa-block {
-  padding: 20px 24px;
-  margin: 16px 0;
+  padding: 16px 20px;
+  margin: 14px 0;
   background: rgba(255, 255, 255, 0.02);
-  border-radius: 14px;
+  border-radius: 12px;
   border-left: 3px solid var(--gold-mid);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   scroll-margin-top: 80px;
@@ -216,8 +216,8 @@
 .qa-block .question {
   color: var(--gold-mid);
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
+  font-size: 1rem;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -227,17 +227,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 28px;
-  height: 28px;
+  min-width: 26px;
+  height: 26px;
   background: rgba(245, 197, 66, 0.1);
   border-radius: 50%;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--gold-mid);
 }
 
 .qa-block .answer {
   color: var(--text-secondary);
-  line-height: 1.9;
+  line-height: 1.8;
 }
 
 .qa-block .answer strong {
@@ -246,12 +246,12 @@
 
 .qa-block .answer ul,
 .qa-block .answer ol {
-  padding-left: 24px;
-  margin: 6px 0;
+  padding-left: 20px;
+  margin: 4px 0;
 }
 
 .qa-block .answer li {
-  margin: 4px 0;
+  margin: 3px 0;
 }
 
 /* ===== ТАБЛИЦЫ В СТАТЬЯХ ===== */
@@ -261,17 +261,17 @@
   max-width: 100%;
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
 }
 
 .article-content table th,
 .article-content table td {
-  padding: 10px 14px;
+  padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: left;
-  min-width: 90px;
+  min-width: 80px;
 }
 
 .article-content table th {
