@@ -101,7 +101,6 @@
   text-align: center;
 }
 
-/* ===== МЕТА-ИНФОРМАЦИЯ ===== */
 .meta {
   color: #888;
   font-size: 0.85rem;
@@ -115,7 +114,6 @@
   color: var(--gold-mid);
 }
 
-/* ===== ОГЛАВЛЕНИЕ ===== */
 .toc {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -166,7 +164,6 @@
   text-decoration: none;
 }
 
-/* ===== КРАТКИЙ ОТВЕТ ===== */
 .quick-answer {
   background: rgba(245, 197, 66, 0.04);
   border: 1px solid rgba(245, 197, 66, 0.08);
@@ -199,7 +196,6 @@
   color: #fff;
 }
 
-/* ===== ВОПРОСЫ-ОТВЕТЫ ===== */
 .qa-block {
   padding: 20px 24px;
   margin: 16px 0;
@@ -256,4 +252,30 @@
 
 .qa-block .answer li {
   margin: 4px 0;
+}
+
+/* ===== ТАБЛИЦЫ В СТАТЬЯХ ===== */
+.article-content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-content table th,
+.article-content table td {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  min-width: 90px;
+}
+
+.article-content table th {
+  background: rgba(245, 197, 66, 0.1);
+  color: var(--gold-mid);
+  font-weight: 700;
 }
