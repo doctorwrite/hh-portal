@@ -14,7 +14,6 @@ const NAV_ITEMS = [
 export default function Header() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,19 +42,17 @@ export default function Header() {
           </span>
         </Link>
 
-        {/* Навигация */}
-        <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`} role="navigation" aria-label="Основная навигация">
+        {/* Навигация — всегда видна */}
+        <nav className="main-nav" role="navigation" aria-label="Основная навигация">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={pathname === item.href ? 'active' : ''}
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          {/* ❌ КНОПКА "КОНТАКТЫ" УДАЛЕНА */}
         </nav>
 
         {/* CTA кнопки */}
@@ -86,16 +83,6 @@ export default function Header() {
             VK
           </a>
         </div>
-
-        {/* Мобильное меню (кнопка) */}
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
-          aria-expanded={isMobileMenuOpen}
-        >
-          <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} />
-        </button>
       </div>
     </header>
   )
