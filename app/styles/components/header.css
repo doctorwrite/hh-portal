@@ -152,30 +152,35 @@
 
 /* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ (ДО 768PX) ===== */
 @media (max-width: 768px) {
+  .header {
+    padding: 6px 0 !important;
+  }
+
   .header-inner {
     flex-direction: column !important;
     align-items: center !important;
-    gap: 4px !important;
-    padding: 8px 0 !important;
+    gap: 2px !important;
+    padding: 4px 0 !important;
   }
 
   .logo-block {
     justify-content: center !important;
+    gap: 8px !important;
   }
 
   .logo-name {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
   }
 
   .logo-img {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
-    padding: 2px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 3px !important;
   }
 
   .logo-sub {
-    font-size: 0.5rem !important;
+    font-size: 0.55rem !important;
     letter-spacing: 0.5px !important;
   }
 
@@ -184,42 +189,42 @@
     flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 16px !important;
+    gap: 12px !important;
     position: static !important;
     background: transparent !important;
-    padding: 8px 0 !important;
+    padding: 4px 0 !important;
     border-bottom: none !important;
     width: 100% !important;
   }
 
   .main-nav a {
-    font-size: 0.75rem !important;
-    padding: 4px 8px !important;
+    font-size: 0.85rem !important;
+    padding: 2px 8px !important;
     width: auto !important;
     text-align: center !important;
+    font-weight: 600 !important;
   }
 
   .cta-buttons {
     display: flex !important;
     justify-content: center !important;
-    gap: 6px !important;
+    gap: 4px !important;
     width: 100% !important;
     flex-wrap: wrap !important;
   }
 
-  /* ===== КНОПКИ КАК НА КОМПЕ ===== */
   .btn {
     font-size: 0.7rem !important;
-    padding: 0 14px !important;
-    height: 32px !important;
-    min-height: 34px !important;
+    padding: 0 10px !important;
+    height: 28px !important;
+    min-height: 30px !important;
     border-radius: 50px !important;
   }
 
   .btn svg {
-    width: 14px !important;
-    height: 14px !important;
-    margin-right: 6px !important;
+    width: 13px !important;
+    height: 13px !important;
+    margin-right: 4px !important;
   }
 
   .btn-label {
