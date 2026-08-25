@@ -1,4 +1,4 @@
-/* app/encyclopedia/[slug]/page.css — стили для страницы статьи */
+/* app/encyclopedia/[slug]/page.css */
 
 .article-container {
   max-width: 1200px;
@@ -15,6 +15,9 @@
   padding: 30px 32px;
   margin: 20px 0;
   box-shadow: var(--shadow-premium);
+  /* ===== ОПТИМИЗАЦИЯ ===== */
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
 }
 
 .article-content h1 {
@@ -121,6 +124,9 @@
   padding: 16px 20px;
   margin-bottom: 20px;
   transition: all 0.3s;
+  /* ===== ОПТИМИЗАЦИЯ ===== */
+  content-visibility: auto;
+  contain-intrinsic-size: 0 150px;
 }
 
 .toc:hover {
