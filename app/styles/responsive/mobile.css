@@ -235,6 +235,18 @@
     font-size: 1.3rem;
   }
 
+  /* ===== ТАБЛИЦЫ В СТАТЬЯХ (ТЕЛЕФОН) ===== */
+  .article-content table {
+    font-size: 0.65rem;
+    white-space: nowrap;
+  }
+
+  .article-content table th,
+  .article-content table td {
+    padding: 6px 8px;
+    min-width: 60px;
+  }
+
   /* ===== КАРУСЕЛЬ ===== */
   .carousel-container {
     height: 250px;
