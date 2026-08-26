@@ -16,20 +16,24 @@ interface ChecklistProps {
 }
 
 const Checklist: React.FC<ChecklistProps> = ({ title, items, storageKey }) => {
-  const [isClient, setIsClient] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({})
 
+  // Только на клиенте
   useEffect(() => {
-    setIsClient(true)
+    setMounted(true)
     try {
       const saved = localStorage.getItem(storageKey)
       if (saved) {
         setCheckedItems(JSON.parse(saved))
       }
-    } catch (e) {}
+    } catch (e) {
+      // ignore
+    }
   }, [storageKey])
 
-  if (!isClient) {
+  // При первом рендере на сервере — ничего не показываем
+  if (!mounted) {
     return (
       <div
         className="checklist-wrapper"
@@ -61,7 +65,9 @@ const Checklist: React.FC<ChecklistProps> = ({ title, items, storageKey }) => {
       const newState = { ...prev, [id]: !prev[id] }
       try {
         localStorage.setItem(storageKey, JSON.stringify(newState))
-      } catch (e) {}
+      } catch (e) {
+        // ignore
+      }
       return newState
     })
   }
