@@ -36,7 +36,18 @@ const EQVisualizer: React.FC = () => {
   const GMAX = 20
   const colors = ['#f5c542', '#4a9eff', '#50c878', '#ff6b6b', '#c77dff', '#ff8c42']
 
-  // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ (useCallback) =====
+  // Названия фильтров для отображения
+  const filterLabels: Record<string, string> = {
+    bell: 'Bell',
+    lowshelf: 'Low Shelf',
+    highshelf: 'High Shelf',
+    lowcut: 'Low Cut',
+    highcut: 'High Cut',
+    notch: 'Notch',
+    bandpass: 'Band'
+  }
+
+  // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
   const fToX = useCallback((f: number) => {
     return L + ((Math.log10(f) - Math.log10(FMIN)) / (Math.log10(FMAX) - Math.log10(FMIN))) * (R - L)
   }, [L, R, FMIN, FMAX])
@@ -152,37 +163,59 @@ const EQVisualizer: React.FC = () => {
       const isActive = band.id === activeId
       const x = fToX(band.freq)
       const y = dbToY(band.gain)
+      const filterLabel = filterLabels[band.type] || band.type
 
-      // Круг
+      // ===== ОСНОВНОЙ КРУГ =====
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
       circle.setAttribute('cx', String(x))
       circle.setAttribute('cy', String(y))
-      circle.setAttribute('r', String(isActive ? 10 : 7))
+      circle.setAttribute('r', String(isActive ? 12 : 9))
       circle.setAttribute('fill', band.color)
       circle.setAttribute('stroke', isActive ? '#fff' : 'rgba(255,255,255,0.3)')
-      circle.setAttribute('stroke-width', isActive ? '2.5' : '1.5')
+      circle.setAttribute('stroke-width', isActive ? '3' : '2')
       circle.setAttribute('data-id', String(band.id))
-      circle.setAttribute('style', 'cursor:grab;')
+      circle.setAttribute('style', 'cursor:grab;transition:all 0.15s;')
       dotsGroup.appendChild(circle)
 
-      // Номер
-      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-      text.setAttribute('x', String(x))
-      text.setAttribute('y', String(y + 4))
-      text.setAttribute('text-anchor', 'middle')
-      text.setAttribute('fill', isActive ? '#fff' : 'rgba(255,255,255,0.4)')
-      text.setAttribute('font-size', '7')
-      text.setAttribute('font-family', 'Arial, sans-serif')
-      text.setAttribute('font-weight', 'bold')
-      text.setAttribute('pointer-events', 'none')
-      text.textContent = String(bands.indexOf(band) + 1)
-      dotsGroup.appendChild(text)
+      // ===== НОМЕР ПОЛОСЫ =====
+      const numText = document.createElementNS('http://www.w3.org/2000/svg', 'text')
+      numText.setAttribute('x', String(x))
+      numText.setAttribute('y', String(y + 4))
+      numText.setAttribute('text-anchor', 'middle')
+      numText.setAttribute('fill', isActive ? '#fff' : 'rgba(255,255,255,0.4)')
+      numText.setAttribute('font-size', '7')
+      numText.setAttribute('font-family', 'Arial, sans-serif')
+      numText.setAttribute('font-weight', 'bold')
+      numText.setAttribute('pointer-events', 'none')
+      numText.textContent = String(bands.indexOf(band) + 1)
+      dotsGroup.appendChild(numText)
 
-      // Хит-область
+      // ===== НАЗВАНИЕ ФИЛЬТРА ПОД ТОЧКОЙ =====
+      const labelText = document.createElementNS('http://www.w3.org/2000/svg', 'text')
+      labelText.setAttribute('x', String(x))
+      labelText.setAttribute('y', String(y + 18))
+      labelText.setAttribute('text-anchor', 'middle')
+      labelText.setAttribute('fill', isActive ? '#fcf6ba' : 'rgba(255,255,255,0.2)')
+      labelText.setAttribute('font-size', '6')
+      labelText.setAttribute('font-family', 'Arial, sans-serif')
+      labelText.setAttribute('pointer-events', 'none')
+      
+      // Сокращаем длинные названия
+      const shortLabel = filterLabel === 'Low Shelf' ? 'LSh' :
+                         filterLabel === 'High Shelf' ? 'HSh' :
+                         filterLabel === 'Low Cut' ? 'LC' :
+                         filterLabel === 'High Cut' ? 'HC' :
+                         filterLabel === 'Band' ? 'BP' :
+                         filterLabel === 'Notch' ? 'Notch' :
+                         filterLabel
+      labelText.textContent = shortLabel
+      dotsGroup.appendChild(labelText)
+
+      // ===== ХИТ-ОБЛАСТЬ ДЛЯ ПЕРЕТАСКИВАНИЯ =====
       const hit = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
       hit.setAttribute('cx', String(x))
       hit.setAttribute('cy', String(y))
-      hit.setAttribute('r', '25')
+      hit.setAttribute('r', '30')
       hit.setAttribute('fill', 'rgba(0,0,0,0.001)')
       hit.setAttribute('data-id', String(band.id))
       hit.setAttribute('style', 'cursor:grab;')
@@ -432,6 +465,7 @@ const EQVisualizer: React.FC = () => {
 
   // ===== ПОЛУЧИТЬ ТЕКУЩУЮ ПОЛОСУ =====
   const currentBand = bands.find(b => b.id === activeId)
+  const isGainless = currentBand ? ['lowcut', 'highcut', 'notch', 'bandpass'].includes(currentBand.type) : false
 
   return (
     <div 
@@ -550,8 +584,8 @@ const EQVisualizer: React.FC = () => {
       {/* Панель управления */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-        gap: '8px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+        gap: '6px',
         marginBottom: '10px'
       }}>
         {/* Тип фильтра */}
@@ -572,8 +606,8 @@ const EQVisualizer: React.FC = () => {
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.08)',
               color: '#ccc',
-              fontSize: '0.55rem',
-              padding: '4px 6px',
+              fontSize: '0.5rem',
+              padding: '3px 6px',
               borderRadius: '4px',
               outline: 'none',
               fontFamily: 'inherit'
@@ -640,8 +674,8 @@ const EQVisualizer: React.FC = () => {
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontSize: '0.4rem', fontWeight: 600, color: '#666', textTransform: 'uppercase' }}>Усиление</span>
-            <span style={{ fontSize: '0.5rem', fontWeight: 700, color: '#f5c542' }}>
-              {currentBand?.gain?.toFixed(1) || 0} дБ
+            <span style={{ fontSize: '0.5rem', fontWeight: 700, color: isGainless ? '#666' : '#f5c542' }}>
+              {isGainless ? '—' : (currentBand?.gain?.toFixed(1) || 0) + ' дБ'}
             </span>
           </div>
           <input
@@ -654,15 +688,19 @@ const EQVisualizer: React.FC = () => {
               const gain = parseFloat(e.target.value)
               if (currentBand) updateBand(currentBand.id, { gain })
             }}
+            disabled={isGainless}
             style={{
               width: '100%',
               height: '2px',
               borderRadius: '2px',
               outline: 'none',
-              background: 'linear-gradient(to right, #f5c542, rgba(255,255,255,0.07))',
-              cursor: 'pointer',
+              background: isGainless 
+                ? 'rgba(255,255,255,0.03)' 
+                : 'linear-gradient(to right, #f5c542, rgba(255,255,255,0.07))',
+              cursor: isGainless ? 'not-allowed' : 'pointer',
               WebkitAppearance: 'none',
-              appearance: 'none'
+              appearance: 'none',
+              opacity: isGainless ? 0.3 : 1
             }}
           />
         </div>
@@ -728,7 +766,6 @@ const EQVisualizer: React.FC = () => {
           cursor: pointer;
           border: 2px solid rgba(255,255,255,0.15);
         }
-        /* Цвета для разных слайдеров */
         .freq-slider::-webkit-slider-thumb { background: #4a9eff; }
         .freq-slider::-moz-range-thumb { background: #4a9eff; }
         .gain-slider::-webkit-slider-thumb { background: #f5c542; }
@@ -808,9 +845,18 @@ const EQVisualizer: React.FC = () => {
         textAlign: 'center',
         fontSize: '0.45rem',
         color: '#555',
-        padding: '4px 0'
+        padding: '4px 0',
+        borderTop: '1px solid rgba(255,255,255,0.04)',
+        marginTop: '4px',
+        paddingTop: '8px'
       }}>
-        🖱️ Клик по графику — добавить полосу · Перетаскивание точек · Двойной клик — удалить
+        <span>🖱️ Клик по графику — добавить полосу</span>
+        <span style={{ margin: '0 6px', color: '#333' }}>·</span>
+        <span>Перетаскивание точек</span>
+        <span style={{ margin: '0 6px', color: '#333' }}>·</span>
+        <span>Двойной клик — удалить</span>
+        <span style={{ margin: '0 6px', color: '#333' }}>·</span>
+        <span style={{ color: '#666' }}>Активный фильтр: <strong style={{ color: '#fcf6ba' }}>{currentBand ? filterLabels[currentBand.type] : '—'}</strong></span>
       </div>
     </div>
   )
