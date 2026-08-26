@@ -58,31 +58,60 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
 }) => {
   return (
     <div className="article-content">
-      {/* ===== HERO (BADGE + ЗАГОЛОВОК) ===== */}
-      <HeroBlock badge={hero.badge} title={title} subtitle={hero.subtitle} tags={hero.tags} />
+      {/* ===== 1. HERO ===== */}
+      <HeroBlock
+        badge={hero.badge}
+        title={title}
+        subtitle={hero.subtitle}
+        tags={hero.tags}
+      />
 
-      {/* ===== МЕТА ПОСЛЕ HERO ===== */}
-      <ArticleMeta dateModified={meta.dateModified} author={meta.author} />
+      {/* ===== 2. МЕТА ===== */}
+      <ArticleMeta
+        dateModified={meta.dateModified}
+        author={meta.author}
+      />
 
+      {/* ===== 3. ОГЛАВЛЕНИЕ ===== */}
       <TOC items={toc} />
+
+      {/* ===== 4. КРАТКИЙ ОТВЕТ ===== */}
       <QuickAnswer text={quickAnswer} />
 
-      {/* ===== ВИДЖЕТ (SSR ОТКЛЮЧЁН ЧЕРЕЗ dynamic) ===== */}
+      {/* ===== 5. ВИДЖЕТ ===== */}
       {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
 
+      {/* ===== 6. ВОПРОСЫ ===== */}
       <QABlock items={qa} />
 
-      {/* ===== ВСЕ НОВЫЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ (ssr: false) ===== */}
+      {/* ===== 7. ПРИМЕНЕНИЕ В ЖАНРАХ ===== */}
       {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
+
+      {/* ===== 8. БЫСТРЫЙ СТАРТ ===== */}
       {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
+
+      {/* ===== 9. ЧЕК-ЛИСТ ===== */}
       {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
+
+      {/* ===== 10. ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ ===== */}
       {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
 
+      {/* ===== 11. МИКРО-ГЛОССАРИЙ ===== */}
       <Glossary items={glossary} />
+
+      {/* ===== 12. СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */}
       <TipBlock text={tip} />
+
+      {/* ===== 13. ПОХОЖИЕ ТЕРМИНЫ ===== */}
       <RelatedTerms items={relatedTerms} />
+
+      {/* ===== 14. ИСТОЧНИКИ ===== */}
       <Sources items={sources} />
+
+      {/* ===== 15. БРЕНДОВЫЙ БЛОК ===== */}
       <BrandBlock />
+
+      {/* ===== 16. ПОДЕЛИТЬСЯ ===== */}
       <ShareButtons url={url} />
     </div>
   )
