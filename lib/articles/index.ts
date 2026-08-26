@@ -1,28 +1,20 @@
 // lib/articles/index.ts
 import { ArticleData, ArticleMeta } from './types'
 
-// ===== СТАТЬИ (будем добавлять по мере создания) =====
-// import { eq } from './data/eq'
-// import { compression } from './data/compression'
-// ... и так далее
+// ===== ИМПОРТ СТАТЕЙ =====
+import { eq } from './data/eq'
 
-// ===== МЕТАДАННЫЕ (будем добавлять по мере создания) =====
-// import { eqMeta } from './metadata/eq'
-// import { compressionMeta } from './metadata/compression'
-// ... и так далее
+// ===== ИМПОРТ МЕТАДАННЫХ =====
+import { eqMeta } from './metadata/eq'
 
 // ===== РЕЕСТР СТАТЕЙ =====
 export const ARTICLES: Record<string, ArticleData> = {
-  // eq: eq,
-  // compression: compression,
-  // ... и так далее
+  eq: eq,
 }
 
 // ===== РЕЕСТР МЕТАДАННЫХ =====
 export const METADATA: Record<string, ArticleMeta> = {
-  // eq: eqMeta,
-  // compression: compressionMeta,
-  // ... и так далее
+  eq: eqMeta,
 }
 
 // ===== ФУНКЦИИ =====
@@ -36,4 +28,12 @@ export function getMetadata(slug: string): ArticleMeta | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return Object.keys(ARTICLES)
+}
+
+export function getAllArticles(): { slug: string; data: ArticleData; meta: ArticleMeta }[] {
+  return Object.keys(ARTICLES).map((slug) => ({
+    slug,
+    data: ARTICLES[slug],
+    meta: METADATA[slug],
+  }))
 }
