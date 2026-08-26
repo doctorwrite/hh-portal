@@ -1,18 +1,15 @@
 // app/encyclopedia/[slug]/page.tsx
 import './page.css'
 
-import { getArticle, getAllArticleSlugs } from '@/lib/articles'
+import { getArticle, getMetadata, getAllArticleSlugs } from '@/lib/articles'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Metadata } from 'next'
 
 // ===== МЕТАДАННЫЕ =====
-const metaMap: Record<string, any> = {
-  // eq: eqMeta,  ← добавим позже
-}
-
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const meta = metaMap[params.slug]
+  const meta = getMetadata(params.slug)
+  
   if (!meta) {
     return {
       title: 'Статья не найдена | HHRecords',
@@ -64,15 +61,18 @@ export async function generateStaticParams() {
   }))
 }
 
-// ===== ВИДЖЕТЫ =====
+// ===== ВИДЖЕТЫ (будем добавлять по мере создания) =====
+// import { EQWidget } from '@/components/interactive'
+
 const widgetMap: Record<string, any> = {
-  // eq: EQWidget,  ← добавим позже
+  // eq: EQWidget,
+  // compression: CompressorWidget,
+  // ... и так далее
 }
 
-// ===== JSON-LD =====
-function getJsonLd(slug: string, article: any) {
-  const meta = metaMap[slug]
-  if (!meta) return null
+// ===== JSON-LD: TechArticle =====
+function getJsonLd(slug: string, article: any, meta: any) {
+  if (!meta || !article) return null
 
   return {
     '@context': 'https://schema.org',
@@ -106,8 +106,10 @@ function getJsonLd(slug: string, article: any) {
   }
 }
 
-// ===== ДОБАВЛЕН: JSON-LD BreadcrumbList =====
+// ===== JSON-LD: BreadcrumbList =====
 function getBreadcrumbJsonLd(slug: string, article: any) {
+  if (!article) return null
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -134,30 +136,56 @@ function getBreadcrumbJsonLd(slug: string, article: any) {
   }
 }
 
-// ===== ДОБАВЛЕН: JSON-LD FAQPage =====
-function getFaqJsonLd(article: any) {
-  // Парсим вопросы из контента (если есть)
-  // Для простоты пока возвращаем null, потом можно добавить парсинг
-  return null
+// ===== JSON-LD: FAQPage =====
+function getFaqJsonLd(content: string) {
+  if (!content) return null
+
+  const qaBlocks = content.match(/<div class="qa-block"[^>]*>([\s\S]*?)<\/div>/g) || []
+  const faqItems = qaBlocks
+    .map((block: string) => {
+      const questionMatch = block.match(/<h3[^>]*>.*?<span[^>]*>.*?<\/span>\s*([^<]+)<\/h3>/)
+      const answerMatch = block.match(/<div class="answer">([\s\S]*?)<\/div>/)
+      if (questionMatch && answerMatch) {
+        return {
+          '@type': 'Question',
+          name: questionMatch[1].trim(),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answerMatch[1].replace(/<[^>]+>/g, '').trim(),
+          },
+        }
+      }
+      return null
+    })
+    .filter(Boolean)
+
+  if (faqItems.length === 0) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems,
+  }
 }
 
 // ===== СТРАНИЦА =====
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
   const article = getArticle(slug)
+  const meta = getMetadata(slug)
 
-  if (!article) {
+  if (!article || !meta) {
     notFound()
   }
 
   const Widget = widgetMap[slug]
-  const jsonLd = getJsonLd(slug, article)
+  const jsonLd = getJsonLd(slug, article, meta)
   const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
-  const faqJsonLd = getFaqJsonLd(article)
+  const faqJsonLd = getFaqJsonLd(article.content)
 
   return (
     <div className="article-container" id="main-content">
-      {/* ===== JSON-LD: TechArticle ===== */}
+      {/* ===== JSON-LD ===== */}
       {jsonLd && (
         <script
           type="application/ld+json"
@@ -165,7 +193,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         />
       )}
 
-      {/* ===== JSON-LD: BreadcrumbList ===== */}
       {breadcrumbJsonLd && (
         <script
           type="application/ld+json"
@@ -173,7 +200,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         />
       )}
 
-      {/* ===== JSON-LD: FAQPage ===== */}
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -203,7 +229,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         </div>
       )}
 
-      {/* ===== НАВИГАЦИЯ ВНИЗУ ===== */}
+      {/* ===== НАВИГАЦИЯ ===== */}
       <nav className="bottom-nav">
         <Link href="/encyclopedia">← Назад к энциклопедии</Link>
         <Link href="/" className="bottom-home">🏠 На главную</Link>
