@@ -127,29 +127,17 @@ function getBreadcrumbJsonLd(slug: string, article: any) {
   }
 }
 
-function getFaqJsonLd(content: string) {
-  if (!content) return null
+function getFaqJsonLd(qa: any[]) {
+  if (!qa || qa.length === 0) return null
 
-  const qaBlocks = content.match(/<div class="qa-block"[^>]*>([\s\S]*?)<\/div>/g) || []
-  const faqItems = qaBlocks
-    .map((block: string) => {
-      const questionMatch = block.match(/<h3[^>]*>.*?<span[^>]*>.*?<\/span>\s*([^<]+)<\/h3>/)
-      const answerMatch = block.match(/<div class="answer">([\s\S]*?)<\/div>/)
-      if (questionMatch && answerMatch) {
-        return {
-          '@type': 'Question',
-          name: questionMatch[1].trim(),
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: answerMatch[1].replace(/<[^>]+>/g, '').trim(),
-          },
-        }
-      }
-      return null
-    })
-    .filter(Boolean)
-
-  if (faqItems.length === 0) return null
+  const faqItems = qa.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer.replace(/<[^>]+>/g, '').trim(),
+    },
+  }))
 
   return {
     '@context': 'https://schema.org',
@@ -173,7 +161,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
   const jsonLd = getJsonLd(slug, article, meta)
   const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
-  const faqJsonLd = getFaqJsonLd(JSON.stringify(article.qa))
+  const faqJsonLd = getFaqJsonLd(article.qa)
 
   return (
     <div className="article-container" id="main-content">
@@ -216,7 +204,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           author: meta.author,
         }}
         hero={{
-          badge: 'Энциклопедия звукозаписи',
+          badge: article.hero.badge || 'Энциклопедия звукозаписи',
           subtitle: article.hero.subtitle,
           tags: article.hero.tags,
         }}
@@ -227,6 +215,10 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         tip={article.tip}
         relatedTerms={article.relatedTerms}
         sources={article.sources}
+        genreTable={article.genreTable}
+        quickStart={article.quickStart}
+        checklist={article.checklist}
+        userQuestions={article.userQuestions}
         widget={Widget ? <Widget /> : undefined}
         url={`https://hiphoprecords.ru/encyclopedia/${slug}`}
       />
