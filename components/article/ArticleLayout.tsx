@@ -23,6 +23,10 @@ interface ArticleLayoutProps {
   tip: string
   relatedTerms: { slug: string; icon: string; label: string }[]
   sources: { url: string; label: string }[]
+  genreTable?: any
+  quickStart?: any
+  checklist?: any
+  userQuestions?: any
   widget?: React.ReactNode
   url: string
 }
