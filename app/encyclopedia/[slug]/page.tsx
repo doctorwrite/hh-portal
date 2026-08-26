@@ -213,15 +213,16 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       {/* ===== СОДЕРЖАНИЕ СТАТЬИ ===== */}
       <div className="article-content">
         <h1>{article.title}</h1>
+        
+        {/* ===== ВИДЖЕТ — ПЕРЕМЕЩЁН ВВЕРХ ===== */}
+        {Widget && (
+          <div className="widget-wrapper" style={{ marginBottom: '24px' }}>
+            <Widget />
+          </div>
+        )}
+
         <div dangerouslySetInnerHTML={{ __html: article.content }} />
       </div>
-
-      {/* ===== ВИДЖЕТ ===== */}
-      {Widget && (
-        <div className="widget-wrapper">
-          <Widget />
-        </div>
-      )}
 
       {/* ===== НАВИГАЦИЯ ===== */}
       <nav className="bottom-nav">
