@@ -11,19 +11,15 @@ import RelatedTerms from './RelatedTerms'
 import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
+import GenreTable from './GenreTable'
+import QuickStart from './QuickStart'
+import Checklist from './Checklist'
+import UserQuestions from './UserQuestions'
 
 interface ArticleLayoutProps {
-  // Данные статьи
   title: string
-  meta: {
-    dateModified: string
-    author: string
-  }
-  hero: {
-    badge: string
-    subtitle: string
-    tags: string[]
-  }
+  meta: { dateModified: string; author: string }
+  hero: { badge: string; subtitle: string; tags: string[] }
   toc: { id: string; label: string }[]
   quickAnswer: string
   qa: { id: string; question: string; answer: string }[]
@@ -31,9 +27,11 @@ interface ArticleLayoutProps {
   tip: string
   relatedTerms: { slug: string; icon: string; label: string }[]
   sources: { url: string; label: string }[]
-  // Виджет
+  genreTable?: { title: string; rows: { genre: string; boost: string; cut: string }[]; note: string }
+  quickStart?: { title: string; steps: string[] }
+  checklist?: { title: string; items: { id: string; text: string; hint: string }[]; storageKey: string }
+  userQuestions?: { title: string; items: { question: string; answer: string }[] }
   widget?: React.ReactNode
-  // URL для поделиться
   url: string
 }
 
@@ -48,60 +46,34 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
   tip,
   relatedTerms,
   sources,
+  genreTable,
+  quickStart,
+  checklist,
+  userQuestions,
   widget,
   url,
 }) => {
   return (
     <div className="article-content">
-      {/* Мета-информация */}
-      <ArticleMeta
-        dateModified={meta.dateModified}
-        author={meta.author}
-      />
-
-      {/* Hero-блок */}
-      <HeroBlock
-        badge={hero.badge}
-        title={title}
-        subtitle={hero.subtitle}
-        tags={hero.tags}
-      />
-
-      {/* Оглавление */}
+      <ArticleMeta dateModified={meta.dateModified} author={meta.author} />
+      <HeroBlock badge={hero.badge} title={title} subtitle={hero.subtitle} tags={hero.tags} />
       <TOC items={toc} />
-
-      {/* Краткий ответ */}
       <QuickAnswer text={quickAnswer} />
 
-      {/* Виджет */}
-      {widget && (
-        <div style={{ margin: '16px 0 24px' }}>
-          {widget}
-        </div>
-      )}
+      {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
 
-      {/* Вопросы и ответы */}
       <QABlock items={qa} />
 
-      {/* Применение в жанрах — показывается только для EQ */}
-      {/* Этот блок уникальный для каждой статьи, поэтому рендерится в данных, а не здесь */}
+      {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
+      {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
+      {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
+      {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
 
-      {/* Микро-глоссарий */}
       <Glossary items={glossary} />
-
-      {/* Совет от звукорежиссёра */}
       <TipBlock text={tip} />
-
-      {/* Похожие термины */}
       <RelatedTerms items={relatedTerms} />
-
-      {/* Источники */}
       <Sources items={sources} />
-
-      {/* Брендовый блок */}
       <BrandBlock />
-
-      {/* Поделиться */}
       <ShareButtons url={url} />
     </div>
   )
