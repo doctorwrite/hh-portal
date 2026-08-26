@@ -58,16 +58,18 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
 }) => {
   return (
     <div className="article-content">
-      {/* ===== СТАТИЧЕСКИЕ КОМПОНЕНТЫ (SSR) ===== */}
-      <ArticleMeta dateModified={meta.dateModified} author={meta.author} />
+      {/* ===== HERO (BADGE + ЗАГОЛОВОК) ===== */}
       <HeroBlock badge={hero.badge} title={title} subtitle={hero.subtitle} tags={hero.tags} />
+
+      {/* ===== МЕТА ПОСЛЕ HERO ===== */}
+      <ArticleMeta dateModified={meta.dateModified} author={meta.author} />
+
       <TOC items={toc} />
       <QuickAnswer text={quickAnswer} />
 
       {/* ===== ВИДЖЕТ (SSR ОТКЛЮЧЁН ЧЕРЕЗ dynamic) ===== */}
       {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
 
-      {/* ===== QA БЛОКИ (SSR) ===== */}
       <QABlock items={qa} />
 
       {/* ===== ВСЕ НОВЫЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ (ssr: false) ===== */}
@@ -76,7 +78,6 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
       {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
       {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
 
-      {/* ===== СТАТИЧЕСКИЕ КОМПОНЕНТЫ (SSR) ===== */}
       <Glossary items={glossary} />
       <TipBlock text={tip} />
       <RelatedTerms items={relatedTerms} />
