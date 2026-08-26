@@ -5,7 +5,20 @@ import { ArticleData, ArticleMeta } from './types'
 import { eq } from './data/eq'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
-import { eqMeta } from './metadata/eq'
+// import { eqMeta } from './metadata/eq'  // пока закомментировано, позже добавим
+
+// ===== ВРЕМЕННЫЕ МЕТАДАННЫЕ (пока нет metadata файлов) =====
+const eqMeta: ArticleMeta = {
+  title: 'Эквализация (EQ) — что это? Полное определение, виды, применение, советы',
+  description: 'Эквализация — это регулировка частот звука. Узнайте, как работает EQ, какие бывают типы эквалайзеров.',
+  keywords: ['эквализация', 'eq', 'частоты', 'сведение', 'мастеринг', 'аудио'],
+  datePublished: '2025-07-08',
+  dateModified: '2026-07-22',
+  author: 'HHRecords',
+  ogImage: '/images/og/eq-og-image.webp',
+  category: 'Основы звукозаписи',
+  section: 'basics',
+}
 
 // ===== РЕЕСТР СТАТЕЙ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -28,12 +41,4 @@ export function getMetadata(slug: string): ArticleMeta | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return Object.keys(ARTICLES)
-}
-
-export function getAllArticles(): { slug: string; data: ArticleData; meta: ArticleMeta }[] {
-  return Object.keys(ARTICLES).map((slug) => ({
-    slug,
-    data: ARTICLES[slug],
-    meta: METADATA[slug],
-  }))
 }
