@@ -13,13 +13,13 @@ import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
 
-// Ленивая загрузка тяжёлых компонентов
+// Ленивая загрузка тяжёлых/клиентских компонентов
 const GenreTable = lazy(() => import('./GenreTable'))
 const QuickStart = lazy(() => import('./QuickStart'))
 const Checklist = lazy(() => import('./Checklist'))
 const UserQuestions = lazy(() => import('./UserQuestions'))
 
-// Компонент-заглушка для Suspense
+// Компонент загрузки
 const LoadingFallback = () => (
   <div
     style={{
@@ -81,6 +81,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
 
       <QABlock items={qa} />
 
+      {/* Ленивая загрузка новых компонентов */}
       {genreTable && (
         <Suspense fallback={<LoadingFallback />}>
           <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />
