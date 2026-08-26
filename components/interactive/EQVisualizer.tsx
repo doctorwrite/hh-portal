@@ -1,37 +1,7 @@
 // components/interactive/EQVisualizer.tsx
 'use client'
 
-import { useEffect, useState } from 'react'
-
 const EQVisualizer: React.FC = () => {
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  if (!isClient) {
-    return (
-      <div
-        style={{
-          background: 'rgba(0,0,0,0.3)',
-          borderRadius: '16px',
-          padding: '40px 20px',
-          margin: '16px 0',
-          textAlign: 'center',
-          border: '1px solid rgba(255,255,255,0.05)',
-          color: '#888',
-          minHeight: '200px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <div>Загрузка...</div>
-      </div>
-    )
-  }
-
   return (
     <div
       style={{
