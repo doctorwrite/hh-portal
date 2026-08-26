@@ -1,16 +1,20 @@
 // app/encyclopedia/[slug]/page.tsx
 import './page.css'
 
-import { getArticle, getAllArticleSlugs } from '@/lib/articles/data'
+import { getArticle, getAllArticleSlugs } from '@/lib/articles'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Metadata } from 'next'
 
-// ===== ГЕНЕРАЦИЯ МЕТАДАННЫХ =====
+// ===== МЕТАДАННЫЕ =====
+// Временно пустой объект, будем заполнять по мере добавления статей
+const metaMap: Record<string, any> = {
+  // eq: eqMeta,  ← добавим позже
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const article = getArticle(params.slug)
-  
-  if (!article) {
+  const meta = metaMap[params.slug]
+  if (!meta) {
     return {
       title: 'Статья не найдена | HHRecords',
       description: 'Запрашиваемая статья не найдена в энциклопедии звукозаписи HHRecords.',
@@ -18,30 +22,23 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${article.title} | HHRecords`,
-    description: article.description,
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     openGraph: {
-      title: article.title,
-      description: article.description,
+      title: meta.title,
+      description: meta.description,
       url: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
-      siteName: 'HHRecords',
-      images: [
-        {
-          url: `https://hiphoprecords.ru/encyclopedia/${params.slug}/opengraph-image`,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
+      images: [{ url: meta.ogImage, width: 1200, height: 630 }],
       type: 'article',
-      publishedTime: new Date().toISOString(),
-      authors: ['HHRecords'],
+      publishedTime: meta.datePublished,
+      authors: [meta.author],
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.description,
-      images: [`https://hiphoprecords.ru/encyclopedia/${params.slug}/opengraph-image`],
+      title: meta.title,
+      description: meta.description,
+      images: [meta.ogImage],
     },
     alternates: {
       canonical: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
@@ -68,7 +65,50 @@ export async function generateStaticParams() {
   }))
 }
 
-// ===== СТРАНИЦА СТАТЬИ =====
+// ===== ВИДЖЕТЫ =====
+// Временно пустой объект
+const widgetMap: Record<string, any> = {
+  // eq: EQWidget,  ← добавим позже
+}
+
+// ===== JSON-LD =====
+function getJsonLd(slug: string) {
+  const meta = metaMap[slug]
+  if (!meta) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: meta.title,
+    description: meta.description,
+    author: {
+      '@type': 'Organization',
+      name: 'HHRecords',
+      url: 'https://hiphoprecords.ru',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'HHRecords',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://hiphoprecords.ru/favicon.ico',
+      },
+    },
+    datePublished: meta.datePublished,
+    dateModified: meta.dateModified,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://hiphoprecords.ru/encyclopedia/${slug}`,
+    },
+    about: {
+      '@type': 'Thing',
+      name: meta.category,
+    },
+    keywords: meta.keywords.join(', '),
+  }
+}
+
+// ===== СТРАНИЦА =====
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
   const article = getArticle(slug)
@@ -77,8 +117,19 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
+  const Widget = widgetMap[slug]
+  const jsonLd = getJsonLd(slug)
+
   return (
     <div className="article-container" id="main-content">
+      {/* ===== JSON-LD ===== */}
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+
       {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
       <div className="breadcrumb">
         <Link href="/">Главная</Link>
@@ -93,6 +144,13 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         <h1>{article.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: article.content }} />
       </div>
+
+      {/* ===== ВИДЖЕТ ===== */}
+      {Widget && (
+        <div className="widget-wrapper">
+          <Widget />
+        </div>
+      )}
 
       {/* ===== НАВИГАЦИЯ ВНИЗУ ===== */}
       <nav className="bottom-nav">
