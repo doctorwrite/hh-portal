@@ -1,5 +1,4 @@
 // lib/articles/types.ts
-
 export interface ArticleData {
   title: string
   description: string
