@@ -2,7 +2,7 @@
 import { ArticleData } from '../types'
 
 export const eq: ArticleData = {
-  title: 'Эквализация (EQ) — что это? Полное руководство',
+  title: 'Эквализация (EQ) — что это? Полное определение, виды, применение, советы',
   description: 'Эквализация — это регулировка частот звука. Узнайте, как работает EQ, какие бывают типы эквалайзеров.',
   content: `
     <div class="article-content">
@@ -10,7 +10,7 @@ export const eq: ArticleData = {
       <!-- ===== МЕТА-ИНФОРМАЦИЯ ===== -->
       <div class="meta">
         Обновлено: 22 июля 2026 • Автор: Звукорежиссёр HHRecords •
-        <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи в Красноярске</a>
+        <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи</a>
       </div>
 
       <!-- ===== HERO-БЛОК ===== -->
@@ -23,7 +23,7 @@ export const eq: ArticleData = {
         <div class="hero-tags" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
           <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">📌 6 вопросов</span>
           <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">⭐ 4.9 на основе 87 отзывов</span>
-          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">🎚️ Студия в Красноярске с 2016</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">🎚️ Студия с 2016</span>
           <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">📚 Ссылки на источники</span>
         </div>
       </div>
@@ -149,7 +149,7 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ (УМЕНЬШЕННЫЙ ШРИФТ) ===== -->
+      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ ===== -->
       <section>
         <h3 style="color: #fcf6ba; font-size: 1.2rem; font-weight: 700; margin: 24px 0 12px; font-family: 'Oswald', sans-serif;">🎯 Как мы используем эквализацию в разных жанрах в HHRecords</h3>
         <div style="color: var(--text-secondary); line-height: 1.9;">
@@ -302,7 +302,7 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ИСТОЧНИКИ (С ПОДЧЁРКИВАНИЕМ) ===== -->
+      <!-- ===== ИСТОЧНИКИ ===== -->
       <div class="bottom-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 20px 0 0; background: rgba(255,255,255,0.02); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
         <div class="sources" style="padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.05);">
           <h3 style="color: #fcf6ba; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">📚 Источники</h3>
@@ -323,9 +323,9 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== БРЕНДОВЫЙ БЛОК (С ДОБАВЛЕННОЙ ФРАЗОЙ) ===== -->
+      <!-- ===== БРЕНДОВЫЙ БЛОК ===== -->
       <div class="brand-block" id="contacts">
-        <h2>🎧 HHRecords — студия звукозаписи в Красноярске</h2>
+        <h2>🎧 HHRecords — студия звукозаписи</h2>
         <div style="color: #4a9eff; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.5px;">🌐 Работаем очно и онлайн по всей России</div>
         <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
         <div class="btn-row">
@@ -486,6 +486,10 @@ export const eq: ArticleData = {
         }
         .bottom-links .links a:hover {
           color: #fcf6ba !important;
+        }
+        /* ===== УБИРАЕМ ЛИШНИЙ ВИДЖЕТ В H1 ===== */
+        .article-content > h1 + .widget-placeholder {
+          display: none;
         }
       </style>
 
