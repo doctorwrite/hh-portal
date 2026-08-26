@@ -95,7 +95,6 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ url, title = '' }) => {
             textDecoration: 'none !important',
             transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
             color: '#fff',
-            border: 'none',
             cursor: 'pointer',
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.08)',
