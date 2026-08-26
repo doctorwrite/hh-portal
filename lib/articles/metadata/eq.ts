@@ -11,5 +11,6 @@ export const eqMeta: ArticleMeta = {
   ogImage: '/images/og/eq-og-image.webp',
   category: 'Основы звукозаписи',
   section: 'basics',
-  sources: ['https://ru.wikipedia.org/wiki/Эквализация']
+  sources: ['https://ru.wikipedia.org/wiki/Эквализация'],
+  widget: 'EQVisualizer'
 }
