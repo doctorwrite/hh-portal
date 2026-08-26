@@ -1,5 +1,6 @@
 // components/article/ArticleLayout.tsx
 
+import { Suspense, lazy } from 'react'
 import ArticleMeta from './ArticleMeta'
 import HeroBlock from './HeroBlock'
 import TOC from './TOC'
@@ -11,10 +12,26 @@ import RelatedTerms from './RelatedTerms'
 import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
-import GenreTable from './GenreTable'
-import QuickStart from './QuickStart'
-import Checklist from './Checklist'
-import UserQuestions from './UserQuestions'
+
+// Ленивая загрузка тяжёлых компонентов
+const GenreTable = lazy(() => import('./GenreTable'))
+const QuickStart = lazy(() => import('./QuickStart'))
+const Checklist = lazy(() => import('./Checklist'))
+const UserQuestions = lazy(() => import('./UserQuestions'))
+
+// Компонент-заглушка для Suspense
+const LoadingFallback = () => (
+  <div
+    style={{
+      padding: '20px',
+      textAlign: 'center',
+      color: '#666',
+      fontSize: '0.85rem',
+    }}
+  >
+    Загрузка...
+  </div>
+)
 
 interface ArticleLayoutProps {
   title: string
@@ -64,10 +81,29 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
 
       <QABlock items={qa} />
 
-      {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
-      {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
-      {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
-      {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
+      {genreTable && (
+        <Suspense fallback={<LoadingFallback />}>
+          <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />
+        </Suspense>
+      )}
+
+      {quickStart && (
+        <Suspense fallback={<LoadingFallback />}>
+          <QuickStart title={quickStart.title} steps={quickStart.steps} />
+        </Suspense>
+      )}
+
+      {checklist && (
+        <Suspense fallback={<LoadingFallback />}>
+          <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />
+        </Suspense>
+      )}
+
+      {userQuestions && (
+        <Suspense fallback={<LoadingFallback />}>
+          <UserQuestions title={userQuestions.title} items={userQuestions.items} />
+        </Suspense>
+      )}
 
       <Glossary items={glossary} />
       <TipBlock text={tip} />
