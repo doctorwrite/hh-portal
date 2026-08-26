@@ -2,6 +2,7 @@
 import './page.css'
 
 import { getArticle, getMetadata, getAllArticleSlugs } from '@/lib/articles'
+import { getWidget } from '@/components/interactive'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Metadata } from 'next'
@@ -59,15 +60,6 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({
     slug,
   }))
-}
-
-// ===== ВИДЖЕТЫ (будем добавлять по мере создания) =====
-// import { EQWidget } from '@/components/interactive'
-
-const widgetMap: Record<string, any> = {
-  // eq: EQWidget,
-  // compression: CompressorWidget,
-  // ... и так далее
 }
 
 // ===== JSON-LD: TechArticle =====
@@ -178,7 +170,9 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
-  const Widget = widgetMap[slug]
+  // ===== ПОЛУЧАЕМ ВИДЖЕТ ПО SLUG =====
+  const Widget = getWidget(slug)
+
   const jsonLd = getJsonLd(slug, article, meta)
   const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
   const faqJsonLd = getFaqJsonLd(article.content)
