@@ -7,7 +7,6 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 
 // ===== МЕТАДАННЫЕ =====
-// Временно пустой объект, будем заполнять по мере добавления статей
 const metaMap: Record<string, any> = {
   // eq: eqMeta,  ← добавим позже
 }
@@ -66,13 +65,12 @@ export async function generateStaticParams() {
 }
 
 // ===== ВИДЖЕТЫ =====
-// Временно пустой объект
 const widgetMap: Record<string, any> = {
   // eq: EQWidget,  ← добавим позже
 }
 
 // ===== JSON-LD =====
-function getJsonLd(slug: string) {
+function getJsonLd(slug: string, article: any) {
   const meta = metaMap[slug]
   if (!meta) return null
 
@@ -108,6 +106,41 @@ function getJsonLd(slug: string) {
   }
 }
 
+// ===== ДОБАВЛЕН: JSON-LD BreadcrumbList =====
+function getBreadcrumbJsonLd(slug: string, article: any) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Главная',
+        item: 'https://hiphoprecords.ru/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Энциклопедия',
+        item: 'https://hiphoprecords.ru/encyclopedia/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: `https://hiphoprecords.ru/encyclopedia/${slug}`,
+      },
+    ],
+  }
+}
+
+// ===== ДОБАВЛЕН: JSON-LD FAQPage =====
+function getFaqJsonLd(article: any) {
+  // Парсим вопросы из контента (если есть)
+  // Для простоты пока возвращаем null, потом можно добавить парсинг
+  return null
+}
+
 // ===== СТРАНИЦА =====
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
@@ -118,15 +151,33 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   }
 
   const Widget = widgetMap[slug]
-  const jsonLd = getJsonLd(slug)
+  const jsonLd = getJsonLd(slug, article)
+  const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
+  const faqJsonLd = getFaqJsonLd(article)
 
   return (
     <div className="article-container" id="main-content">
-      {/* ===== JSON-LD ===== */}
+      {/* ===== JSON-LD: TechArticle ===== */}
       {jsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+
+      {/* ===== JSON-LD: BreadcrumbList ===== */}
+      {breadcrumbJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      )}
+
+      {/* ===== JSON-LD: FAQPage ===== */}
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
 
