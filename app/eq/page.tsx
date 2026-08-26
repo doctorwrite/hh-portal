@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'спектроанализатор',
     'аудиоредактор онлайн',
     'частотный баланс',
-    'динамический эквалайзер'
+    'динамический эквалайзер',
   ],
   openGraph: {
     title: '🎛️ Онлайн-эквалайзер для музыки — профессиональная обработка звука',
@@ -27,21 +27,22 @@ export const metadata: Metadata = {
     siteName: 'HHRecords',
     images: [
       {
-        url: '/images/og-eq.webp',
+        url: 'https://hiphoprecords.ru/eq/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Онлайн-эквалайзер HHRecords'
-      }
+        alt: 'Онлайн-эквалайзер HHRecords',
+      },
     ],
-    type: 'website'
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: '🎛️ Онлайн-эквалайзер HHRecords',
-    description: 'Профессиональный онлайн-эквалайзер с поддержкой файлов, микрофона и системного звука. Настройка частот, динамический EQ, спектроанализатор.'
+    description: 'Профессиональный онлайн-эквалайзер с поддержкой файлов, микрофона и системного звука. Настройка частот, динамический EQ, спектроанализатор.',
+    images: ['https://hiphoprecords.ru/eq/opengraph-image'],
   },
   alternates: {
-    canonical: 'https://hiphoprecords.ru/eq'
+    canonical: 'https://hiphoprecords.ru/eq',
   },
   robots: {
     index: true,
@@ -51,35 +52,36 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1
-    }
-  }
+      'max-snippet': -1,
+    },
+  },
 }
 
-// ===== JSON-LD =====
+// ===== JSON-LD (микроразметка для AI) =====
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  'name': 'Онлайн-эквалайзер HHRecords',
-  'description': 'Профессиональный онлайн-эквалайзер для музыки с поддержкой файлов, микрофона и системного звука. Настройка частот, динамический EQ, спектроанализатор.',
-  'applicationCategory': 'Multimedia',
-  'operatingSystem': 'All',
-  'browserRequirements': 'Requires JavaScript and Web Audio API',
-  'url': 'https://hiphoprecords.ru/eq',
-  'offers': {
+  name: 'Онлайн-эквалайзер HHRecords',
+  description: 'Профессиональный онлайн-эквалайзер для музыки с поддержкой файлов, микрофона и системного звука. Настройка частот, динамический EQ, спектроанализатор.',
+  applicationCategory: 'Multimedia',
+  operatingSystem: 'All',
+  browserRequirements: 'Requires JavaScript and Web Audio API',
+  url: 'https://hiphoprecords.ru/eq',
+  offers: {
     '@type': 'Offer',
-    'price': '0',
-    'priceCurrency': 'RUB'
+    price: '0',
+    priceCurrency: 'RUB',
   },
-  'author': {
+  author: {
     '@type': 'Organization',
-    'name': 'HHRecords'
-  }
+    name: 'HHRecords',
+  },
 }
 
 export default function EQPage() {
   return (
     <>
+      {/* ===== МИКРОРАЗМЕТКА ===== */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -87,8 +89,10 @@ export default function EQPage() {
 
       <main id="main-content">
         <div className="eq-page">
+          {/* ===== ЗАГОЛОВОК ===== */}
           <h1>Онлайн-эквалайзер</h1>
 
+          {/* ===== САМ ЭКВАЛАЙЗЕР ===== */}
           <div className="hh-eq-container">
             <div className="eq-widget-wrapper">
               <div className="eq-widget-glow"></div>
@@ -96,8 +100,10 @@ export default function EQPage() {
             </div>
           </div>
 
+          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
+          {/* ===== КАК ИСПОЛЬЗОВАТЬ ЭКВАЛАЙЗЕР ===== */}
           <section className="eq-guide">
             <div className="container">
               <h2>Как пользоваться эквалайзером</h2>
@@ -197,8 +203,10 @@ export default function EQPage() {
             </div>
           </section>
 
+          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
+          {/* ===== ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ ===== */}
           <section className="eq-faq">
             <div className="container">
               <h2>Часто задаваемые вопросы</h2>
@@ -285,8 +293,10 @@ export default function EQPage() {
             </div>
           </section>
 
+          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
+          {/* ===== СЕО-ТЕКСТ ===== */}
           <section className="seo-text">
             <div className="container">
               <h2>🎛️ Профессиональный онлайн-эквалайзер для музыки</h2>
