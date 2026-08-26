@@ -13,6 +13,28 @@ export const eq: ArticleData = {
         <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи в Красноярске</a>
       </div>
 
+      <!-- ===== HERO-БЛОК ===== -->
+      <div class="hero-article" style="text-align: center; padding: 20px 0 30px;">
+        <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(245,197,66,0.06); border: 1px solid rgba(245,197,66,0.08); border-radius: 50px; padding: 4px 16px 4px 8px; margin-bottom: 16px; font-size: 0.75rem; color: #fcf6ba;">
+          <span class="badge-icon" style="font-size: 1rem;">🎛️</span>
+          <span class="badge-text">Энциклопедия звукозаписи</span>
+        </div>
+        <div class="hero-title-wrapper" style="display: inline-block; background: rgba(22, 22, 28, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(245,197,66,0.08); border-radius: 20px; padding: 16px 32px; margin-bottom: 20px; box-shadow: 0 0 40px rgba(245,197,66,0.03); transition: all 0.4s;">
+          <h1 style="font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; margin: 0;">
+            <span class="title-accent" style="background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Эквализация (EQ)</span>
+            <span class="title-main" style="color: #ffffff;">— что это? Полное определение, виды, применение, советы</span>
+          </h1>
+          <div class="hero-accent-line" style="width: 120px; height: 3px; background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728); margin: 12px auto 0; border-radius: 3px;"></div>
+        </div>
+        <p class="hero-subtitle" style="color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin: 0 auto 20px;">Узнайте, как работает эквализация, какие бывают типы эквалайзеров и как мы используем EQ в студии HHRecords.</p>
+        <div class="hero-tags" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">📌 6 вопросов</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">⭐ 4.9 на основе 87 отзывов</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">🎚️ Студия в Красноярске с 2016</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">📚 Ссылки на источники</span>
+        </div>
+      </div>
+
       <!-- ===== ОГЛАВЛЕНИЕ ===== -->
       <div class="toc">
         <h2 class="toc-title">📑 Содержание</h2>
@@ -152,7 +174,7 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ ===== -->
       <section>
         <h2>🎯 Как мы используем эквализацию в разных жанрах в HHRecords</h2>
         <div style="color: var(--text-secondary); line-height: 1.9;">
@@ -179,7 +201,7 @@ export const eq: ArticleData = {
         </div>
       </section>
 
-      <!-- ===== БЫСТРЫЙ СТАРТ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== БЫСТРЫЙ СТАРТ ===== -->
       <section class="quick-start" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px 24px; margin: 16px 0;">
         <h3 class="quick-start-title" style="color: #fcf6ba; font-weight: 700; font-size: 1rem; margin-bottom: 12px;">🚀 Быстрый старт для новичков</h3>
         <div style="background: rgba(255,255,255,0.02); border-radius: 12px; padding: 20px;">
@@ -195,7 +217,7 @@ export const eq: ArticleData = {
         </div>
       </section>
 
-      <!-- ===== ЧЕК-ЛИСТ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== ЧЕК-ЛИСТ ===== -->
       <div class="checklist-wrapper" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 24px 28px; margin: 16px 0;">
         <div class="checklist-title" style="color: #fcf6ba; font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
           ✅ Чек-лист: готов ли ваш трек к эквализации?
@@ -258,7 +280,7 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ ===== -->
       <section class="user-questions" style="margin: 16px 0;">
         <h3 class="user-questions-title" style="color: #fcf6ba; font-weight: 700; font-size: 1rem; margin-bottom: 12px;">❓ Вопросы от наших клиентов</h3>
         <article class="user-question" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px;">
@@ -308,7 +330,7 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ИСТОЧНИКИ + ПОХОЖИЕ ТЕРМИНЫ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== ИСТОЧНИКИ + ПОХОЖИЕ ТЕРМИНЫ ===== -->
       <div class="bottom-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 20px 0 0; background: rgba(255,255,255,0.02); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
         <div class="sources" style="padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.05);">
           <h3 style="color: #fcf6ba; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">📚 Источники</h3>
@@ -342,6 +364,46 @@ export const eq: ArticleData = {
         </div>
         <p style="margin-top:16px; font-size:0.85rem; color:var(--text-secondary);">📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311</p>
       </div>
+
+      <!-- ===== ПОДЕЛИТЬСЯ (НОВЫЙ БЛОК) ===== -->
+      <div style="text-align:center; margin:10px 0 5px; color:#888; font-size:0.8rem;">Поделиться статьёй:</div>
+      <div class="share-buttons" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+        <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/eq" target="_blank" rel="noopener noreferrer" class="share-btn vk" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); color: #fff; border: none; cursor: pointer; background: #0077FF;">
+          <span>📱</span><span class="share-label" style="font-weight: 600;">Поделиться в VK</span>
+        </a>
+        <a href="https://t.me/share/url?url=https://hiphoprecords.ru/encyclopedia/eq" target="_blank" rel="noopener noreferrer" class="share-btn tg" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); color: #fff; border: none; cursor: pointer; background: #0088cc;">
+          <span>✈️</span><span class="share-label" style="font-weight: 600;">Поделиться в Telegram</span>
+        </a>
+        <button class="share-btn copy" onclick="copyLink()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); color: #fff; border: none; cursor: pointer; background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.08);">
+          <span>📋</span><span class="share-label" style="font-weight: 600;">Копировать ссылку</span>
+        </button>
+      </div>
+
+      <div id="copyNotification" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); color: #fff; padding: 14px 28px; border-radius: 12px; border: 1px solid rgba(245,197,66,0.2); z-index: 9999; font-size: 0.95rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5); animation: fadeInUp 0.3s ease;">✅ Ссылка скопирована!</div>
+
+      <script>
+        function copyLink() {
+          navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/eq').then(() => {
+            const notification = document.getElementById('copyNotification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+              notification.style.display = 'none';
+            }, 2500);
+          }).catch(() => {
+            const input = document.createElement('input');
+            input.value = 'https://hiphoprecords.ru/encyclopedia/eq';
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            const notification = document.getElementById('copyNotification');
+            notification.style.display = 'block';
+            setTimeout(() => {
+              notification.style.display = 'none';
+            }, 2500);
+          });
+        }
+      </script>
 
     </div>
   `
