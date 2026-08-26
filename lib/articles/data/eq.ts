@@ -2,38 +2,10 @@
 import { ArticleData } from '../types'
 
 export const eq: ArticleData = {
-  title: 'Эквализация (EQ) — что это? Полное руководство',
+  title: 'Эквализация (EQ) — что это? Полное определение, виды, применение, советы',
   description: 'Эквализация — это регулировка частот звука. Узнайте, как работает EQ, какие бывают типы эквалайзеров.',
   content: `
     <div class="article-content">
-
-      <!-- ===== МЕТА-ИНФОРМАЦИЯ ===== -->
-      <div class="meta">
-        Обновлено: 22 июля 2026 • Автор: Звукорежиссёр HHRecords •
-        <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи в Красноярске</a>
-      </div>
-
-      <!-- ===== HERO-БЛОК ===== -->
-      <div class="hero-article" style="text-align: center; padding: 20px 0 30px;">
-        <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(245,197,66,0.06); border: 1px solid rgba(245,197,66,0.08); border-radius: 50px; padding: 4px 16px 4px 8px; margin-bottom: 16px; font-size: 0.75rem; color: #fcf6ba;">
-          <span class="badge-icon" style="font-size: 1rem;">🎛️</span>
-          <span class="badge-text">Энциклопедия звукозаписи</span>
-        </div>
-        <div class="hero-title-wrapper" style="display: inline-block; background: rgba(22, 22, 28, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(245,197,66,0.08); border-radius: 20px; padding: 16px 32px; margin-bottom: 20px; box-shadow: 0 0 40px rgba(245,197,66,0.03); transition: all 0.4s;">
-          <h1 style="font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.2; margin: 0;">
-            <span class="title-accent" style="background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Эквализация (EQ)</span>
-            <span class="title-main" style="color: #ffffff;">— что это? Полное определение, виды, применение, советы</span>
-          </h1>
-          <div class="hero-accent-line" style="width: 120px; height: 3px; background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728); margin: 12px auto 0; border-radius: 3px;"></div>
-        </div>
-        <p class="hero-subtitle" style="color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin: 0 auto 20px;">Узнайте, как работает эквализация, какие бывают типы эквалайзеров и как мы используем EQ в студии HHRecords.</p>
-        <div class="hero-tags" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">📌 6 вопросов</span>
-          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">⭐ 4.9 на основе 87 отзывов</span>
-          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">🎚️ Студия в Красноярске с 2016</span>
-          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06); transition: all 0.3s; cursor: default;">📚 Ссылки на источники</span>
-        </div>
-      </div>
 
       <!-- ===== ОГЛАВЛЕНИЕ ===== -->
       <div class="toc">
@@ -58,10 +30,6 @@ export const eq: ArticleData = {
       <div class="qa-block" id="q1">
         <h3 class="question"><span class="num">1</span>Что такое эквализация?</h3>
         <div class="answer">
-          <div class="article-image">
-            <img src="/images/eq-frequency-spectrum.webp" alt="Частотный спектр звука" loading="lazy" />
-            <figcaption>Частотный спектр звука</figcaption>
-          </div>
           <p><strong>Эквализация (EQ)</strong> — это процесс изменения тембра и частотного баланса звукового сигнала путём усиления или ослабления определённых частот с помощью эквалайзера. Проще говоря, это регулировка низких, средних и высоких частот, чтобы сделать звук чище, сбалансированнее или придать ему нужный характер.</p>
           <p>Человеческое ухо воспринимает звуки в диапазоне примерно от 20 Гц до 20 кГц. Разные частотные диапазоны отвечают за разные характеристики:</p>
           <ul>
@@ -70,7 +38,6 @@ export const eq: ArticleData = {
             <li><strong>Высокие частоты (4–10 кГц)</strong> — добавляют яркость и детализацию.</li>
             <li><strong>Сверхвысокие частоты (10–20 кГц)</strong> — создают «воздушность» и пространство.</li>
           </ul>
-          <div style="clear:both;"></div>
         </div>
       </div>
 
@@ -78,16 +45,11 @@ export const eq: ArticleData = {
       <div class="qa-block" id="q2">
         <h3 class="question"><span class="num">2</span>Какие бывают виды эквализации?</h3>
         <div class="answer">
-          <div class="article-image">
-            <img src="/images/eq-types.webp" alt="Виды эквализации: техническая и художественная" loading="lazy" />
-            <figcaption>Виды эквализации</figcaption>
-          </div>
           <p>Эквализация делится на два направления:</p>
           <ul>
             <li><strong>Техническая (коррекционная).</strong> Удаление нежелательных резонансов, гула, шумов или обрезка неслышимых частот (например, с помощью фильтра низких частот High-Pass). Используется для устранения частотных конфликтов между инструментами и компенсации искажений, вносимых акустикой помещения.</li>
             <li><strong>Художественная (творческая).</strong> Придание звуку плотности, яркости, теплоты или «воздуха» для того, чтобы инструмент лучше читался в общем миксе. Это про создание характера и настроения звука.</li>
           </ul>
-          <div style="clear:both;"></div>
         </div>
       </div>
 
@@ -110,10 +72,6 @@ export const eq: ArticleData = {
       <div class="qa-block" id="q4">
         <h3 class="question"><span class="num">4</span>Какие бывают типы эквалайзеров?</h3>
         <div class="answer">
-          <div class="article-image">
-            <img src="/images/eq-types-diagram.webp" alt="Типы эквалайзеров: параметрический, графический, фильтры" loading="lazy" />
-            <figcaption>Типы эквалайзеров</figcaption>
-          </div>
           <table class="comparison-table">
             <thead>
               <tr>
@@ -131,7 +89,6 @@ export const eq: ArticleData = {
               <tr><td><strong>Линейно-фазовый</strong></td><td>⭐⭐⭐⭐⭐</td><td>Высокая</td><td>Мастеринг</td></tr>
             </tbody>
           </table>
-          <div style="clear:both;"></div>
         </div>
       </div>
 
@@ -139,10 +96,6 @@ export const eq: ArticleData = {
       <div class="qa-block" id="q5">
         <h3 class="question"><span class="num">5</span>Какие важные принципы настройки эквалайзера?</h3>
         <div class="answer">
-          <div class="article-image">
-            <img src="/images/eq-tips.webp" alt="Советы по настройке эквалайзера" loading="lazy" />
-            <figcaption>Принципы настройки EQ</figcaption>
-          </div>
           <ul>
             <li><strong>Работайте в контексте.</strong> Настраивайте эквалайзер, слушая весь микс целиком, а не изолированно один инструмент.</li>
             <li><strong>Начинайте с подрезки (субтрактивная эквализация).</strong> Сначала убирайте проблемные частоты, а потом, если нужно, усиливайте.</li>
@@ -151,7 +104,6 @@ export const eq: ArticleData = {
             <li><strong>Используйте фильтры.</strong> HPF и LPF — ваши лучшие друзья для очистки звука от мусора.</li>
             <li><strong>Не злоупотребляйте.</strong> Иногда инструмент звучит отлично и без дополнительной обработки.</li>
           </ul>
-          <div style="clear:both;"></div>
         </div>
       </div>
 
@@ -159,10 +111,6 @@ export const eq: ArticleData = {
       <div class="qa-block" id="q6">
         <h3 class="question"><span class="num">6</span>Какие ошибки часто допускают при эквализации?</h3>
         <div class="answer">
-          <div class="article-image">
-            <img src="/images/eq-mistakes.webp" alt="Ошибки при эквализации" loading="lazy" />
-            <figcaption>Ошибки при эквализации</figcaption>
-          </div>
           <ul>
             <li><strong>Слишком много баса.</strong> Микс становится «грязным» и утомительным для слуха.</li>
             <li><strong>Перебор с высокими частотами.</strong> Звук становится резким и неприятным.</li>
@@ -170,7 +118,6 @@ export const eq: ArticleData = {
             <li><strong>Слишком агрессивные изменения.</strong> Подъёмы или срезы более 5 дБ делают звук неестественным.</li>
             <li><strong>Игнорирование фильтров.</strong> HPF и LPF — простейший способ убрать «грязь».</li>
           </ul>
-          <div style="clear:both;"></div>
         </div>
       </div>
 
@@ -217,50 +164,50 @@ export const eq: ArticleData = {
         </div>
       </section>
 
-      <!-- ===== ЧЕК-ЛИСТ ===== -->
+      <!-- ===== ЧЕК-ЛИСТ С РАБОТАЮЩИМИ ГАЛОЧКАМИ ===== -->
       <div class="checklist-wrapper" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 24px 28px; margin: 16px 0;">
         <div class="checklist-title" style="color: #fcf6ba; font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
           ✅ Чек-лист: готов ли ваш трек к эквализации?
-          <span class="badge" style="font-size: 0.6rem; background: rgba(245,197,66,0.1); padding: 2px 10px; border-radius: 12px; color: #fcf6ba;">0/6</span>
+          <span class="badge" id="checklistBadge" style="font-size: 0.6rem; background: rgba(245,197,66,0.1); padding: 2px 10px; border-radius: 12px; color: #fcf6ba;">0/6</span>
         </div>
-        <div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+        <div id="checklistItems">
+          <div class="checklist-item" data-id="item1" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">Вокал записан с запасом по громкости (-6 dB)</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Чтобы избежать клиппинга при обработке</span>
             </span>
           </div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+          <div class="checklist-item" data-id="item2" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">В записи нет клиппинга</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Проверьте пиковые значения на мастер-канале</span>
             </span>
           </div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+          <div class="checklist-item" data-id="item3" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">Вы слушаете микс в контексте, а не соло</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Настройка в соло убивает понимание баланса</span>
             </span>
           </div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+          <div class="checklist-item" data-id="item4" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">Вы проверили фазу на всех дорожках</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Фазовые проблемы убивают плотность звука</span>
             </span>
           </div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+          <div class="checklist-item" data-id="item5" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">У вас есть хорошие студийные мониторы или наушники</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">На дешёвой акустике вы не услышите реальный баланс</span>
             </span>
           </div>
-          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
-            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+          <div class="checklist-item" data-id="item6" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);"></span>
             <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
               <strong style="color: #fff; display: block;">Вы знаете цель эквализации (очистка / характер)</strong>
               <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Сначала убираем мусор, потом добавляем характер</span>
@@ -270,11 +217,11 @@ export const eq: ArticleData = {
         <div class="checklist-progress" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 14px;">
           <span class="progress-label" style="font-size: 0.75rem; color: #888; white-space: nowrap;">Прогресс:</span>
           <div class="progress-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
-            <div class="progress-fill" style="height: 100%; width: 0%; background: linear-gradient(90deg, #bf953f, #fcf6ba); border-radius: 4px; transition: width 0.5s ease;"></div>
+            <div class="progress-fill" id="checklistProgressFill" style="height: 100%; width: 0%; background: linear-gradient(90deg, #bf953f, #fcf6ba); border-radius: 4px; transition: width 0.5s ease;"></div>
           </div>
-          <span class="progress-text" style="font-size: 0.75rem; color: #fcf6ba; font-weight: 600; min-width: 60px; text-align: right;">0%</span>
+          <span class="progress-text" id="checklistProgressText" style="font-size: 0.75rem; color: #fcf6ba; font-weight: 600; min-width: 60px; text-align: right;">0%</span>
         </div>
-        <div class="checklist-celebration" style="display: none; margin-top: 16px; padding: 14px 20px; background: rgba(245,197,66,0.08); border: 1px solid rgba(245,197,66,0.15); border-radius: 12px; text-align: center;">
+        <div class="checklist-celebration" id="checklistCelebration" style="display: none; margin-top: 16px; padding: 14px 20px; background: rgba(245,197,66,0.08); border: 1px solid rgba(245,197,66,0.15); border-radius: 12px; text-align: center;">
           <span class="emoji" style="font-size: 2rem; display: block;">🎉</span>
           <span class="msg" style="color: #fcf6ba; font-weight: 600; font-size: 1rem;">Отлично! Вы готовы к эквализации уровня PRO! 🔥</span>
         </div>
@@ -314,9 +261,6 @@ export const eq: ArticleData = {
       <div class="tip-with-photo">
         <h3 class="question">💡 Совет от звукорежиссёра HHRecords</h3>
         <div class="tip-content">
-          <div class="tip-photo">
-            <img src="/images/studio-control.webp" alt="Звукорежиссёр HHRecords за работой" loading="lazy" />
-          </div>
           <div class="tip-text">
             <p>В студии HHRecords мы начинаем любой микс с эквализации. Наша базовая техника для вокала:</p>
             <ul>
@@ -337,7 +281,6 @@ export const eq: ArticleData = {
           <div class="links" style="display: flex; flex-wrap: wrap; gap: 6px 14px;">
             <a href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">Википедия</a>
             <a href="https://wikisound.org/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">WikiSound</a>
-            <a href="https://www.soundonsound.com/techniques/equalization" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">Sound on Sound</a>
           </div>
         </div>
         <div class="terms" style="padding: 16px 20px;">
@@ -365,7 +308,7 @@ export const eq: ArticleData = {
         <p style="margin-top:16px; font-size:0.85rem; color:var(--text-secondary);">📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311</p>
       </div>
 
-      <!-- ===== ПОДЕЛИТЬСЯ (НОВЫЙ БЛОК) ===== -->
+      <!-- ===== ПОДЕЛИТЬСЯ ===== -->
       <div style="text-align:center; margin:10px 0 5px; color:#888; font-size:0.8rem;">Поделиться статьёй:</div>
       <div class="share-buttons" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
         <a href="https://vk.com/share.php?url=https://hiphoprecords.ru/encyclopedia/eq" target="_blank" rel="noopener noreferrer" class="share-btn vk" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); color: #fff; border: none; cursor: pointer; background: #0077FF;">
@@ -379,16 +322,93 @@ export const eq: ArticleData = {
         </button>
       </div>
 
-      <div id="copyNotification" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); color: #fff; padding: 14px 28px; border-radius: 12px; border: 1px solid rgba(245,197,66,0.2); z-index: 9999; font-size: 0.95rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5); animation: fadeInUp 0.3s ease;">✅ Ссылка скопирована!</div>
+      <div id="copyNotification" style="display: none; position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); color: #fff; padding: 14px 28px; border-radius: 12px; border: 1px solid rgba(245,197,66,0.2); z-index: 9999; font-size: 0.95rem; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">✅ Ссылка скопирована!</div>
 
       <script>
+        // ===== ЧЕК-ЛИСТ =====
+        document.addEventListener('DOMContentLoaded', function() {
+          const items = document.querySelectorAll('#checklistItems .checklist-item');
+          const progressFill = document.getElementById('checklistProgressFill');
+          const progressText = document.getElementById('checklistProgressText');
+          const badge = document.getElementById('checklistBadge');
+          const celebration = document.getElementById('checklistCelebration');
+
+          const STORAGE_KEY = 'hhrecords_eq_checklist';
+
+          function loadState() {
+            try {
+              const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+              if (saved && typeof saved === 'object') {
+                items.forEach(item => {
+                  const id = item.dataset.id;
+                  if (id && saved[id] === true) {
+                    item.classList.add('checked');
+                    item.querySelector('.check-box').textContent = '✓';
+                  } else {
+                    item.classList.remove('checked');
+                    item.querySelector('.check-box').textContent = '';
+                  }
+                });
+              }
+            } catch (e) {}
+            updateProgress();
+          }
+
+          function saveState() {
+            const state = {};
+            items.forEach(item => {
+              const id = item.dataset.id;
+              if (id) state[id] = item.classList.contains('checked');
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          }
+
+          function updateProgress() {
+            const total = items.length;
+            let checked = 0;
+            items.forEach(item => {
+              if (item.classList.contains('checked')) checked++;
+            });
+            const percent = Math.round((checked / total) * 100);
+            if (progressFill) progressFill.style.width = percent + '%';
+            if (progressText) progressText.textContent = percent + '%';
+            if (badge) badge.textContent = checked + '/' + total;
+
+            if (checked === total && total > 0) {
+              if (celebration) celebration.style.display = 'block';
+            } else {
+              if (celebration) celebration.style.display = 'none';
+            }
+          }
+
+          items.forEach(item => {
+            item.addEventListener('click', function() {
+              const isChecked = this.classList.contains('checked');
+              if (isChecked) {
+                this.classList.remove('checked');
+                this.querySelector('.check-box').textContent = '';
+              } else {
+                this.classList.add('checked');
+                this.querySelector('.check-box').textContent = '✓';
+              }
+              saveState();
+              updateProgress();
+            });
+          });
+
+          loadState();
+        });
+
+        // ===== КОПИРОВАНИЕ ССЫЛКИ =====
         function copyLink() {
           navigator.clipboard.writeText('https://hiphoprecords.ru/encyclopedia/eq').then(() => {
             const notification = document.getElementById('copyNotification');
-            notification.style.display = 'block';
-            setTimeout(() => {
-              notification.style.display = 'none';
-            }, 2500);
+            if (notification) {
+              notification.style.display = 'block';
+              setTimeout(() => {
+                notification.style.display = 'none';
+              }, 2500);
+            }
           }).catch(() => {
             const input = document.createElement('input');
             input.value = 'https://hiphoprecords.ru/encyclopedia/eq';
@@ -397,10 +417,12 @@ export const eq: ArticleData = {
             document.execCommand('copy');
             document.body.removeChild(input);
             const notification = document.getElementById('copyNotification');
-            notification.style.display = 'block';
-            setTimeout(() => {
-              notification.style.display = 'none';
-            }, 2500);
+            if (notification) {
+              notification.style.display = 'block';
+              setTimeout(() => {
+                notification.style.display = 'none';
+              }, 2500);
+            }
           });
         }
       </script>
