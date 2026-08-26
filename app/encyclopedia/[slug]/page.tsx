@@ -62,7 +62,7 @@ export async function generateStaticParams() {
   }))
 }
 
-// ===== JSON-LD: TechArticle =====
+// ===== JSON-LD =====
 function getJsonLd(slug: string, article: any, meta: any) {
   if (!meta || !article) return null
 
@@ -98,7 +98,6 @@ function getJsonLd(slug: string, article: any, meta: any) {
   }
 }
 
-// ===== JSON-LD: BreadcrumbList =====
 function getBreadcrumbJsonLd(slug: string, article: any) {
   if (!article) return null
 
@@ -128,7 +127,6 @@ function getBreadcrumbJsonLd(slug: string, article: any) {
   }
 }
 
-// ===== JSON-LD: FAQPage =====
 function getFaqJsonLd(content: string) {
   if (!content) return null
 
@@ -214,9 +212,9 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       <div className="article-content">
         <h1>{article.title}</h1>
         
-        {/* ===== ВИДЖЕТ — ПЕРЕМЕЩЁН ВВЕРХ ===== */}
+        {/* ===== ВИДЖЕТ ВСТАВЛЯЕТСЯ В #eq-widget-placeholder ===== */}
         {Widget && (
-          <div className="widget-wrapper" style={{ marginBottom: '24px' }}>
+          <div id="eq-widget-placeholder">
             <Widget />
           </div>
         )}
