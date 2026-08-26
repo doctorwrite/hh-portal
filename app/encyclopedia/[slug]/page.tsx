@@ -4,6 +4,61 @@ import './page.css'
 import { getArticle, getAllArticleSlugs } from '@/lib/articles/data'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+// ===== ГЕНЕРАЦИЯ МЕТАДАННЫХ =====
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const article = getArticle(params.slug)
+  
+  if (!article) {
+    return {
+      title: 'Статья не найдена | HHRecords',
+      description: 'Запрашиваемая статья не найдена в энциклопедии звукозаписи HHRecords.',
+    }
+  }
+
+  return {
+    title: `${article.title} | HHRecords`,
+    description: article.description,
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
+      siteName: 'HHRecords',
+      images: [
+        {
+          url: `https://hiphoprecords.ru/encyclopedia/${params.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+      type: 'article',
+      publishedTime: new Date().toISOString(),
+      authors: ['HHRecords'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+      images: [`https://hiphoprecords.ru/encyclopedia/${params.slug}/opengraph-image`],
+    },
+    alternates: {
+      canonical: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  }
+}
 
 // ===== ГЕНЕРАЦИЯ СТАТИЧЕСКИХ СТРАНИЦ =====
 export async function generateStaticParams() {
@@ -18,7 +73,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
   const article = getArticle(slug)
 
-  // Если статьи нет — показываем 404
   if (!article) {
     notFound()
   }
