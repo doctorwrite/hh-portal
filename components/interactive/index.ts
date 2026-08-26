@@ -1,6 +1,15 @@
 // components/interactive/index.ts
-// Экспорт всех виджетов (будем добавлять по мере создания)
+import dynamic from 'next/dynamic'
 
-// export { EQWidget } from './EQWidget'
-// export { CompressorWidget } from './CompressorWidget'
-// ... и так далее
+// ===== ВИДЖЕТЫ =====
+export const EQVisualizer = dynamic(() => import('./EQVisualizer'), { ssr: false })
+
+// ===== КАРТА ДЛЯ ПОДКЛЮЧЕНИЯ ПО SLUG =====
+export const widgetMap: Record<string, any> = {
+  eq: EQVisualizer,
+}
+
+// ===== ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ВИДЖЕТА =====
+export function getWidget(slug: string): any {
+  return widgetMap[slug] || null
+}
