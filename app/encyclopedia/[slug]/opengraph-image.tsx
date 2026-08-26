@@ -1,6 +1,6 @@
 // app/encyclopedia/[slug]/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
-import { getArticle } from '@/lib/articles/data'
+import { getArticle } from '@/lib/articles'
 
 export const runtime = 'edge'
 
