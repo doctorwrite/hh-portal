@@ -2,10 +2,31 @@
 import { ArticleData } from '../types'
 
 export const eq: ArticleData = {
-  title: 'Эквализация (EQ) — что это? Полное определение, виды, применение, советы',
+  title: 'Эквализация (EQ) — что это? Полное руководство',
   description: 'Эквализация — это регулировка частот звука. Узнайте, как работает EQ, какие бывают типы эквалайзеров.',
   content: `
     <div class="article-content">
+
+      <!-- ===== МЕТА-ИНФОРМАЦИЯ ===== -->
+      <div class="meta">
+        Обновлено: 22 июля 2026 • Автор: Звукорежиссёр HHRecords •
+        <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи в Красноярске</a>
+      </div>
+
+      <!-- ===== HERO-БЛОК ===== -->
+      <div class="hero-article" style="text-align: center; padding: 10px 0 20px;">
+        <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(245,197,66,0.06); border: 1px solid rgba(245,197,66,0.08); border-radius: 50px; padding: 4px 16px 4px 8px; margin-bottom: 12px; font-size: 0.75rem; color: #fcf6ba;">
+          <span class="badge-icon" style="font-size: 1rem;">🎛️</span>
+          <span class="badge-text">Энциклопедия звукозаписи</span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 700px; margin: 0 auto 12px;">Узнайте, как работает эквализация, какие бывают типы эквалайзеров и как мы используем EQ в студии HHRecords.</p>
+        <div class="hero-tags" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">📌 6 вопросов</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">⭐ 4.9 на основе 87 отзывов</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">🎚️ Студия в Красноярске с 2016</span>
+          <span class="hero-tag" style="background: rgba(245,197,66,0.06); color: #fcf6ba; padding: 4px 16px; border-radius: 20px; font-size: 0.78rem; border: 1px solid rgba(245,197,66,0.06);">📚 Ссылки на источники</span>
+        </div>
+      </div>
 
       <!-- ===== ОГЛАВЛЕНИЕ ===== -->
       <div class="toc">
@@ -24,6 +45,13 @@ export const eq: ArticleData = {
       <div class="quick-answer">
         <div class="quick-answer-label">⚡ Краткий ответ</div>
         <p><strong>Эквализация (EQ)</strong> — это процесс изменения тембра и частотного баланса звука с помощью эквалайзера. Она используется для очистки звука от шумов, устранения частотных конфликтов между инструментами и придания звучанию нужного характера. Эквалайзеры бывают параметрическими, графическими и в виде фильтров (HPF, LPF).</p>
+      </div>
+
+      <!-- ===== ВИДЖЕТ (ПОД КРАТКИМ ОТВЕТОМ) ===== -->
+      <div class="widget-placeholder" style="background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 40px 20px; margin: 16px 0; text-align: center; border: 1px solid rgba(255,255,255,0.05); color: #888;">
+        <div style="font-size: 3rem; margin-bottom: 12px;">🎛️</div>
+        <div style="font-size: 1rem; font-weight: 600; color: #aaa;">Интерактивный эквалайзер</div>
+        <div style="font-size: 0.8rem; margin-top: 4px; color: #666;">Виджет будет добавлен позже</div>
       </div>
 
       <!-- ===== ВОПРОС 1 ===== -->
@@ -121,9 +149,9 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ ===== -->
+      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ (УМЕНЬШЕННЫЙ ШРИФТ) ===== -->
       <section>
-        <h2>🎯 Как мы используем эквализацию в разных жанрах в HHRecords</h2>
+        <h3 style="color: #fcf6ba; font-size: 1.2rem; font-weight: 700; margin: 24px 0 12px; font-family: 'Oswald', sans-serif;">🎯 Как мы используем эквализацию в разных жанрах в HHRecords</h3>
         <div style="color: var(--text-secondary); line-height: 1.9;">
           <p>В студии HHRecords мы подходим к эквализации индивидуально, в зависимости от жанра. Вот наши базовые настройки:</p>
           <div class="genre-table-wrap" style="overflow-x: auto; margin: 12px 0;">
@@ -164,7 +192,7 @@ export const eq: ArticleData = {
         </div>
       </section>
 
-      <!-- ===== ЧЕК-ЛИСТ С РАБОТАЮЩИМИ ГАЛОЧКАМИ ===== -->
+      <!-- ===== ЧЕК-ЛИСТ ===== -->
       <div class="checklist-wrapper" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 24px 28px; margin: 16px 0;">
         <div class="checklist-title" style="color: #fcf6ba; font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
           ✅ Чек-лист: готов ли ваш трек к эквализации?
@@ -274,13 +302,13 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ИСТОЧНИКИ + ПОХОЖИЕ ТЕРМИНЫ ===== -->
+      <!-- ===== ИСТОЧНИКИ (С ПОДЧЁРКИВАНИЕМ) ===== -->
       <div class="bottom-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 20px 0 0; background: rgba(255,255,255,0.02); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
         <div class="sources" style="padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.05);">
           <h3 style="color: #fcf6ba; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">📚 Источники</h3>
           <div class="links" style="display: flex; flex-wrap: wrap; gap: 6px 14px;">
-            <a href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">Википедия</a>
-            <a href="https://wikisound.org/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">WikiSound</a>
+            <a href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s; text-decoration: underline; text-underline-offset: 2px;">Википедия</a>
+            <a href="https://wikisound.org/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s; text-decoration: underline; text-underline-offset: 2px;">WikiSound</a>
           </div>
         </div>
         <div class="terms" style="padding: 16px 20px;">
@@ -295,9 +323,10 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== БРЕНДОВЫЙ БЛОК ===== -->
+      <!-- ===== БРЕНДОВЫЙ БЛОК (С ДОБАВЛЕННОЙ ФРАЗОЙ) ===== -->
       <div class="brand-block" id="contacts">
         <h2>🎧 HHRecords — студия звукозаписи в Красноярске</h2>
+        <div style="color: #4a9eff; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; letter-spacing: 0.5px;">🌐 Работаем очно и онлайн по всей России</div>
         <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
         <div class="btn-row">
           <a href="tel:+79138376772" class="btn" style="background:linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); color:#000;">📞 Позвонить</a>
@@ -344,9 +373,15 @@ export const eq: ArticleData = {
                   if (id && saved[id] === true) {
                     item.classList.add('checked');
                     item.querySelector('.check-box').textContent = '✓';
+                    item.querySelector('.check-box').style.color = '#0a0a0f';
+                    item.querySelector('.check-box').style.background = '#fcf6ba';
+                    item.querySelector('.check-box').style.borderColor = '#fcf6ba';
                   } else {
                     item.classList.remove('checked');
                     item.querySelector('.check-box').textContent = '';
+                    item.querySelector('.check-box').style.color = 'transparent';
+                    item.querySelector('.check-box').style.background = 'rgba(255,255,255,0.03)';
+                    item.querySelector('.check-box').style.borderColor = 'rgba(255,255,255,0.15)';
                   }
                 });
               }
@@ -384,12 +419,19 @@ export const eq: ArticleData = {
           items.forEach(item => {
             item.addEventListener('click', function() {
               const isChecked = this.classList.contains('checked');
+              const box = this.querySelector('.check-box');
               if (isChecked) {
                 this.classList.remove('checked');
-                this.querySelector('.check-box').textContent = '';
+                box.textContent = '';
+                box.style.color = 'transparent';
+                box.style.background = 'rgba(255,255,255,0.03)';
+                box.style.borderColor = 'rgba(255,255,255,0.15)';
               } else {
                 this.classList.add('checked');
-                this.querySelector('.check-box').textContent = '✓';
+                box.textContent = '✓';
+                box.style.color = '#0a0a0f';
+                box.style.background = '#fcf6ba';
+                box.style.borderColor = '#fcf6ba';
               }
               saveState();
               updateProgress();
@@ -426,6 +468,26 @@ export const eq: ArticleData = {
           });
         }
       </script>
+
+      <style>
+        /* ===== СТИЛИ ДЛЯ ГАЛОЧЕК ===== */
+        .checklist-item.checked .check-box {
+          background: #fcf6ba !important;
+          border-color: #fcf6ba !important;
+          color: #0a0a0f !important;
+        }
+        .checklist-item .check-box {
+          transition: all 0.3s ease;
+        }
+        /* ===== ПОДЧЁРКИВАНИЕ ССЫЛОК ===== */
+        .bottom-links .links a {
+          text-decoration: underline !important;
+          text-underline-offset: 2px;
+        }
+        .bottom-links .links a:hover {
+          color: #fcf6ba !important;
+        }
+      </style>
 
     </div>
   `
