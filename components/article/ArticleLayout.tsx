@@ -1,224 +1,120 @@
-// app/encyclopedia/[slug]/page.tsx
-import './page.css'
+// components/article/ArticleLayout.tsx
 
-import { getArticle, getMetadata, getAllArticleSlugs } from '@/lib/articles'
-import { getWidget } from '@/components/interactive'
-import ArticleLayout from '@/components/article/ArticleLayout'
-import BottomNav from '@/components/article/BottomNav'
-import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import ArticleMeta from './ArticleMeta'
+import HeroBlock from './HeroBlock'
+import TOC from './TOC'
+import QuickAnswer from './QuickAnswer'
+import QABlock from './QABlock'
+import Glossary from './Glossary'
+import TipBlock from './TipBlock'
+import RelatedTerms from './RelatedTerms'
+import Sources from './Sources'
+import BrandBlock from './BrandBlock'
+import ShareButtons from './ShareButtons'
 
-// ===== МЕТАДАННЫЕ =====
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const meta = getMetadata(params.slug)
+// ===== КЛИЕНТСКИЕ КОМПОНЕНТЫ (ТОЛЬКО НА КЛИЕНТЕ) =====
+const GenreTable = dynamic(() => import('./GenreTable'), { ssr: false })
+const QuickStart = dynamic(() => import('./QuickStart'), { ssr: false })
+const Checklist = dynamic(() => import('./Checklist'), { ssr: false })
+const UserQuestions = dynamic(() => import('./UserQuestions'), { ssr: false })
 
-  if (!meta) {
-    return {
-      title: 'Статья не найдена | HHRecords',
-      description: 'Запрашиваемая статья не найдена в энциклопедии звукозаписи HHRecords.',
-    }
-  }
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
-      images: [{ url: meta.ogImage, width: 1200, height: 630 }],
-      type: 'article',
-      publishedTime: meta.datePublished,
-      authors: [meta.author],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
-      images: [meta.ogImage],
-    },
-    alternates: {
-      canonical: `https://hiphoprecords.ru/encyclopedia/${params.slug}`,
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      },
-    },
-  }
+interface ArticleLayoutProps {
+  title: string
+  meta: { dateModified: string; author: string }
+  hero: { badge: string; subtitle: string; tags: string[] }
+  toc: { id: string; label: string }[]
+  quickAnswer: string
+  qa: { id: string; question: string; answer: string }[]
+  glossary: { term: string; definition: string }[]
+  tip: string
+  relatedTerms: { slug: string; icon: string; label: string }[]
+  sources: { url: string; label: string }[]
+  genreTable?: any
+  quickStart?: any
+  checklist?: any
+  userQuestions?: any
+  widget?: React.ReactNode
+  url: string
 }
 
-// ===== ГЕНЕРАЦИЯ СТАТИЧЕСКИХ СТРАНИЦ =====
-export async function generateStaticParams() {
-  const slugs = getAllArticleSlugs()
-  return slugs.map((slug) => ({
-    slug,
-  }))
-}
-
-// ===== JSON-LD =====
-function getJsonLd(slug: string, article: any, meta: any) {
-  if (!meta || !article) return null
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'TechArticle',
-    headline: meta.title,
-    description: meta.description,
-    author: {
-      '@type': 'Organization',
-      name: 'HHRecords',
-      url: 'https://hiphoprecords.ru',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'HHRecords',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://hiphoprecords.ru/favicon.ico',
-      },
-    },
-    datePublished: meta.datePublished,
-    dateModified: meta.dateModified,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://hiphoprecords.ru/encyclopedia/${slug}`,
-    },
-    about: {
-      '@type': 'Thing',
-      name: meta.category,
-    },
-    keywords: meta.keywords.join(', '),
-  }
-}
-
-function getBreadcrumbJsonLd(slug: string, article: any) {
-  if (!article) return null
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Главная',
-        item: 'https://hiphoprecords.ru/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Энциклопедия',
-        item: 'https://hiphoprecords.ru/encyclopedia/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: article.title,
-        item: `https://hiphoprecords.ru/encyclopedia/${slug}`,
-      },
-    ],
-  }
-}
-
-function getFaqJsonLd(qa: any[]) {
-  if (!qa || qa.length === 0) return null
-
-  const faqItems = qa.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer.replace(/<[^>]+>/g, '').trim(),
-    },
-  }))
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems,
-  }
-}
-
-// ===== СТРАНИЦА =====
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const { slug } = params
-  const article = getArticle(slug)
-  const meta = getMetadata(slug)
-
-  if (!article || !meta) {
-    notFound()
-  }
-
-  const Widget = article.widget ? getWidget(article.widget) : null
-
-  const jsonLd = getJsonLd(slug, article, meta)
-  const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
-  const faqJsonLd = getFaqJsonLd(article.qa)
-
+const ArticleLayout: React.FC<ArticleLayoutProps> = ({
+  title,
+  meta,
+  hero,
+  toc,
+  quickAnswer,
+  qa,
+  glossary,
+  tip,
+  relatedTerms,
+  sources,
+  genreTable,
+  quickStart,
+  checklist,
+  userQuestions,
+  widget,
+  url,
+}) => {
   return (
-    <div className="article-container" id="main-content">
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
-      {breadcrumbJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-        />
-      )}
-      {faqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
-
-      <div className="breadcrumb">
-        <a href="/">Главная</a>
-        <span className="sep">›</span>
-        <a href="/encyclopedia">Энциклопедия</a>
-        <span className="sep">›</span>
-        <span className="current">{article.title}</span>
-      </div>
-
-      <ArticleLayout
-        title={article.title}
-        meta={{
-          dateModified: meta.dateModified,
-          author: meta.author,
-        }}
-        hero={{
-          badge: article.hero.badge || 'Энциклопедия звукозаписи',
-          subtitle: article.hero.subtitle,
-          tags: article.hero.tags,
-        }}
-        toc={article.toc}
-        quickAnswer={article.quickAnswer}
-        qa={article.qa}
-        glossary={article.glossary}
-        tip={article.tip}
-        relatedTerms={article.relatedTerms}
-        sources={article.sources}
-        genreTable={article.genreTable}
-        quickStart={article.quickStart}
-        checklist={article.checklist}
-        userQuestions={article.userQuestions}
-        widget={Widget ? <Widget /> : undefined}
-        url={`https://hiphoprecords.ru/encyclopedia/${slug}`}
+    <div className="article-content">
+      {/* ===== 1. HERO ===== */}
+      <HeroBlock
+        badge={hero.badge}
+        title={title}
+        subtitle={hero.subtitle}
+        tags={hero.tags}
       />
 
-      <BottomNav />
+      {/* ===== 2. МЕТА ===== */}
+      <ArticleMeta
+        dateModified={meta.dateModified}
+        author={meta.author}
+      />
+
+      {/* ===== 3. ОГЛАВЛЕНИЕ ===== */}
+      <TOC items={toc} />
+
+      {/* ===== 4. КРАТКИЙ ОТВЕТ ===== */}
+      <QuickAnswer text={quickAnswer} />
+
+      {/* ===== 5. ВИДЖЕТ ===== */}
+      {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
+
+      {/* ===== 6. ВОПРОСЫ ===== */}
+      <QABlock items={qa} />
+
+      {/* ===== 7. ПРИМЕНЕНИЕ В ЖАНРАХ (КЛИЕНТ) ===== */}
+      {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
+
+      {/* ===== 8. БЫСТРЫЙ СТАРТ (КЛИЕНТ) ===== */}
+      {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
+
+      {/* ===== 9. ЧЕК-ЛИСТ (КЛИЕНТ) ===== */}
+      {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
+
+      {/* ===== 10. ВОПРОСЫ ОТ КЛИЕНТОВ (КЛИЕНТ) ===== */}
+      {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
+
+      {/* ===== 11. ГЛОССАРИЙ ===== */}
+      <Glossary items={glossary} />
+
+      {/* ===== 12. СОВЕТ ===== */}
+      <TipBlock text={tip} />
+
+      {/* ===== 13. ПОХОЖИЕ ТЕРМИНЫ ===== */}
+      <RelatedTerms items={relatedTerms} />
+
+      {/* ===== 14. ИСТОЧНИКИ ===== */}
+      <Sources items={sources} />
+
+      {/* ===== 15. БРЕНД ===== */}
+      <BrandBlock />
+
+      {/* ===== 16. ПОДЕЛИТЬСЯ ===== */}
+      <ShareButtons url={url} />
     </div>
   )
 }
+
+export default ArticleLayout
