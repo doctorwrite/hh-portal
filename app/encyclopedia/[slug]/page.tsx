@@ -8,7 +8,6 @@ import BottomNav from '@/components/article/BottomNav'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 
-// ===== МЕТАДАННЫЕ =====
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const meta = getMetadata(params.slug)
 
@@ -55,7 +54,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-// ===== ГЕНЕРАЦИЯ СТАТИЧЕСКИХ СТРАНИЦ =====
 export async function generateStaticParams() {
   const slugs = getAllArticleSlugs()
   return slugs.map((slug) => ({
@@ -63,7 +61,6 @@ export async function generateStaticParams() {
   }))
 }
 
-// ===== JSON-LD =====
 function getJsonLd(slug: string, article: any, meta: any) {
   if (!meta || !article) return null
 
@@ -147,7 +144,6 @@ function getFaqJsonLd(qa: any[]) {
   }
 }
 
-// ===== СТРАНИЦА =====
 export default function ArticlePage({ params }: { params: { slug: string } }) {
   const { slug } = params
   const article = getArticle(slug)
@@ -157,7 +153,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
-  // ===== ПОЛУЧАЕМ ВИДЖЕТ =====
   const Widget = article.widget ? getWidget(article.widget) : null
 
   const jsonLd = getJsonLd(slug, article, meta)
@@ -166,21 +161,18 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="article-container" id="main-content">
-      {/* ===== JSON-LD ===== */}
       {jsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-
       {breadcrumbJsonLd && (
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
       )}
-
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -188,7 +180,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         />
       )}
 
-      {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
       <div className="breadcrumb">
         <a href="/">Главная</a>
         <span className="sep">›</span>
@@ -197,7 +188,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         <span className="current">{article.title}</span>
       </div>
 
-      {/* ===== СОДЕРЖАНИЕ СТАТЬИ ===== */}
       <ArticleLayout
         title={article.title}
         meta={{
@@ -224,7 +214,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         url={`https://hiphoprecords.ru/encyclopedia/${slug}`}
       />
 
-      {/* ===== НАВИГАЦИЯ ===== */}
       <BottomNav />
     </div>
   )
