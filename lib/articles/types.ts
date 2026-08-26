@@ -23,6 +23,7 @@ export interface ArticleData {
 
   // Hero-блок
   hero: {
+    badge: string
     subtitle: string
     tags: string[]
   }
@@ -42,6 +43,43 @@ export interface ArticleData {
     question: string
     answer: string
   }[]
+
+  // Применение в жанрах
+  genreTable?: {
+    title: string
+    rows: {
+      genre: string
+      boost: string
+      cut: string
+    }[]
+    note: string
+  }
+
+  // Быстрый старт
+  quickStart?: {
+    title: string
+    steps: string[]
+  }
+
+  // Чек-лист
+  checklist?: {
+    title: string
+    items: {
+      id: string
+      text: string
+      hint: string
+    }[]
+    storageKey: string
+  }
+
+  // Вопросы от читателей
+  userQuestions?: {
+    title: string
+    items: {
+      question: string
+      answer: string
+    }[]
+  }
 
   // Микро-глоссарий
   glossary: {
