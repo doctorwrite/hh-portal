@@ -1,6 +1,5 @@
 // components/article/ArticleLayout.tsx
 
-import dynamic from 'next/dynamic'
 import ArticleMeta from './ArticleMeta'
 import HeroBlock from './HeroBlock'
 import TOC from './TOC'
@@ -13,12 +12,6 @@ import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
 
-// ===== ВСЕ КЛИЕНТСКИЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ =====
-const GenreTable = dynamic(() => import('./GenreTable'), { ssr: false })
-const QuickStart = dynamic(() => import('./QuickStart'), { ssr: false })
-const Checklist = dynamic(() => import('./Checklist'), { ssr: false })
-const UserQuestions = dynamic(() => import('./UserQuestions'), { ssr: false })
-
 interface ArticleLayoutProps {
   title: string
   meta: { dateModified: string; author: string }
@@ -30,10 +23,6 @@ interface ArticleLayoutProps {
   tip: string
   relatedTerms: { slug: string; icon: string; label: string }[]
   sources: { url: string; label: string }[]
-  genreTable?: { title: string; rows: { genre: string; boost: string; cut: string }[]; note: string }
-  quickStart?: { title: string; steps: string[] }
-  checklist?: { title: string; items: { id: string; text: string; hint: string }[]; storageKey: string }
-  userQuestions?: { title: string; items: { question: string; answer: string }[] }
   widget?: React.ReactNode
   url: string
 }
@@ -49,16 +38,11 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
   tip,
   relatedTerms,
   sources,
-  genreTable,
-  quickStart,
-  checklist,
-  userQuestions,
   widget,
   url,
 }) => {
   return (
     <div className="article-content">
-      {/* ===== 1. HERO ===== */}
       <HeroBlock
         badge={hero.badge}
         title={title}
@@ -66,52 +50,22 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
         tags={hero.tags}
       />
 
-      {/* ===== 2. МЕТА ===== */}
       <ArticleMeta
         dateModified={meta.dateModified}
         author={meta.author}
       />
 
-      {/* ===== 3. ОГЛАВЛЕНИЕ ===== */}
       <TOC items={toc} />
-
-      {/* ===== 4. КРАТКИЙ ОТВЕТ ===== */}
       <QuickAnswer text={quickAnswer} />
 
-      {/* ===== 5. ВИДЖЕТ ===== */}
       {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
 
-      {/* ===== 6. ВОПРОСЫ ===== */}
       <QABlock items={qa} />
-
-      {/* ===== 7. ПРИМЕНЕНИЕ В ЖАНРАХ ===== */}
-      {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
-
-      {/* ===== 8. БЫСТРЫЙ СТАРТ ===== */}
-      {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
-
-      {/* ===== 9. ЧЕК-ЛИСТ ===== */}
-      {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
-
-      {/* ===== 10. ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ ===== */}
-      {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
-
-      {/* ===== 11. МИКРО-ГЛОССАРИЙ ===== */}
       <Glossary items={glossary} />
-
-      {/* ===== 12. СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */}
       <TipBlock text={tip} />
-
-      {/* ===== 13. ПОХОЖИЕ ТЕРМИНЫ ===== */}
       <RelatedTerms items={relatedTerms} />
-
-      {/* ===== 14. ИСТОЧНИКИ ===== */}
       <Sources items={sources} />
-
-      {/* ===== 15. БРЕНДОВЫЙ БЛОК ===== */}
       <BrandBlock />
-
-      {/* ===== 16. ПОДЕЛИТЬСЯ ===== */}
       <ShareButtons url={url} />
     </div>
   )
