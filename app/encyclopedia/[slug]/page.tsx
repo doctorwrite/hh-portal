@@ -3,14 +3,14 @@ import './page.css'
 
 import { getArticle, getMetadata, getAllArticleSlugs } from '@/lib/articles'
 import { getWidget } from '@/components/interactive'
+import ArticleLayout from '@/components/article/ArticleLayout'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { Metadata } from 'next'
 
 // ===== МЕТАДАННЫЕ =====
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const meta = getMetadata(params.slug)
-  
+
   if (!meta) {
     return {
       title: 'Статья не найдена | HHRecords',
@@ -168,12 +168,12 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
     notFound()
   }
 
-  // ===== ПОЛУЧАЕМ ВИДЖЕТ ПО SLUG =====
-  const Widget = getWidget(slug)
+  // ===== ПОЛУЧАЕМ ВИДЖЕТ =====
+  const Widget = getWidget(article.widget || '')
 
   const jsonLd = getJsonLd(slug, article, meta)
   const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
-  const faqJsonLd = getFaqJsonLd(article.content)
+  const faqJsonLd = getFaqJsonLd(JSON.stringify(article.qa))
 
   return (
     <div className="article-container" id="main-content">
@@ -201,31 +201,40 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       {/* ===== ХЛЕБНЫЕ КРОШКИ ===== */}
       <div className="breadcrumb">
-        <Link href="/">Главная</Link>
+        <a href="/">Главная</a>
         <span className="sep">›</span>
-        <Link href="/encyclopedia">Энциклопедия</Link>
+        <a href="/encyclopedia">Энциклопедия</a>
         <span className="sep">›</span>
         <span className="current">{article.title}</span>
       </div>
 
       {/* ===== СОДЕРЖАНИЕ СТАТЬИ ===== */}
-      <div className="article-content">
-        <h1>{article.title}</h1>
-        
-        {/* ===== ВИДЖЕТ ВСТАВЛЯЕТСЯ В #eq-widget-placeholder ===== */}
-        {Widget && (
-          <div id="eq-widget-placeholder">
-            <Widget />
-          </div>
-        )}
-
-        <div dangerouslySetInnerHTML={{ __html: article.content }} />
-      </div>
+      <ArticleLayout
+        title={article.title}
+        meta={{
+          dateModified: meta.dateModified,
+          author: meta.author,
+        }}
+        hero={{
+          badge: 'Энциклопедия звукозаписи',
+          subtitle: article.hero.subtitle,
+          tags: article.hero.tags,
+        }}
+        toc={article.toc}
+        quickAnswer={article.quickAnswer}
+        qa={article.qa}
+        glossary={article.glossary}
+        tip={article.tip}
+        relatedTerms={article.relatedTerms}
+        sources={article.sources}
+        widget={Widget ? <Widget /> : undefined}
+        url={`https://hiphoprecords.ru/encyclopedia/${slug}`}
+      />
 
       {/* ===== НАВИГАЦИЯ ===== */}
       <nav className="bottom-nav">
-        <Link href="/encyclopedia">← Назад к энциклопедии</Link>
-        <Link href="/" className="bottom-home">🏠 На главную</Link>
+        <a href="/encyclopedia">← Назад к энциклопедии</a>
+        <a href="/" className="bottom-home">🏠 На главную</a>
         <a href="#top" className="back-to-top">↑ Наверх</a>
       </nav>
     </div>
