@@ -1,5 +1,5 @@
 // app/sitemap.ts
-import { getAllArticleSlugs } from '@/lib/articles/data'
+import { getAllArticleSlugs } from '@/lib/articles'
 
 export default async function sitemap() {
   const baseUrl = 'https://hiphoprecords.ru'
