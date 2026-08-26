@@ -84,22 +84,22 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
       {/* ===== 6. ВОПРОСЫ ===== */}
       <QABlock items={qa} />
 
-      {/* ===== 7. ПРИМЕНЕНИЕ В ЖАНРАХ (КЛИЕНТ) ===== */}
+      {/* ===== 7. ПРИМЕНЕНИЕ В ЖАНРАХ ===== */}
       {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
 
-      {/* ===== 8. БЫСТРЫЙ СТАРТ (КЛИЕНТ) ===== */}
+      {/* ===== 8. БЫСТРЫЙ СТАРТ ===== */}
       {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
 
-      {/* ===== 9. ЧЕК-ЛИСТ (КЛИЕНТ) ===== */}
+      {/* ===== 9. ЧЕК-ЛИСТ ===== */}
       {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
 
-      {/* ===== 10. ВОПРОСЫ ОТ КЛИЕНТОВ (КЛИЕНТ) ===== */}
+      {/* ===== 10. ВОПРОСЫ ОТ КЛИЕНТОВ ===== */}
       {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
 
       {/* ===== 11. ГЛОССАРИЙ ===== */}
       <Glossary items={glossary} />
 
-      {/* ===== 12. СОВЕТ ===== */}
+      {/* ===== 12. СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */}
       <TipBlock text={tip} />
 
       {/* ===== 13. ПОХОЖИЕ ТЕРМИНЫ ===== */}
@@ -108,7 +108,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
       {/* ===== 14. ИСТОЧНИКИ ===== */}
       <Sources items={sources} />
 
-      {/* ===== 15. БРЕНД ===== */}
+      {/* ===== 15. БРЕНДОВЫЙ БЛОК ===== */}
       <BrandBlock />
 
       {/* ===== 16. ПОДЕЛИТЬСЯ ===== */}
