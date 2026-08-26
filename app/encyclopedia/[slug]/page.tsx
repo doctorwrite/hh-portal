@@ -157,7 +157,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   }
 
   // ===== ПОЛУЧАЕМ ВИДЖЕТ =====
-  const Widget = getWidget(article.widget || '')
+  const Widget = article.widget ? getWidget(article.widget) : null
 
   const jsonLd = getJsonLd(slug, article, meta)
   const breadcrumbJsonLd = getBreadcrumbJsonLd(slug, article)
