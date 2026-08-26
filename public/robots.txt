@@ -1,0 +1,20 @@
+# public/robots.txt
+# Инструкция для поисковых роботов
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://hiphoprecords.ru/sitemap.xml
+
+# Для Яндекса
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Host: https://hiphoprecords.ru
+
+# Для Google
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
