@@ -1,6 +1,6 @@
 // components/article/ArticleLayout.tsx
 
-import { Suspense, lazy } from 'react'
+import dynamic from 'next/dynamic'
 import ArticleMeta from './ArticleMeta'
 import HeroBlock from './HeroBlock'
 import TOC from './TOC'
@@ -13,25 +13,11 @@ import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
 
-// ===== ЛЕНИВАЯ ЗАГРУЗКА ВСЕХ КЛИЕНТСКИХ КОМПОНЕНТОВ =====
-const GenreTable = lazy(() => import('./GenreTable'))
-const QuickStart = lazy(() => import('./QuickStart'))
-const Checklist = lazy(() => import('./Checklist'))
-const UserQuestions = lazy(() => import('./UserQuestions'))
-
-// ===== КОМПОНЕНТ ЗАГРУЗКИ =====
-const LoadingFallback = () => (
-  <div
-    style={{
-      padding: '20px',
-      textAlign: 'center',
-      color: '#666',
-      fontSize: '0.85rem',
-    }}
-  >
-    Загрузка...
-  </div>
-)
+// ===== ВСЕ КЛИЕНТСКИЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ =====
+const GenreTable = dynamic(() => import('./GenreTable'), { ssr: false })
+const QuickStart = dynamic(() => import('./QuickStart'), { ssr: false })
+const Checklist = dynamic(() => import('./Checklist'), { ssr: false })
+const UserQuestions = dynamic(() => import('./UserQuestions'), { ssr: false })
 
 interface ArticleLayoutProps {
   title: string
@@ -84,30 +70,11 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
       {/* ===== QA БЛОКИ (SSR) ===== */}
       <QABlock items={qa} />
 
-      {/* ===== ВСЕ НОВЫЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ ===== */}
-      {genreTable && (
-        <Suspense fallback={<LoadingFallback />}>
-          <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />
-        </Suspense>
-      )}
-
-      {quickStart && (
-        <Suspense fallback={<LoadingFallback />}>
-          <QuickStart title={quickStart.title} steps={quickStart.steps} />
-        </Suspense>
-      )}
-
-      {checklist && (
-        <Suspense fallback={<LoadingFallback />}>
-          <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />
-        </Suspense>
-      )}
-
-      {userQuestions && (
-        <Suspense fallback={<LoadingFallback />}>
-          <UserQuestions title={userQuestions.title} items={userQuestions.items} />
-        </Suspense>
-      )}
+      {/* ===== ВСЕ НОВЫЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ (ssr: false) ===== */}
+      {genreTable && <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />}
+      {quickStart && <QuickStart title={quickStart.title} steps={quickStart.steps} />}
+      {checklist && <Checklist title={checklist.title} items={checklist.items} storageKey={checklist.storageKey} />}
+      {userQuestions && <UserQuestions title={userQuestions.title} items={userQuestions.items} />}
 
       {/* ===== СТАТИЧЕСКИЕ КОМПОНЕНТЫ (SSR) ===== */}
       <Glossary items={glossary} />
