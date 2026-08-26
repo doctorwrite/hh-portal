@@ -10,9 +10,16 @@ const ArticleMeta: React.FC<ArticleMetaProps> = ({
   author,
 }) => {
   return (
-    <div className="meta">
+    <div className="meta" style={{
+      color: '#888',
+      fontSize: '0.85rem',
+      marginBottom: '24px',
+      paddingBottom: '16px',
+      borderBottom: '1px solid rgba(255,255,255,0.05)',
+      textAlign: 'center'
+    }}>
       Обновлено: {dateModified} • Автор: {author} •
-      <a href="https://hiphoprecords.ru">HHRecords — студия звукозаписи</a>
+      <a href="https://hiphoprecords.ru" style={{ color: '#fcf6ba' }}>HHRecords — студия звукозаписи</a>
     </div>
   )
 }
