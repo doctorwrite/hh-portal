@@ -13,13 +13,13 @@ import Sources from './Sources'
 import BrandBlock from './BrandBlock'
 import ShareButtons from './ShareButtons'
 
-// Ленивая загрузка тяжёлых/клиентских компонентов
+// ===== ЛЕНИВАЯ ЗАГРУЗКА ВСЕХ КЛИЕНТСКИХ КОМПОНЕНТОВ =====
 const GenreTable = lazy(() => import('./GenreTable'))
 const QuickStart = lazy(() => import('./QuickStart'))
 const Checklist = lazy(() => import('./Checklist'))
 const UserQuestions = lazy(() => import('./UserQuestions'))
 
-// Компонент загрузки
+// ===== КОМПОНЕНТ ЗАГРУЗКИ =====
 const LoadingFallback = () => (
   <div
     style={{
@@ -72,16 +72,19 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
 }) => {
   return (
     <div className="article-content">
+      {/* ===== СТАТИЧЕСКИЕ КОМПОНЕНТЫ (SSR) ===== */}
       <ArticleMeta dateModified={meta.dateModified} author={meta.author} />
       <HeroBlock badge={hero.badge} title={title} subtitle={hero.subtitle} tags={hero.tags} />
       <TOC items={toc} />
       <QuickAnswer text={quickAnswer} />
 
+      {/* ===== ВИДЖЕТ (SSR ОТКЛЮЧЁН ЧЕРЕЗ dynamic) ===== */}
       {widget && <div style={{ margin: '16px 0 24px' }}>{widget}</div>}
 
+      {/* ===== QA БЛОКИ (SSR) ===== */}
       <QABlock items={qa} />
 
-      {/* Ленивая загрузка новых компонентов */}
+      {/* ===== ВСЕ НОВЫЕ КОМПОНЕНТЫ — ТОЛЬКО НА КЛИЕНТЕ ===== */}
       {genreTable && (
         <Suspense fallback={<LoadingFallback />}>
           <GenreTable title={genreTable.title} rows={genreTable.rows} note={genreTable.note} />
@@ -106,6 +109,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
         </Suspense>
       )}
 
+      {/* ===== СТАТИЧЕСКИЕ КОМПОНЕНТЫ (SSR) ===== */}
       <Glossary items={glossary} />
       <TipBlock text={tip} />
       <RelatedTerms items={relatedTerms} />
