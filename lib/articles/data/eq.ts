@@ -152,6 +152,129 @@ export const eq: ArticleData = {
         </div>
       </div>
 
+      <!-- ===== ПРИМЕНЕНИЕ В ЖАНРАХ (НОВЫЙ БЛОК) ===== -->
+      <section>
+        <h2>🎯 Как мы используем эквализацию в разных жанрах в HHRecords</h2>
+        <div style="color: var(--text-secondary); line-height: 1.9;">
+          <p>В студии HHRecords мы подходим к эквализации индивидуально, в зависимости от жанра. Вот наши базовые настройки:</p>
+          <div class="genre-table-wrap" style="overflow-x: auto; margin: 12px 0;">
+            <table class="genre-table" style="width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden; font-size: 0.85rem;">
+              <thead>
+                <tr>
+                  <th style="background: rgba(245, 197, 66, 0.1); color: #fcf6ba; padding: 10px 14px; text-align: left; font-weight: 600;">Жанр</th>
+                  <th style="background: rgba(245, 197, 66, 0.1); color: #fcf6ba; padding: 10px 14px; text-align: left; font-weight: 600;">Какие частоты подчёркиваем</th>
+                  <th style="background: rgba(245, 197, 66, 0.1); color: #fcf6ba; padding: 10px 14px; text-align: left; font-weight: 600;">Какие убираем</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);"><strong style="color: #fff;">Рэп-вокал</strong></td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">2–4 кГц (для разборчивости)</td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">Ниже 80 Гц (для чистоты)</td></tr>
+                <tr><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);"><strong style="color: #fff;">Рок-гитара</strong></td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">100–200 Гц (для плотности)</td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">2–4 кГц (для мягкости)</td></tr>
+                <tr><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);"><strong style="color: #fff;">Акустическая гитара</strong></td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">4–6 кГц (для яркости)</td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">Ниже 80 Гц (для чистоты)</td></tr>
+                <tr><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);"><strong style="color: #fff;">Бас-гитара</strong></td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">60–80 Гц (для плотности)</td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">Выше 4 кГц (чтобы не мешать вокалу)</td></tr>
+                <tr><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);"><strong style="color: #fff;">Сведение микса</strong></td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">2–4 кГц (для вокала)</td><td style="padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--text-secondary);">200–300 Гц (для устранения «коробочности»)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><em>Эти настройки — стартовая точка. Мы всегда корректируем их под конкретный трек и голос исполнителя.</em></p>
+        </div>
+      </section>
+
+      <!-- ===== БЫСТРЫЙ СТАРТ (НОВЫЙ БЛОК) ===== -->
+      <section class="quick-start" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 20px 24px; margin: 16px 0;">
+        <h3 class="quick-start-title" style="color: #fcf6ba; font-weight: 700; font-size: 1rem; margin-bottom: 12px;">🚀 Быстрый старт для новичков</h3>
+        <div style="background: rgba(255,255,255,0.02); border-radius: 12px; padding: 20px;">
+          <ol style="color: var(--text-secondary); line-height: 2; padding-left: 24px;">
+            <li><strong style="color: #fff;">Шаг 1:</strong> Включите эквалайзер на дорожке.</li>
+            <li><strong style="color: #fff;">Шаг 2:</strong> Установите <strong style="color: #fff;">HPF (High-Pass Filter)</strong> на 80 Гц для вокала, чтобы убрать гул.</li>
+            <li><strong style="color: #fff;">Шаг 3:</strong> Найдите проблемные частоты с помощью узкого Q (усиление и поиск).</li>
+            <li><strong style="color: #fff;">Шаг 4:</strong> Ослабьте найденные проблемные частоты (субтрактивная эквализация).</li>
+            <li><strong style="color: #fff;">Шаг 5:</strong> Добавьте лёгкое усиление на 2–4 кГц для яркости (если нужно).</li>
+            <li><strong style="color: #fff;">Шаг 6:</strong> <strong style="color: #fff;">Проверьте в контексте микса</strong> — никогда не настраивайте EQ в соло!</li>
+            <li><strong style="color: #fff;">Шаг 7:</strong> Сравните с эталонным треком.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== ЧЕК-ЛИСТ (НОВЫЙ БЛОК) ===== -->
+      <div class="checklist-wrapper" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 24px 28px; margin: 16px 0;">
+        <div class="checklist-title" style="color: #fcf6ba; font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+          ✅ Чек-лист: готов ли ваш трек к эквализации?
+          <span class="badge" style="font-size: 0.6rem; background: rgba(245,197,66,0.1); padding: 2px 10px; border-radius: 12px; color: #fcf6ba;">0/6</span>
+        </div>
+        <div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">Вокал записан с запасом по громкости (-6 dB)</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Чтобы избежать клиппинга при обработке</span>
+            </span>
+          </div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">В записи нет клиппинга</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Проверьте пиковые значения на мастер-канале</span>
+            </span>
+          </div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">Вы слушаете микс в контексте, а не соло</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Настройка в соло убивает понимание баланса</span>
+            </span>
+          </div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">Вы проверили фазу на всех дорожках</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Фазовые проблемы убивают плотность звука</span>
+            </span>
+          </div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">У вас есть хорошие студийные мониторы или наушники</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">На дешёвой акустике вы не услышите реальный баланс</span>
+            </span>
+          </div>
+          <div class="checklist-item" style="display: flex; align-items: flex-start; gap: 12px; padding: 10px 12px; border-radius: 10px; cursor: pointer; transition: all 0.3s; border: 1px solid transparent; margin-bottom: 2px;">
+            <span class="check-box" style="width: 22px; height: 22px; min-width: 22px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: transparent; transition: all 0.3s; margin-top: 2px; background: rgba(255,255,255,0.03);">✓</span>
+            <span class="check-text" style="flex: 1; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+              <strong style="color: #fff; display: block;">Вы знаете цель эквализации (очистка / характер)</strong>
+              <span class="hint" style="display: block; font-size: 0.75rem; color: #666; font-weight: 400; margin-top: 2px;">Сначала убираем мусор, потом добавляем характер</span>
+            </span>
+          </div>
+        </div>
+        <div class="checklist-progress" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 14px;">
+          <span class="progress-label" style="font-size: 0.75rem; color: #888; white-space: nowrap;">Прогресс:</span>
+          <div class="progress-bar" style="flex: 1; height: 4px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+            <div class="progress-fill" style="height: 100%; width: 0%; background: linear-gradient(90deg, #bf953f, #fcf6ba); border-radius: 4px; transition: width 0.5s ease;"></div>
+          </div>
+          <span class="progress-text" style="font-size: 0.75rem; color: #fcf6ba; font-weight: 600; min-width: 60px; text-align: right;">0%</span>
+        </div>
+        <div class="checklist-celebration" style="display: none; margin-top: 16px; padding: 14px 20px; background: rgba(245,197,66,0.08); border: 1px solid rgba(245,197,66,0.15); border-radius: 12px; text-align: center;">
+          <span class="emoji" style="font-size: 2rem; display: block;">🎉</span>
+          <span class="msg" style="color: #fcf6ba; font-weight: 600; font-size: 1rem;">Отлично! Вы готовы к эквализации уровня PRO! 🔥</span>
+        </div>
+      </div>
+
+      <!-- ===== ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ (НОВЫЙ БЛОК) ===== -->
+      <section class="user-questions" style="margin: 16px 0;">
+        <h3 class="user-questions-title" style="color: #fcf6ba; font-weight: 700; font-size: 1rem; margin-bottom: 12px;">❓ Вопросы от наших клиентов</h3>
+        <article class="user-question" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px;">
+          <div class="user-q" style="color: #fff; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">Вопрос: "Можно ли использовать эквалайзер на мастер-канале?"</div>
+          <div class="user-a" style="color: var(--text-secondary); font-size: 0.9rem;">Ответ: Да, но только на финальном этапе мастеринга. На мастер-канале используют линейно-фазовые эквалайзеры, чтобы минимизировать фазовые искажения.</div>
+        </article>
+        <article class="user-question" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px;">
+          <div class="user-q" style="color: #fff; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">Вопрос: "Какой эквалайзер лучше для начинающих?"</div>
+          <div class="user-a" style="color: var(--text-secondary); font-size: 0.9rem;">Ответ: Начните с графического эквалайзера — он самый простой и наглядный. Позже переходите на параметрический для тонкой настройки.</div>
+        </article>
+        <article class="user-question" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px;">
+          <div class="user-q" style="color: #fff; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px;">Вопрос: "Можно ли испортить звук эквалайзером?"</div>
+          <div class="user-a" style="color: var(--text-secondary); font-size: 0.9rem;">Ответ: Да, если переборщить с усилением частот или использовать слишком агрессивные настройки. Всегда делайте небольшие изменения и проверяйте результат на разных системах.</div>
+        </article>
+      </section>
+
       <!-- ===== МИКРО-ГЛОССАРИЙ ===== -->
       <div class="micro-glossary">
         <h3 class="micro-glossary-title">📖 Микро-глоссарий</h3>
@@ -185,13 +308,26 @@ export const eq: ArticleData = {
         </div>
       </div>
 
-      <!-- ===== ПОХОЖИЕ ТЕРМИНЫ ===== -->
-      <div class="related-terms">
-        <a href="/encyclopedia/compression">🎚️ Компрессия</a>
-        <a href="/encyclopedia/reverb">🌊 Реверберация</a>
-        <a href="/encyclopedia/delay">⏳ Дилей</a>
-        <a href="/encyclopedia/saturation">🔥 Сатурация</a>
-        <a href="/encyclopedia/limiter">🧱 Лимитер</a>
+      <!-- ===== ИСТОЧНИКИ + ПОХОЖИЕ ТЕРМИНЫ (НОВЫЙ БЛОК) ===== -->
+      <div class="bottom-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 20px 0 0; background: rgba(255,255,255,0.02); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
+        <div class="sources" style="padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.05);">
+          <h3 style="color: #fcf6ba; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">📚 Источники</h3>
+          <div class="links" style="display: flex; flex-wrap: wrap; gap: 6px 14px;">
+            <a href="https://ru.wikipedia.org/wiki/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">Википедия</a>
+            <a href="https://wikisound.org/%D0%AD%D0%BA%D0%B2%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">WikiSound</a>
+            <a href="https://www.soundonsound.com/techniques/equalization" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 0.8rem; transition: color 0.3s;">Sound on Sound</a>
+          </div>
+        </div>
+        <div class="terms" style="padding: 16px 20px;">
+          <h3 style="color: #fcf6ba; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">📌 Похожие термины</h3>
+          <div class="tags" style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <a href="/encyclopedia/compression" style="background: rgba(245, 197, 66, 0.06); color: #fcf6ba; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; border: 1px solid rgba(245, 197, 66, 0.06); transition: all 0.3s;">🎚️ Компрессия</a>
+            <a href="/encyclopedia/reverb" style="background: rgba(245, 197, 66, 0.06); color: #fcf6ba; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; border: 1px solid rgba(245, 197, 66, 0.06); transition: all 0.3s;">🌊 Реверберация</a>
+            <a href="/encyclopedia/delay" style="background: rgba(245, 197, 66, 0.06); color: #fcf6ba; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; border: 1px solid rgba(245, 197, 66, 0.06); transition: all 0.3s;">⏳ Дилей</a>
+            <a href="/encyclopedia/saturation" style="background: rgba(245, 197, 66, 0.06); color: #fcf6ba; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; border: 1px solid rgba(245, 197, 66, 0.06); transition: all 0.3s;">🔥 Сатурация</a>
+            <a href="/encyclopedia/limiter" style="background: rgba(245, 197, 66, 0.06); color: #fcf6ba; padding: 3px 12px; border-radius: 50px; font-size: 0.75rem; border: 1px solid rgba(245, 197, 66, 0.06); transition: all 0.3s;">🧱 Лимитер</a>
+          </div>
+        </div>
       </div>
 
       <!-- ===== БРЕНДОВЫЙ БЛОК ===== -->
@@ -199,10 +335,10 @@ export const eq: ArticleData = {
         <h2>🎧 HHRecords — студия звукозаписи в Красноярске</h2>
         <p>Запись вокала, сведение, мастеринг. 10 лет опыта, оборудование премиум-класса (Neumann, Focal, Apollo).</p>
         <div class="btn-row">
-          <a href="tel:+79138376772" class="btn" style="background:linear-gradient(135deg, var(--gold-start), var(--gold-mid), var(--gold-end)); color:#000;">📞 Позвонить</a>
+          <a href="tel:+79138376772" class="btn" style="background:linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); color:#000;">📞 Позвонить</a>
           <a href="https://t.me/Nickkrsk" class="btn" style="background:linear-gradient(135deg,#0088cc,#005f8a); color:#fff;">✈️ Telegram</a>
-          <a href="https://vk.com/hhrecords24" target="_blank" class="btn btn-secondary" style="background:transparent; border:2px solid var(--gold-start); color:var(--gold-start);">📱 VK</a>
-          <a href="/" class="btn btn-secondary" style="background:transparent; border:2px solid var(--gold-start); color:var(--gold-start);">🏠 На главную</a>
+          <a href="https://vk.com/hhrecords24" target="_blank" class="btn btn-secondary" style="background:transparent; border:2px solid #bf953f; color:#fcf6ba;">📱 VK</a>
+          <a href="/" class="btn btn-secondary" style="background:transparent; border:2px solid #bf953f; color:#fcf6ba;">🏠 На главную</a>
         </div>
         <p style="margin-top:16px; font-size:0.85rem; color:var(--text-secondary);">📍 Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311</p>
       </div>
