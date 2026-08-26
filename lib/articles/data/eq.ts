@@ -47,12 +47,8 @@ export const eq: ArticleData = {
         <p><strong>Эквализация (EQ)</strong> — это процесс изменения тембра и частотного баланса звука с помощью эквалайзера. Она используется для очистки звука от шумов, устранения частотных конфликтов между инструментами и придания звучанию нужного характера. Эквалайзеры бывают параметрическими, графическими и в виде фильтров (HPF, LPF).</p>
       </div>
 
-      <!-- ===== ВИДЖЕТ (ПОД КРАТКИМ ОТВЕТОМ) ===== -->
-      <div class="widget-placeholder" style="background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 40px 20px; margin: 16px 0; text-align: center; border: 1px solid rgba(255,255,255,0.05); color: #888;">
-        <div style="font-size: 3rem; margin-bottom: 12px;">🎛️</div>
-        <div style="font-size: 1rem; font-weight: 600; color: #aaa;">Интерактивный эквалайзер</div>
-        <div style="font-size: 0.8rem; margin-top: 4px; color: #666;">Виджет будет добавлен позже</div>
-      </div>
+      <!-- ===== ВИДЖЕТ ===== -->
+      <div id="eq-widget-placeholder"></div>
 
       <!-- ===== ВОПРОС 1 ===== -->
       <div class="qa-block" id="q1">
@@ -487,9 +483,12 @@ export const eq: ArticleData = {
         .bottom-links .links a:hover {
           color: #fcf6ba !important;
         }
-        /* ===== УБИРАЕМ ЛИШНИЙ ВИДЖЕТ В H1 ===== */
-        .article-content > h1 + .widget-placeholder {
-          display: none;
+        /* ===== ВИДЖЕТ ===== */
+        #eq-widget-placeholder {
+          margin: 16px 0 24px;
+        }
+        #eq-widget-placeholder > div {
+          margin: 0 !important;
         }
       </style>
 
