@@ -1,15 +1,15 @@
 // components/interactive/index.ts
 import dynamic from 'next/dynamic'
 
-// ===== ВИДЖЕТЫ =====
+// ===== ВИДЖЕТЫ СТАТЕЙ =====
 export const EQVisualizer = dynamic(() => import('./EQVisualizer'), { ssr: false })
 
-// ===== КАРТА ДЛЯ ПОДКЛЮЧЕНИЯ ПО SLUG =====
+// ===== КАРТА ВИДЖЕТОВ ПО ИМЕНИ =====
 export const widgetMap: Record<string, any> = {
-  eq: EQVisualizer,
+  EQVisualizer: EQVisualizer,
 }
 
-// ===== ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ВИДЖЕТА =====
-export function getWidget(slug: string): any {
-  return widgetMap[slug] || null
+// ===== ФУНКЦИЯ ДЛЯ ПОЛУЧЕНИЯ ВИДЖЕТА ПО ИМЕНИ =====
+export function getWidget(name: string): any {
+  return widgetMap[name] || null
 }
