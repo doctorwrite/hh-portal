@@ -1,5 +1,6 @@
 // components/interactive/index.ts
 import dynamic from 'next/dynamic'
+import React from 'react'
 
 // ===== КОМПОНЕНТ ЗАГРУЗКИ =====
 const LoadingFallback = () => (
