@@ -275,8 +275,7 @@ const MIDIControllerWidget: React.FC = () => {
     // === ОБРАБОТЧИКИ ДЛЯ КЛАВИАТУРЫ ===
     if (mode === 'keyboard') {
       contentGroup.querySelectorAll('rect[data-note]').forEach(el => {
-        const htmlEl = el as HTMLElement
-        const note = parseInt(htmlEl.dataset.note || '0')
+        const note = parseInt(el.getAttribute('data-note') || '0')
         const isBlack = isBlackKey(note)
 
         const startNote = (e: Event) => {
@@ -305,8 +304,7 @@ const MIDIControllerWidget: React.FC = () => {
     // === ОБРАБОТЧИКИ ДЛЯ ПЭДОВ ===
     if (mode === 'pads') {
       contentGroup.querySelectorAll('rect[data-pad]').forEach(el => {
-        const htmlEl = el as HTMLElement
-        const padIndex = parseInt(htmlEl.dataset.pad || '0')
+        const padIndex = parseInt(el.getAttribute('data-pad') || '0')
         const note = 36 + padIndex
 
         const play = (e: Event) => {
@@ -325,8 +323,7 @@ const MIDIControllerWidget: React.FC = () => {
     if (mode === 'mixer') {
       // Mute
       contentGroup.querySelectorAll('rect[data-mute]').forEach(el => {
-        const htmlEl = el as HTMLElement
-        const index = parseInt(htmlEl.dataset.mute || '0')
+        const index = parseInt(el.getAttribute('data-mute') || '0')
         const click = (e: Event) => {
           e.stopPropagation()
           setMutedChannels(prev => {
@@ -392,8 +389,7 @@ const MIDIControllerWidget: React.FC = () => {
     if (mode === 'dj') {
       // Джоги
       contentGroup.querySelectorAll('circle[data-deck]').forEach(el => {
-        const htmlEl = el as HTMLElement
-        const deck = htmlEl.dataset.deck || 'A'
+        const deck = el.getAttribute('data-deck') || 'A'
         const click = (e: Event) => {
           e.stopPropagation()
           const isActive = el.getAttribute('data-active') === 'true'
