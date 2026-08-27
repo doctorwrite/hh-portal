@@ -10,6 +10,11 @@ interface MIDIParams {
   cc: number
 }
 
+interface Note {
+  note: number
+  type: 'white' | 'black'
+}
+
 const MIDIWidget: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null)
   const [params, setParams] = useState<MIDIParams>({
@@ -29,7 +34,7 @@ const MIDIWidget: React.FC = () => {
   // ===== НОТЫ =====
   const whiteKeys = [0, 2, 4, 5, 7, 9, 11]
   const blackKeys = [1, 3, 6, 8, 10]
-  const notes = []
+  const notes: Note[] = []
 
   for (let octave = -1; octave <= 1; octave++) {
     for (const key of whiteKeys) {
