@@ -232,5 +232,5 @@ export const compression: ArticleData = {
     { url: 'https://www.soundonsound.com/techniques/compression-explained', label: 'Sound on Sound' },
   ],
 
-  widget: '', // без виджета
+  widget: 'CompressorWidget', // ← ДОБАВЛЕН
 }
