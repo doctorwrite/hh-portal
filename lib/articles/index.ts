@@ -6,12 +6,14 @@ import { eq } from './data/eq'
 import { compression } from './data/compression'
 import { reverb } from './data/reverb'
 import { delay } from './data/delay'
+import { stereo } from './data/stereo'  // ← ДОБАВЛЕНО
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
 import { compressionMeta } from './metadata/compression'
 import { reverbMeta } from './metadata/reverb'
 import { delayMeta } from './metadata/delay'
+import { stereoMeta } from './metadata/stereo'  // ← ДОБАВЛЕНО
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -19,6 +21,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   compression,
   reverb,
   delay,
+  stereo,  // ← ДОБАВЛЕНО
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -26,6 +29,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   compression: compressionMeta,
   reverb: reverbMeta,
   delay: delayMeta,
+  stereo: stereoMeta,  // ← ДОБАВЛЕНО
 }
 
 // ===== ФУНКЦИИ =====
