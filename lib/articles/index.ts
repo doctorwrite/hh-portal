@@ -1,48 +1,59 @@
 // lib/articles/index.ts
+import fs from 'fs'
+import path from 'path'
 import { ArticleData, ArticleMeta } from './types'
 
-// ===== ИМПОРТ СТАТЕЙ =====
-import { eq } from './data/eq'
-import { compression } from './data/compression'
-
-// ===== ИМПОРТ МЕТАДАННЫХ =====
-// import { eqMeta } from './metadata/eq'  // позже
-// import { compressionMeta } from './metadata/compression'  // позже
-
-// ===== ВРЕМЕННЫЕ МЕТАДАННЫЕ =====
-const eqMeta: ArticleMeta = {
-  title: 'Эквализация (EQ) — что это? Полное определение, виды, применение, советы',
-  description: 'Эквализация — это регулировка частот звука. Узнайте, как работает EQ, какие бывают типы эквалайзеров.',
-  keywords: ['эквализация', 'eq', 'частоты', 'сведение', 'мастеринг', 'аудио'],
-  datePublished: '2025-07-08',
-  dateModified: '2026-07-22',
-  author: 'Звукорежиссёр HHRecords',
-  ogImage: '/images/og/eq-og-image.webp',
-  category: 'Основы звукозаписи',
-  section: 'basics',
-}
-
-const compressionMeta: ArticleMeta = {
-  title: 'Компрессия в музыке — что это? Полное руководство по компрессорам',
-  description: 'Компрессия — это сжатие динамического диапазона звука. Узнайте, как работает компрессор, какие бывают типы, настройка параметров и примеры использования.',
-  keywords: ['компрессия', 'компрессор', 'сжатие аудио', 'динамический диапазон', 'сведение', 'мастеринг'],
-  datePublished: '2025-07-08',
-  dateModified: '2026-07-22',
-  author: 'Звукорежиссёр HHRecords',
-  ogImage: '/images/og/compression-og-image.webp',
-  category: 'Основы звукозаписи',
-  section: 'basics',
-}
+// ===== ПУТИ =====
+const dataDir = path.join(process.cwd(), 'lib/articles/data')
+const metaDir = path.join(process.cwd(), 'lib/articles/metadata')
 
 // ===== РЕЕСТРЫ =====
-export const ARTICLES: Record<string, ArticleData> = {
-  eq: eq,
-  compression: compression,
+export const ARTICLES: Record<string, ArticleData> = {}
+export const METADATA: Record<string, ArticleMeta> = {}
+
+// ===== ЗАГРУЗКА СТАТЕЙ =====
+try {
+  const dataFiles = fs.readdirSync(dataDir).filter(f => f.endsWith('.ts') && f !== '_template.ts')
+  
+  for (const file of dataFiles) {
+    const slug = file.replace('.ts', '')
+    try {
+      // Используем require для динамической загрузки
+      const module = require(`./data/${slug}`)
+      // Ищем экспорт: либо module[slug], либо module.default
+      const article = module[slug] || module.default
+      if (article) {
+        ARTICLES[slug] = article
+      } else {
+        console.warn(`⚠️ В файле ${file} не найден экспорт для "${slug}"`)
+      }
+    } catch (e) {
+      console.warn(`⚠️ Не удалось загрузить статью: ${slug}`, e)
+    }
+  }
+} catch (e) {
+  console.warn('⚠️ Папка data не найдена или пуста')
 }
 
-export const METADATA: Record<string, ArticleMeta> = {
-  eq: eqMeta,
-  compression: compressionMeta,
+// ===== ЗАГРУЗКА МЕТАДАННЫХ =====
+try {
+  const metaFiles = fs.readdirSync(metaDir).filter(f => f.endsWith('.ts') && f !== '_template.ts')
+  
+  for (const file of metaFiles) {
+    const slug = file.replace('.ts', '')
+    try {
+      const module = require(`./metadata/${slug}`)
+      // Ищем: либо module[slug + 'Meta'], либо module.default
+      const meta = module[slug + 'Meta'] || module.default
+      if (meta) {
+        METADATA[slug] = meta
+      }
+    } catch (e) {
+      // Метаданные не обязательны — пропускаем
+    }
+  }
+} catch (e) {
+  // Папка metadata может не существовать
 }
 
 // ===== ФУНКЦИИ =====
@@ -56,4 +67,10 @@ export function getMetadata(slug: string): ArticleMeta | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return Object.keys(ARTICLES)
+}
+
+// ===== ВЫВОД В КОНСОЛЬ ДЛЯ ОТЛАДКИ =====
+if (process.env.NODE_ENV !== 'production') {
+  console.log(`📚 Загружено статей: ${Object.keys(ARTICLES).length}`)
+  console.log(`📋 Загружено метаданных: ${Object.keys(METADATA).length}`)
 }
