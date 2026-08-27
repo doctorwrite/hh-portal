@@ -1353,3 +1353,142 @@
     padding: 4px 6px !important;
   }
 }
+/* app/encyclopedia/[slug]/page.css — САМЫЙ КОНЕЦ */
+
+/* ================================================================
+   FULL-WIDTH ТАБЛИЦЫ НА ТЕЛЕФОНАХ (ПРОВЕРЕНО)
+   ================================================================ */
+
+@media (max-width: 768px) {
+  /* Растягиваем блок ответа на всю ширину */
+  .article-content .qa-block .answer {
+    margin-left: -32px !important;
+    margin-right: -32px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    width: calc(100% + 64px) !important;
+    max-width: calc(100% + 64px) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Таблицы внутри — не сжимаются */
+  .article-content .qa-block .answer table.comparison-table {
+    min-width: 480px !important;
+    width: 100% !important;
+    font-size: 0.6rem !important;
+  }
+
+  .article-content .qa-block .answer table.comparison-table th,
+  .article-content .qa-block .answer table.comparison-table td {
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Если вдруг есть обёртка — тоже растягиваем */
+  .article-content .qa-block .answer .comparison-table-wrap {
+    margin-left: -32px !important;
+    margin-right: -32px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    width: calc(100% + 64px) !important;
+    max-width: calc(100% + 64px) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table {
+    min-width: 480px !important;
+    width: 100% !important;
+    font-size: 0.6rem !important;
+  }
+
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table th,
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table td {
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* genreTable — тоже растягиваем */
+  .article-content .genre-table-wrap {
+    margin-left: -32px !important;
+    margin-right: -32px !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    width: calc(100% + 64px) !important;
+    max-width: calc(100% + 64px) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .article-content .genre-table-wrap table.genre-table {
+    min-width: 480px !important;
+    width: 100% !important;
+    font-size: 0.6rem !important;
+  }
+
+  .article-content .genre-table-wrap table.genre-table th,
+  .article-content .genre-table-wrap table.genre-table td {
+    padding: 6px 10px !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-content .qa-block .answer {
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: calc(100% + 48px) !important;
+    max-width: calc(100% + 48px) !important;
+  }
+
+  .article-content .qa-block .answer table.comparison-table {
+    min-width: 380px !important;
+    font-size: 0.5rem !important;
+  }
+
+  .article-content .qa-block .answer table.comparison-table th,
+  .article-content .qa-block .answer table.comparison-table td {
+    padding: 4px 6px !important;
+  }
+
+  .article-content .qa-block .answer .comparison-table-wrap {
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: calc(100% + 48px) !important;
+    max-width: calc(100% + 48px) !important;
+  }
+
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table {
+    min-width: 380px !important;
+    font-size: 0.5rem !important;
+  }
+
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table th,
+  .article-content .qa-block .answer .comparison-table-wrap table.comparison-table td {
+    padding: 4px 6px !important;
+  }
+
+  .article-content .genre-table-wrap {
+    margin-left: -24px !important;
+    margin-right: -24px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: calc(100% + 48px) !important;
+    max-width: calc(100% + 48px) !important;
+  }
+
+  .article-content .genre-table-wrap table.genre-table {
+    min-width: 380px !important;
+    font-size: 0.5rem !important;
+  }
+
+  .article-content .genre-table-wrap table.genre-table th,
+  .article-content .genre-table-wrap table.genre-table td {
+    padding: 4px 6px !important;
+  }
+}
