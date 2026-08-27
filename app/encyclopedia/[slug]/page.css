@@ -1,4 +1,4 @@
-/* app/encyclopedia/[slug]/page.css — полный файл */
+/* app/encyclopedia/[slug]/page.css */
 
 .article-container {
   max-width: 1200px;
@@ -6,6 +6,7 @@
   padding: 20px 20px 60px;
 }
 
+/* ===== ХЛЕБНЫЕ КРОШКИ ===== */
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +34,7 @@
   color: var(--gold-mid);
 }
 
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .article-content {
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -42,6 +44,12 @@
   padding: 40px 44px;
   margin: 20px 0;
   box-shadow: var(--shadow-premium);
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .article-content .meta {
@@ -78,7 +86,41 @@
   margin: 20px 0 10px;
 }
 
-/* ===== TOC ===== */
+.article-content p {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.article-content ul,
+.article-content ol {
+  color: var(--text-secondary);
+  padding-left: 24px;
+  margin: 6px 0 12px;
+  line-height: 1.9;
+}
+
+.article-content ul li,
+.article-content ol li {
+  margin: 4px 0;
+}
+
+.article-content ul strong,
+.article-content ol strong {
+  color: #fff;
+}
+
+.article-content a {
+  color: var(--gold-mid);
+  transition: color 0.3s;
+}
+
+.article-content a:hover {
+  color: var(--gold-start);
+  text-decoration: underline;
+}
+
+/* ===== ОГЛАВЛЕНИЕ ===== */
 .toc {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -107,6 +149,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
+  padding: 0;
+  margin: 0;
 }
 
 .toc-list li {
@@ -127,7 +171,7 @@
   text-decoration: none;
 }
 
-/* ===== QUICK ANSWER ===== */
+/* ===== КРАТКИЙ ОТВЕТ ===== */
 .quick-answer {
   background: rgba(245, 197, 66, 0.04);
   border: 1px solid rgba(245, 197, 66, 0.08);
@@ -215,11 +259,26 @@
 .qa-block .answer ul,
 .qa-block .answer ol {
   padding-left: 24px;
-  margin: 6px 0;
+  margin: 6px 0 12px;
+  color: var(--text-secondary);
 }
 
-.qa-block .answer li {
+.qa-block .answer ul li,
+.qa-block .answer ol li {
   margin: 4px 0;
+}
+
+.qa-block .answer ul strong,
+.qa-block .answer ol strong {
+  color: #fff;
+}
+
+.qa-block .answer p {
+  margin-bottom: 10px;
+}
+
+.qa-block .answer p:last-child {
+  margin-bottom: 0;
 }
 
 /* ===== ТАБЛИЦЫ ===== */
@@ -292,28 +351,426 @@
   color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
+  padding: 4px 0;
 }
 
 .micro-glossary dd {
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin: 0;
+  padding: 4px 0;
 }
 
-@media (max-width: 600px) {
-  .micro-glossary dl {
-    grid-template-columns: 1fr;
-    gap: 2px 0;
-  }
-  .micro-glossary dt {
-    margin-top: 8px;
-  }
-  .micro-glossary dt:first-child {
-    margin-top: 0;
-  }
+/* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+.tip-with-photo {
+  padding: 24px 28px;
+  margin: 24px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border-left: 4px solid #4a9eff;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-/* ===== BOTTOM LINKS ===== */
+.tip-with-photo:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-left-color: #4a9eff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tip-with-photo .question {
+  color: #4a9eff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tip-with-photo .tip-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.tip-with-photo .tip-photo {
+  flex-shrink: 0;
+  width: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s;
+}
+
+.tip-with-photo .tip-photo:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+  box-shadow: 0 4px 30px rgba(245, 197, 66, 0.05);
+}
+
+.tip-with-photo .tip-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tip-with-photo .tip-text {
+  flex: 1;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.tip-with-photo .tip-text strong {
+  color: #fff;
+}
+
+.tip-with-photo .tip-text ul,
+.tip-with-photo .tip-text ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.tip-with-photo .tip-text li {
+  margin: 4px 0;
+}
+
+.tip-with-photo .tip-text p {
+  margin-bottom: 10px;
+}
+
+.tip-with-photo .tip-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ В СТАТЬЯХ ===== */
+.article-image {
+  float: right;
+  width: 220px;
+  margin: 4px 0 12px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.article-image:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+  box-shadow: 0 4px 30px rgba(245, 197, 66, 0.05);
+}
+
+.article-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.article-image:hover img {
+  transform: scale(1.03);
+}
+
+.article-image .zoom-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.article-image:hover .zoom-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.article-image figcaption {
+  color: #888;
+  font-size: 0.6rem;
+  margin-top: 6px;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ===== ВОПРОСЫ ОТ ЧИТАТЕЛЕЙ ===== */
+.user-questions {
+  margin: 16px 0;
+}
+
+.user-questions-title {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.user-question {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  transition: all 0.3s;
+}
+
+.user-question:hover {
+  border-color: rgba(245, 197, 66, 0.15);
+}
+
+.user-q {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.user-a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ===== БЫСТРЫЙ СТАРТ ===== */
+.quick-start {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+
+.quick-start-title {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.quick-start ol {
+  color: var(--text-secondary);
+  line-height: 2.2;
+  padding-left: 24px;
+}
+
+.quick-start ol strong {
+  color: #fff;
+}
+
+/* ===== ЧЕК-ЛИСТ ===== */
+.checklist-wrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 16px 0;
+  transition: all 0.3s;
+}
+
+.checklist-wrapper:hover {
+  border-color: rgba(245, 197, 66, 0.1);
+}
+
+.checklist-title {
+  color: var(--gold-mid);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checklist-title .badge {
+  font-size: 0.6rem;
+  background: rgba(245, 197, 66, 0.1);
+  padding: 2px 10px;
+  border-radius: 12px;
+  color: var(--gold-mid);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  margin-bottom: 2px;
+}
+
+.checklist-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.checklist-item .check-box {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: transparent;
+  transition: all 0.3s;
+  margin-top: 2px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.checklist-item.checked .check-box {
+  background: var(--gold-mid);
+  border-color: var(--gold-mid);
+  color: #0a0a0f;
+}
+
+.checklist-item .check-text {
+  flex: 1;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.checklist-item .check-text strong {
+  color: #fff;
+  display: block;
+}
+
+.checklist-item .check-text .hint {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.checklist-item.checked .check-text {
+  opacity: 0.6;
+}
+
+.checklist-item.checked .check-text strong {
+  color: #888;
+}
+
+.checklist-progress {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checklist-progress .progress-label {
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.checklist-progress .progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.checklist-progress .progress-bar .progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-start), var(--gold-mid));
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.checklist-progress .progress-text {
+  font-size: 0.75rem;
+  color: var(--gold-mid);
+  font-weight: 600;
+  min-width: 60px;
+  text-align: right;
+}
+
+.checklist-celebration {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 20px;
+  background: rgba(245, 197, 66, 0.08);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  border-radius: 12px;
+  text-align: center;
+  animation: celebrateIn 0.6s ease;
+}
+
+.checklist-celebration.show {
+  display: block;
+}
+
+@keyframes celebrateIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.checklist-celebration .emoji {
+  font-size: 2rem;
+  display: block;
+}
+
+.checklist-celebration .msg {
+  color: var(--gold-mid);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ===== ПОХОЖИЕ ТЕРМИНЫ ===== */
+.related-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+.related-terms a {
+  background: rgba(245, 197, 66, 0.06);
+  color: var(--gold-mid);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+}
+
+.related-terms a:hover {
+  background: rgba(245, 197, 66, 0.12);
+  border-color: var(--gold-mid);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(245, 197, 66, 0.15);
+  text-decoration: none;
+}
+
+/* ===== ИСТОЧНИКИ ===== */
 .bottom-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -349,11 +806,12 @@
   color: var(--text-secondary);
   font-size: 0.8rem;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .bottom-links .sources .links a:hover {
   color: var(--gold-mid);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .bottom-links .terms {
@@ -383,6 +841,7 @@
   font-size: 0.75rem;
   border: 1px solid rgba(245, 197, 66, 0.06);
   transition: all 0.3s;
+  text-decoration: none;
 }
 
 .bottom-links .terms .tags a:hover {
@@ -432,7 +891,34 @@
   margin-top: 10px;
 }
 
-/* ===== SHARE BUTTONS ===== */
+.brand-block .btn-row .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.brand-block .btn-row .btn-primary {
+  background: linear-gradient(135deg, var(--gold-start), var(--gold-mid), var(--gold-end));
+  color: #0a0a0f !important;
+  box-shadow: 0 4px 20px rgba(191, 149, 63, 0.2);
+}
+
+.brand-block .btn-row .btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 35px rgba(191, 149, 63, 0.4);
+  color: #0a0a0f !important;
+}
+
+/* ===== КНОПКИ ПОДЕЛИТЬСЯ ===== */
 .share-buttons {
   display: flex;
   gap: 12px;
@@ -499,13 +985,14 @@
   z-index: 9999;
   font-size: 0.95rem;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.3s ease;
 }
 
 #copyNotification.show {
   display: block;
 }
 
-/* ===== BOTTOM NAV ===== */
+/* ===== НАВИГАЦИЯ ВНИЗУ ===== */
 .bottom-nav {
   display: flex;
   gap: 20px;
@@ -523,13 +1010,14 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
 
 .bottom-nav a:hover {
   color: var(--gold-mid);
 }
 
-/* ===== ARTICLE FOOTER ===== */
+/* ===== ФУТЕР СТАТЬИ ===== */
 .article-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 24px 0;
@@ -541,6 +1029,7 @@
 .article-footer a {
   color: #555;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .article-footer a:hover {
@@ -556,12 +1045,12 @@
     padding: 20px 16px;
   }
 
-  .brand-block {
-    padding: 24px 16px;
+  .article-content h2 {
+    font-size: 1.3rem;
   }
 
-  .qa-block {
-    padding: 14px 16px;
+  .article-content h3 {
+    font-size: 1rem;
   }
 
   .hero-article .hero-title-wrapper {
@@ -579,6 +1068,20 @@
   .toc-list {
     flex-direction: column;
     gap: 4px;
+  }
+
+  .qa-block {
+    padding: 14px 16px;
+  }
+
+  .qa-block .question {
+    font-size: 1rem;
+  }
+
+  .qa-block .question .num {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.65rem;
   }
 
   .share-btn {
@@ -603,26 +1106,94 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  /* ===== ТАБЛИЦЫ НА ТЕЛЕФОНАХ ===== */
-  .article-content .comparison-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  .brand-block {
+    padding: 24px 16px;
+  }
+
+  .brand-block h2 {
+    font-size: 1.3rem;
+  }
+
+  .brand-block .btn-row .btn {
+    font-size: 0.8rem;
+    padding: 8px 20px;
+  }
+
+  .checklist-wrapper {
+    padding: 16px 18px;
+  }
+
+  .quick-start {
+    padding: 16px 18px;
+  }
+
+  .micro-glossary {
+    padding: 16px 18px;
+  }
+
+  .micro-glossary dl {
+    grid-template-columns: 1fr;
+    gap: 2px 0;
+  }
+
+  .micro-glossary dt {
+    margin-top: 8px;
+    padding: 4px 0 2px 0;
+  }
+
+  .micro-glossary dt:first-child {
+    margin-top: 0;
+  }
+
+  .micro-glossary dd {
+    padding: 0 0 4px 0;
+  }
+
+  /* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+  .tip-with-photo {
+    padding: 18px 16px;
+  }
+
+  .tip-with-photo .tip-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tip-with-photo .tip-photo {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .tip-with-photo .question {
+    font-size: 1rem;
+  }
+
+  /* ===== ИЗОБРАЖЕНИЯ ===== */
+  .article-image {
+    float: none;
+    width: 100%;
+    max-width: 280px;
+    margin: 16px auto;
+  }
+
+  /* ===== ТАБЛИЦЫ ===== */
+  .comparison-table-wrap {
     margin: 12px -16px;
     padding: 0 16px;
   }
 
-  .article-content .comparison-table {
+  .comparison-table {
     font-size: 0.6rem !important;
     min-width: 480px;
   }
 
-  .article-content .comparison-table th,
-  .article-content .comparison-table td {
+  .comparison-table th,
+  .comparison-table td {
     padding: 6px 10px !important;
     white-space: nowrap;
   }
 
-  .article-content .comparison-table td strong {
+  .comparison-table td strong {
     font-size: 0.6rem;
   }
 }
@@ -632,8 +1203,16 @@
     padding: 14px 12px;
   }
 
-  .qa-block .question {
+  .article-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .article-content h3 {
     font-size: 0.95rem;
+  }
+
+  .qa-block .question {
+    font-size: 0.9rem;
   }
 
   .hero-article .hero-title-wrapper {
@@ -653,10 +1232,6 @@
     display: none;
   }
 
-  .micro-glossary dl {
-    grid-template-columns: 1fr;
-  }
-
   .brand-block .btn-row .btn {
     font-size: 0.75rem;
     padding: 6px 16px;
@@ -670,23 +1245,61 @@
     margin: 0 4px;
   }
 
-  /* ===== ТАБЛИЦЫ НА МАЛЕНЬКИХ ТЕЛЕФОНАХ ===== */
-  .article-content .comparison-table-wrap {
+  .checklist-item {
+    padding: 8px 10px;
+  }
+
+  .checklist-item .check-text {
+    font-size: 0.82rem;
+  }
+
+  .user-question {
+    padding: 12px 14px;
+  }
+
+  .user-q {
+    font-size: 0.85rem;
+  }
+
+  .user-a {
+    font-size: 0.8rem;
+  }
+
+  /* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+  .tip-with-photo {
+    padding: 14px 12px;
+  }
+
+  .tip-with-photo .question {
+    font-size: 0.9rem;
+  }
+
+  .tip-with-photo .tip-text {
+    font-size: 0.9rem;
+  }
+
+  /* ===== ТАБЛИЦЫ ===== */
+  .comparison-table-wrap {
     margin: 8px -12px;
     padding: 0 12px;
   }
 
-  .article-content .comparison-table {
+  .comparison-table {
     font-size: 0.5rem !important;
     min-width: 380px;
   }
 
-  .article-content .comparison-table th,
-  .article-content .comparison-table td {
+  .comparison-table th,
+  .comparison-table td {
     padding: 4px 6px !important;
   }
 
-  .article-content .comparison-table td strong {
+  .comparison-table td strong {
     font-size: 0.5rem;
+  }
+
+  /* ===== ИЗОБРАЖЕНИЯ ===== */
+  .article-image {
+    max-width: 100%;
   }
 }
