@@ -1,64 +1,37 @@
 // lib/articles/index.ts
 import { ArticleData, ArticleMeta } from './types'
 
-// ===== РЕЕСТРЫ =====
-export const ARTICLES: Record<string, ArticleData> = {}
-export const METADATA: Record<string, ArticleMeta> = {}
+// ===== АВТОМАТИЧЕСКИЙ ИМПОРТ ВСЕХ СТАТЕЙ =====
+const dataModules = import.meta.glob('./data/*.ts', { eager: true })
 
-// ===== АВТОМАТИЧЕСКАЯ ЗАГРУЗКА (ТОЛЬКО НА СЕРВЕРЕ) =====
-try {
-  // fs и path доступны только на сервере
-  const fs = require('fs')
-  const path = require('path')
-  
-  const dataDir = path.join(process.cwd(), 'lib/articles/data')
-  
-  // Проверяем, существует ли папка
-  if (fs.existsSync(dataDir)) {
-    const dataFiles = fs.readdirSync(dataDir).filter((f: string) => f.endsWith('.ts') && f !== '_template.ts')
-    
-    for (const file of dataFiles) {
-      const slug = file.replace('.ts', '')
-      try {
-        const module = require(`./data/${slug}`)
-        const article = module[slug] || module.default
-        if (article) {
-          ARTICLES[slug] = article
-        }
-      } catch (e) {
-        // ошибка загрузки отдельной статьи — пропускаем
-      }
+export const ARTICLES: Record<string, ArticleData> = {}
+
+for (const [path, module] of Object.entries(dataModules)) {
+  const slug = path.split('/').pop()?.replace('.ts', '') || ''
+  if (slug) {
+    const article = (module as any)[slug] || (module as any).default
+    if (article) {
+      ARTICLES[slug] = article
     }
   }
-} catch (e) {
-  // На клиенте или при сборке — просто игнорируем
 }
 
-// ===== ЗАГРУЗКА МЕТАДАННЫХ =====
+// ===== МЕТАДАННЫЕ (если есть) =====
+export const METADATA: Record<string, ArticleMeta> = {}
+
 try {
-  const fs = require('fs')
-  const path = require('path')
-  
-  const metaDir = path.join(process.cwd(), 'lib/articles/metadata')
-  
-  if (fs.existsSync(metaDir)) {
-    const metaFiles = fs.readdirSync(metaDir).filter((f: string) => f.endsWith('.ts') && f !== '_template.ts')
-    
-    for (const file of metaFiles) {
-      const slug = file.replace('.ts', '')
-      try {
-        const module = require(`./metadata/${slug}`)
-        const meta = module[slug + 'Meta'] || module.default
-        if (meta) {
-          METADATA[slug] = meta
-        }
-      } catch (e) {
-        // метаданные не обязательны
+  const metaModules = import.meta.glob('./metadata/*.ts', { eager: true })
+  for (const [path, module] of Object.entries(metaModules)) {
+    const slug = path.split('/').pop()?.replace('.ts', '') || ''
+    if (slug) {
+      const meta = (module as any)[slug + 'Meta'] || (module as any).default
+      if (meta) {
+        METADATA[slug] = meta
       }
     }
   }
 } catch (e) {
-  // папка metadata может не существовать
+  // метаданных может не быть
 }
 
 // ===== ФУНКЦИИ =====
