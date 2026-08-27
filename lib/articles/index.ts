@@ -10,7 +10,8 @@ import { stereo } from './data/stereo'
 import { saturation } from './data/saturation'
 import { limiter } from './data/limiter'
 import { audioInterface } from './data/audio-interface'
-import { midi } from './data/midi'  // ← ДОБАВЛЕНО
+import { midi } from './data/midi'
+import { vst } from './data/vst'  // ← ДОБАВЛЕНО
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -21,7 +22,8 @@ import { stereoMeta } from './metadata/stereo'
 import { saturationMeta } from './metadata/saturation'
 import { limiterMeta } from './metadata/limiter'
 import { audioInterfaceMeta } from './metadata/audio-interface'
-import { midiMeta } from './metadata/midi'  // ← ДОБАВЛЕНО
+import { midiMeta } from './metadata/midi'
+import { vstMeta } from './metadata/vst'  // ← ДОБАВЛЕНО
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -33,7 +35,8 @@ export const ARTICLES: Record<string, ArticleData> = {
   saturation,
   limiter,
   'audio-interface': audioInterface,
-  'midi': midi,  // ← ДОБАВЛЕНО
+  'midi': midi,
+  'vst': vst,  // ← ДОБАВЛЕНО
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -45,7 +48,8 @@ export const METADATA: Record<string, ArticleMeta> = {
   saturation: saturationMeta,
   limiter: limiterMeta,
   'audio-interface': audioInterfaceMeta,
-  'midi': midiMeta,  // ← ДОБАВЛЕНО
+  'midi': midiMeta,
+  'vst': vstMeta,  // ← ДОБАВЛЕНО
 }
 
 // ===== ФУНКЦИИ =====
