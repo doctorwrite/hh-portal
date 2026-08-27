@@ -18,8 +18,8 @@ const EQVisualizer: React.FC<EQVisualizerProps> = ({ theme = 'dark' }) => {
       try {
         const module = await import('@/modules/eq/src/main.js')
         
-        // Проверяем разные варианты экспорта
-        let EQWidget = module.default || module.EQWidget || module
+        // Используем as any для обхода TypeScript
+        const EQWidget = (module as any).default || (module as any).EQWidget || module
         
         if (typeof EQWidget === 'function') {
           const widget = new EQWidget(containerRef.current, { theme })
