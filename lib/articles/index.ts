@@ -9,7 +9,7 @@ import { delay } from './data/delay'
 import { stereo } from './data/stereo'
 import { saturation } from './data/saturation'
 import { limiter } from './data/limiter'
-import { audioInterface } from './data/audio-interface'  // ← ДОБАВЛЕНО
+import { audioInterface } from './data/audio-interface'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -19,7 +19,7 @@ import { delayMeta } from './metadata/delay'
 import { stereoMeta } from './metadata/stereo'
 import { saturationMeta } from './metadata/saturation'
 import { limiterMeta } from './metadata/limiter'
-import { audioInterfaceMeta } from './metadata/audio-interface'  // ← ДОБАВЛЕНО
+import { audioInterfaceMeta } from './metadata/audio-interface'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -30,7 +30,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   stereo,
   saturation,
   limiter,
-  audioInterface,  // ← ДОБАВЛЕНО
+  'audio-interface': audioInterface,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -41,7 +41,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   stereo: stereoMeta,
   saturation: saturationMeta,
   limiter: limiterMeta,
-  audioInterface: audioInterfaceMeta,  // ← ДОБАВЛЕНО
+  'audio-interface': audioInterfaceMeta,
 }
 
 // ===== ФУНКЦИИ =====
