@@ -16,33 +16,23 @@ const EQVisualizer: React.FC<EQVisualizerProps> = ({ theme = 'dark' }) => {
       if (!containerRef.current) return
 
       try {
-        // Динамический импорт главного файла
         const module = await import('@/modules/eq/src/main.js')
-        const EQWidget = module.default || module
-
-        if (EQWidget) {
+        
+        // Проверяем разные варианты экспорта
+        let EQWidget = module.default || module.EQWidget || module
+        
+        if (typeof EQWidget === 'function') {
           const widget = new EQWidget(containerRef.current, { theme })
           widgetRef.current = widget
           console.log('🎛️ EQ Visualizer загружен!')
+        } else {
+          console.warn('EQWidget не найден в модуле')
+          showFallback(containerRef.current, 'Не удалось загрузить виджет')
         }
       } catch (error) {
         console.error('Ошибка загрузки эквалайзера:', error)
-        // Показываем заглушку при ошибке
         if (containerRef.current) {
-          containerRef.current.innerHTML = `
-            <div style="
-              background: rgba(0,0,0,0.3);
-              border-radius: 16px;
-              padding: 40px 20px;
-              text-align: center;
-              border: 1px solid rgba(255,255,255,0.05);
-              color: #888;
-            ">
-              <div style="font-size: 3rem; margin-bottom: 12px;">🎛️</div>
-              <div style="font-size: 1rem; font-weight: 600; color: #aaa;">Интерактивный эквалайзер</div>
-              <div style="font-size: 0.8rem; margin-top: 4px; color: #666;">Не удалось загрузить виджет</div>
-            </div>
-          `
+          showFallback(containerRef.current, 'Ошибка загрузки')
         }
       }
     }
@@ -58,6 +48,24 @@ const EQVisualizer: React.FC<EQVisualizerProps> = ({ theme = 'dark' }) => {
   }, [theme])
 
   return <div ref={containerRef} id="eqContainer" style={{ width: '100%', minHeight: '400px' }} />
+}
+
+// ===== ЗАГЛУШКА =====
+function showFallback(container: HTMLElement, message: string) {
+  container.innerHTML = `
+    <div style="
+      background: rgba(0,0,0,0.3);
+      border-radius: 16px;
+      padding: 40px 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      color: #888;
+    ">
+      <div style="font-size: 3rem; margin-bottom: 12px;">🎛️</div>
+      <div style="font-size: 1rem; font-weight: 600; color: #aaa;">Интерактивный эквалайзер</div>
+      <div style="font-size: 0.8rem; margin-top: 4px; color: #666;">${message}</div>
+    </div>
+  `
 }
 
 export default EQVisualizer
