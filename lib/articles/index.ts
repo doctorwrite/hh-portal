@@ -12,7 +12,8 @@ import { limiter } from './data/limiter'
 import { audioInterface } from './data/audio-interface'
 import { midi } from './data/midi'
 import { vst } from './data/vst'
-import { sample } from './data/sample'  // ← ДОБАВЛЕНО
+import { sample } from './data/sample'
+import { monitors } from './data/monitors'  // ← ДОБАВЛЕНО
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -25,7 +26,8 @@ import { limiterMeta } from './metadata/limiter'
 import { audioInterfaceMeta } from './metadata/audio-interface'
 import { midiMeta } from './metadata/midi'
 import { vstMeta } from './metadata/vst'
-import { sampleMeta } from './metadata/sample'  // ← ДОБАВЛЕНО
+import { sampleMeta } from './metadata/sample'
+import { monitorsMeta } from './metadata/monitors'  // ← ДОБАВЛЕНО
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -39,7 +41,8 @@ export const ARTICLES: Record<string, ArticleData> = {
   'audio-interface': audioInterface,
   'midi': midi,
   'vst': vst,
-  'sample': sample,  // ← ДОБАВЛЕНО
+  'sample': sample,
+  'monitors': monitors,  // ← ДОБАВЛЕНО
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -53,7 +56,8 @@ export const METADATA: Record<string, ArticleMeta> = {
   'audio-interface': audioInterfaceMeta,
   'midi': midiMeta,
   'vst': vstMeta,
-  'sample': sampleMeta,  // ← ДОБАВЛЕНО
+  'sample': sampleMeta,
+  'monitors': monitorsMeta,  // ← ДОБАВЛЕНО
 }
 
 // ===== ФУНКЦИИ =====
