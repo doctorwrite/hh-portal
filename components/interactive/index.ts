@@ -23,7 +23,9 @@ export const VSTWidget = dynamic(() => import('./VSTWidget'), { ssr: false })
 
 export const SampleWidget = dynamic(() => import('./SampleWidget'), { ssr: false })
 
-export const MonitorsWidget = dynamic(() => import('./MonitorsWidget'), { ssr: false })  // ← ДОБАВЛЕНО
+export const MonitorsWidget = dynamic(() => import('./MonitorsWidget'), { ssr: false })
+
+export const MIDIControllerWidget = dynamic(() => import('./MIDIControllerWidget'), { ssr: false })  // ← ДОБАВЛЕНО
 
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
@@ -37,7 +39,8 @@ export const widgetMap: Record<string, any> = {
   MIDIWidget: MIDIWidget,
   VSTWidget: VSTWidget,
   SampleWidget: SampleWidget,
-  MonitorsWidget: MonitorsWidget,  // ← ДОБАВЛЕНО
+  MonitorsWidget: MonitorsWidget,
+  MIDIControllerWidget: MIDIControllerWidget,  // ← ДОБАВЛЕНО
 }
 
 export function getWidget(name: string): any {
