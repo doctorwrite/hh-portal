@@ -29,7 +29,6 @@ const MIDIControllerWidget: React.FC = () => {
 
   const L = 60, R = 760, T = 60, B = 360
 
-  // ===== НОТЫ ДЛЯ КЛАВИАТУРЫ =====
   const getNotes = useCallback(() => {
     const notes: number[] = []
     const startNote = 48 + params.octave * 12
@@ -49,7 +48,6 @@ const MIDIControllerWidget: React.FC = () => {
     return [1, 3, 6, 8, 10].includes(note % 12)
   }, [])
 
-  // ===== MIDI-СООБЩЕНИЯ =====
   const addMessage = useCallback((msg: string) => {
     const messages = document.querySelector('[data-group="midi-messages"]')
     if (!messages) return
@@ -65,7 +63,6 @@ const MIDIControllerWidget: React.FC = () => {
     if (hint) hint.remove()
   }, [])
 
-  // ===== ВОСПРОИЗВЕДЕНИЕ НОТ =====
   const playNote = useCallback((note: number) => {
     setActiveKeys(prev => {
       const newSet = new Set(prev)
@@ -87,7 +84,6 @@ const MIDIControllerWidget: React.FC = () => {
     render()
   }, [params, addMessage])
 
-  // ===== ВОСПРОИЗВЕДЕНИЕ ПЭДОВ =====
   const playPad = useCallback((note: number, padIndex: number) => {
     setActivePads(prev => {
       const newSet = new Set(prev)
@@ -107,7 +103,6 @@ const MIDIControllerWidget: React.FC = () => {
     }, 200)
   }, [params, addMessage, getNoteName])
 
-  // ===== ОБНОВЛЕНИЕ ФЕЙДЕРА =====
   const updateFader = useCallback((index: number, value: number) => {
     setFaderValues(prev => {
       const newVals = [...prev]
@@ -118,14 +113,13 @@ const MIDIControllerWidget: React.FC = () => {
     render()
   }, [params, addMessage])
 
-  // ===== ОБНОВЛЕНИЕ КРОССФЕЙДЕРА =====
   const updateCrossfader = useCallback((value: number) => {
     setCrossfader(value)
     addMessage(`🎚 <span class="hl">Crossfader</span> · <span class="hl2">Val:</span> ${value}% · <span class="hl">Ch:</span> ${params.channel}`)
     render()
   }, [params, addMessage])
 
-  // ===== РЕНДЕРИНГ =====
+  // === РЕНДЕРИНГ ===
   const render = useCallback(() => {
     const svg = svgRef.current
     if (!svg) return
@@ -135,7 +129,7 @@ const MIDIControllerWidget: React.FC = () => {
 
     let html = ''
 
-    // === РЕЖИМ: КЛАВИАТУРА ===
+    // === КЛАВИАТУРА ===
     if (mode === 'keyboard') {
       const notes = getNotes()
       const keyWidth = (R - L) / notes.length
@@ -165,7 +159,7 @@ const MIDIControllerWidget: React.FC = () => {
       }
     }
 
-    // === РЕЖИМ: PADS ===
+    // === PADS ===
     if (mode === 'pads') {
       const padNames = ['Kick', 'Snare', 'Hat', 'Clap', 'Bass', 'Piano', 'Vox', 'FX']
       const padIcons = ['🥁', '🥁', '🥁', '👏', '🎸', '🎹', '🎤', '✨']
@@ -198,7 +192,7 @@ const MIDIControllerWidget: React.FC = () => {
       }
     }
 
-    // === РЕЖИМ: MIXER ===
+    // === MIXER ===
     if (mode === 'mixer') {
       const labels = ['Kick', 'Snare', 'Hat', 'Clap', 'Bass', 'Piano', 'Vox', 'FX']
       const colors = ['#ff6b6b', '#ff8c42', '#f5c542', '#50c878', '#4a9eff', '#da70d6', '#c77dff', '#ff69b4']
@@ -223,13 +217,12 @@ const MIDIControllerWidget: React.FC = () => {
       }
     }
 
-    // === РЕЖИМ: DJ ===
+    // === DJ ===
     if (mode === 'dj') {
       const deckW = 200
       const deckH = 120
       const deckY = T + 40
 
-      // Deck A
       html += `
         <rect x="${L + 20}" y="${deckY}" width="${deckW}" height="${deckH}" fill="rgba(255,255,255,0.02)" rx="8" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
         <text x="${L + 120}" y="${deckY + 20}" fill="#666" font-size="8" text-anchor="middle" font-family="'Montserrat', sans-serif">DECK A</text>
@@ -238,7 +231,6 @@ const MIDIControllerWidget: React.FC = () => {
         <text x="${L + 120}" y="${deckY + 75}" fill="#666" font-size="10" text-anchor="middle" font-family="'Segoe UI Emoji', sans-serif">⏺</text>
       `
 
-      // Crossfader
       const cfX = L + 220 + 40
       const cfY = deckY + 20
       const cfH = deckH - 20
@@ -251,7 +243,6 @@ const MIDIControllerWidget: React.FC = () => {
         <text x="${cfX + 10}" y="${cfY - 4}" fill="#888" font-size="6" text-anchor="middle" font-family="'Montserrat', sans-serif">${crossfader}%</text>
       `
 
-      // Deck B
       html += `
         <rect x="${cfX + 30}" y="${deckY}" width="${deckW}" height="${deckH}" fill="rgba(255,255,255,0.02)" rx="8" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
         <text x="${cfX + 30 + 100}" y="${deckY + 20}" fill="#666" font-size="8" text-anchor="middle" font-family="'Montserrat', sans-serif">DECK B</text>
@@ -261,7 +252,6 @@ const MIDIControllerWidget: React.FC = () => {
       `
     }
 
-    // === MIDI-сообщения ===
     html += `
       <foreignObject x="${L}" y="${B + 10}" width="${R - L}" height="40">
         <div xmlns="http://www.w3.org/1999/xhtml" data-group="midi-messages" style="display:flex;flex-wrap:wrap;gap:3px 8px;padding:4px 6px;background:rgba(0,0,0,0.3);border-radius:6px;height:100%;overflow:hidden;align-items:center;align-content:center;font-family:monospace;font-size:0.5rem;color:#888;">
@@ -272,7 +262,7 @@ const MIDIControllerWidget: React.FC = () => {
 
     contentGroup.innerHTML = html
 
-    // === ОБРАБОТЧИКИ ДЛЯ КЛАВИАТУРЫ ===
+    // === ОБРАБОТЧИКИ (без dataset) ===
     if (mode === 'keyboard') {
       contentGroup.querySelectorAll('rect[data-note]').forEach(el => {
         const note = parseInt(el.getAttribute('data-note') || '0')
@@ -301,7 +291,6 @@ const MIDIControllerWidget: React.FC = () => {
       })
     }
 
-    // === ОБРАБОТЧИКИ ДЛЯ ПЭДОВ ===
     if (mode === 'pads') {
       contentGroup.querySelectorAll('rect[data-pad]').forEach(el => {
         const padIndex = parseInt(el.getAttribute('data-pad') || '0')
@@ -319,9 +308,7 @@ const MIDIControllerWidget: React.FC = () => {
       })
     }
 
-    // === ОБРАБОТЧИКИ ДЛЯ МИКШЕРА ===
     if (mode === 'mixer') {
-      // Mute
       contentGroup.querySelectorAll('rect[data-mute]').forEach(el => {
         const index = parseInt(el.getAttribute('data-mute') || '0')
         const click = (e: Event) => {
@@ -339,7 +326,6 @@ const MIDIControllerWidget: React.FC = () => {
         el.addEventListener('click', click)
       })
 
-      // Faders (drag)
       const faderRects = contentGroup.querySelectorAll('rect[style*="cursor:grab"]')
       faderRects.forEach((el, index) => {
         const startDrag = (e: MouseEvent | TouchEvent) => {
@@ -385,9 +371,7 @@ const MIDIControllerWidget: React.FC = () => {
       })
     }
 
-    // === ОБРАБОТЧИКИ ДЛЯ DJ ===
     if (mode === 'dj') {
-      // Джоги
       contentGroup.querySelectorAll('circle[data-deck]').forEach(el => {
         const deck = el.getAttribute('data-deck') || 'A'
         const click = (e: Event) => {
@@ -401,7 +385,6 @@ const MIDIControllerWidget: React.FC = () => {
         el.addEventListener('click', click)
       })
 
-      // Кроссфейдер
       const cfThumb = contentGroup.querySelector('rect[style*="cursor:grab"]')
       if (cfThumb) {
         const startDrag = (e: MouseEvent | TouchEvent) => {
@@ -444,19 +427,16 @@ const MIDIControllerWidget: React.FC = () => {
     }
   }, [mode, params, activeKeys, activePads, faderValues, mutedChannels, crossfader, L, R, T, B, playNote, stopNote, playPad, addMessage, getNotes, getNoteName, isBlackKey, updateFader, updateCrossfader])
 
-  // ===== ПЕРЕКЛЮЧЕНИЕ РЕЖИМА =====
   const setModeHandler = useCallback((newMode: 'keyboard' | 'pads' | 'mixer' | 'dj') => {
     setMode(newMode)
     addMessage(`🔄 <span class="hl">Mode:</span> ${newMode.charAt(0).toUpperCase() + newMode.slice(1)}`)
     render()
   }, [addMessage, render])
 
-  // ===== ОБНОВЛЕНИЕ ПАРАМЕТРА =====
   const updateParam = useCallback((key: keyof ControllerParams, value: number) => {
     setParams(prev => ({ ...prev, [key]: value }))
   }, [])
 
-  // ===== АНИМАЦИЯ =====
   useEffect(() => {
     if (!isPlaying) return
     let frameId: number
@@ -469,7 +449,6 @@ const MIDIControllerWidget: React.FC = () => {
     return () => cancelAnimationFrame(frameId)
   }, [isPlaying, render])
 
-  // ===== ИНИЦИАЛИЗАЦИЯ =====
   useEffect(() => {
     render()
   }, [render])
@@ -486,7 +465,6 @@ const MIDIControllerWidget: React.FC = () => {
       marginRight: 'auto',
       userSelect: 'none'
     }}>
-      {/* Заголовок */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -505,7 +483,6 @@ const MIDIControllerWidget: React.FC = () => {
         </span>
       </div>
 
-      {/* График */}
       <div style={{
         background: 'rgba(0,0,0,0.25)',
         borderRadius: '10px',
@@ -520,21 +497,17 @@ const MIDIControllerWidget: React.FC = () => {
           xmlns="http://www.w3.org/2000/svg"
           style={{ width: '100%', height: 'auto', display: 'block' }}
         >
-          {/* Сетка */}
           <g opacity="0.03">
             <line x1={L} y1={T} x2={R} y2={T} stroke="#fff" strokeWidth="0.5"/>
             <line x1={L} y1={B} x2={R} y2={B} stroke="#fff" strokeWidth="0.5"/>
           </g>
 
-          {/* Режим */}
           <text x={L} y={T - 8} fill="#666" fontSize="7" fontFamily="'Montserrat', sans-serif">
             Mode: {mode.charAt(0).toUpperCase() + mode.slice(1)}
           </text>
 
-          {/* Контент */}
           <g data-group="content" />
 
-          {/* Легенда */}
           <g transform={`translate(${L}, ${B + 6})`}>
             <rect x="0" y="0" width="10" height="10" fill="rgba(245,197,66,0.15)" rx="2"/>
             <text x="14" y="9" fill="rgba(255,255,255,0.3)" fontSize="6" fontFamily="'Montserrat', sans-serif">Active</text>
@@ -550,7 +523,6 @@ const MIDIControllerWidget: React.FC = () => {
         </svg>
       </div>
 
-      {/* Режимы */}
       <div style={{
         display: 'flex',
         gap: '6px',
@@ -596,7 +568,6 @@ const MIDIControllerWidget: React.FC = () => {
         ))}
       </div>
 
-      {/* Параметры */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
@@ -680,7 +651,6 @@ const MIDIControllerWidget: React.FC = () => {
         </div>
       </div>
 
-      {/* Кнопки */}
       <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '6px' }}>
         <button
           onClick={() => setIsPlaying(!isPlaying)}
