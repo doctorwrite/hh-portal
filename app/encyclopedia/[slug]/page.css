@@ -1303,14 +1303,12 @@
     max-width: 100%;
   }
 }
-/* app/encyclopedia/[slug]/page.css — добавить в конец файла */
+/* app/encyclopedia/[slug]/page.css — добавить в конец */
 
 /* ===== ПРИНУДИТЕЛЬНЫЙ СКРОЛЛ ДЛЯ ВСЕХ ТАБЛИЦ В QA ===== */
-.qa-block .answer .comparison-table-wrap {
+.qa-block .answer {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 12px 0;
-  border-radius: 10px;
 }
 
 .qa-block .answer table.comparison-table {
@@ -1320,10 +1318,11 @@
 }
 
 @media (max-width: 768px) {
-  .qa-block .answer .comparison-table-wrap {
+  .qa-block .answer {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin: 12px -16px;
     padding: 0 16px;
-    border-radius: 0;
   }
 
   .qa-block .answer table.comparison-table {
@@ -1339,7 +1338,7 @@
 }
 
 @media (max-width: 480px) {
-  .qa-block .answer .comparison-table-wrap {
+  .qa-block .answer {
     margin: 8px -12px;
     padding: 0 12px;
   }
