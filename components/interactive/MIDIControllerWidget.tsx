@@ -58,7 +58,7 @@ const MIDIControllerWidget: React.FC = () => {
     el.className = 'msg'
     el.innerHTML = `[${time}] ${msg}`
     messages.appendChild(el)
-    if (messages.children.length > 15) {
+    if (messages.children.length > 15 && messages.firstChild) {
       messages.removeChild(messages.firstChild)
     }
     const hint = messages.querySelector('span[style]')
