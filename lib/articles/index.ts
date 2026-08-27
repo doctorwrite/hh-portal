@@ -1,37 +1,31 @@
 // lib/articles/index.ts
 import { ArticleData, ArticleMeta } from './types'
 
-// ===== АВТОМАТИЧЕСКИЙ ИМПОРТ ВСЕХ СТАТЕЙ =====
-const dataModules = import.meta.glob('./data/*.ts', { eager: true })
+// ===== ИМПОРТ СТАТЕЙ =====
+import { eq } from './data/eq'
+import { compression } from './data/compression'
+import { reverb } from './data/reverb'
+import { delay } from './data/delay'
 
-export const ARTICLES: Record<string, ArticleData> = {}
+// ===== ИМПОРТ МЕТАДАННЫХ =====
+import { eqMeta } from './metadata/eq'
+import { compressionMeta } from './metadata/compression'
+import { reverbMeta } from './metadata/reverb'
+import { delayMeta } from './metadata/delay'
 
-for (const [path, module] of Object.entries(dataModules)) {
-  const slug = path.split('/').pop()?.replace('.ts', '') || ''
-  if (slug) {
-    const article = (module as any)[slug] || (module as any).default
-    if (article) {
-      ARTICLES[slug] = article
-    }
-  }
+// ===== РЕЕСТРЫ =====
+export const ARTICLES: Record<string, ArticleData> = {
+  eq,
+  compression,
+  reverb,
+  delay,
 }
 
-// ===== МЕТАДАННЫЕ (если есть) =====
-export const METADATA: Record<string, ArticleMeta> = {}
-
-try {
-  const metaModules = import.meta.glob('./metadata/*.ts', { eager: true })
-  for (const [path, module] of Object.entries(metaModules)) {
-    const slug = path.split('/').pop()?.replace('.ts', '') || ''
-    if (slug) {
-      const meta = (module as any)[slug + 'Meta'] || (module as any).default
-      if (meta) {
-        METADATA[slug] = meta
-      }
-    }
-  }
-} catch (e) {
-  // метаданных может не быть
+export const METADATA: Record<string, ArticleMeta> = {
+  eq: eqMeta,
+  compression: compressionMeta,
+  reverb: reverbMeta,
+  delay: delayMeta,
 }
 
 // ===== ФУНКЦИИ =====
