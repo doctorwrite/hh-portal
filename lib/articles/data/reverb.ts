@@ -204,5 +204,6 @@ export const reverb: ArticleData = {
     { url: 'https://www.soundonsound.com/techniques/reverb', label: 'Sound on Sound' },
   ],
 
-  widget: 'ReverbWidget', // ← место для виджета
+  // ===== ДОБАВЛЕН ВИДЖЕТ =====
+  widget: 'ReverbWidget',
 }
