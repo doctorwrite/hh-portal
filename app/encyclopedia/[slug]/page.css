@@ -397,3 +397,62 @@
     font-size: 0.8rem;
   }
 }
+/* app/encyclopedia/[slug]/page.css — добавить в конец файла */
+
+/* ===== ТАБЛИЦЫ НА ТЕЛЕФОНАХ ===== */
+@media (max-width: 768px) {
+  .article-content .comparison-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px -8px;
+    padding: 0 8px;
+    border-radius: 0;
+  }
+
+  .article-content .comparison-table {
+    font-size: 0.6rem !important;
+    min-width: 400px;
+  }
+
+  .article-content .comparison-table th,
+  .article-content .comparison-table td {
+    padding: 6px 10px !important;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .article-content .comparison-table th:first-child,
+  .article-content .comparison-table td:first-child {
+    min-width: 65px;
+  }
+
+  .article-content .comparison-table td strong {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-content .comparison-table-wrap {
+    margin: 8px -4px;
+    padding: 0 4px;
+  }
+
+  .article-content .comparison-table {
+    font-size: 0.5rem !important;
+    min-width: 320px;
+  }
+
+  .article-content .comparison-table th,
+  .article-content .comparison-table td {
+    padding: 4px 6px !important;
+  }
+
+  .article-content .comparison-table th:first-child,
+  .article-content .comparison-table td:first-child {
+    min-width: 50px;
+  }
+
+  .article-content .comparison-table td strong {
+    font-size: 0.5rem;
+  }
+}
