@@ -1,59 +1,64 @@
 // lib/articles/index.ts
-import fs from 'fs'
-import path from 'path'
 import { ArticleData, ArticleMeta } from './types'
-
-// ===== ПУТИ =====
-const dataDir = path.join(process.cwd(), 'lib/articles/data')
-const metaDir = path.join(process.cwd(), 'lib/articles/metadata')
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {}
 export const METADATA: Record<string, ArticleMeta> = {}
 
-// ===== ЗАГРУЗКА СТАТЕЙ =====
+// ===== АВТОМАТИЧЕСКАЯ ЗАГРУЗКА (ТОЛЬКО НА СЕРВЕРЕ) =====
 try {
-  const dataFiles = fs.readdirSync(dataDir).filter(f => f.endsWith('.ts') && f !== '_template.ts')
+  // fs и path доступны только на сервере
+  const fs = require('fs')
+  const path = require('path')
   
-  for (const file of dataFiles) {
-    const slug = file.replace('.ts', '')
-    try {
-      // Используем require для динамической загрузки
-      const module = require(`./data/${slug}`)
-      // Ищем экспорт: либо module[slug], либо module.default
-      const article = module[slug] || module.default
-      if (article) {
-        ARTICLES[slug] = article
-      } else {
-        console.warn(`⚠️ В файле ${file} не найден экспорт для "${slug}"`)
+  const dataDir = path.join(process.cwd(), 'lib/articles/data')
+  
+  // Проверяем, существует ли папка
+  if (fs.existsSync(dataDir)) {
+    const dataFiles = fs.readdirSync(dataDir).filter((f: string) => f.endsWith('.ts') && f !== '_template.ts')
+    
+    for (const file of dataFiles) {
+      const slug = file.replace('.ts', '')
+      try {
+        const module = require(`./data/${slug}`)
+        const article = module[slug] || module.default
+        if (article) {
+          ARTICLES[slug] = article
+        }
+      } catch (e) {
+        // ошибка загрузки отдельной статьи — пропускаем
       }
-    } catch (e) {
-      console.warn(`⚠️ Не удалось загрузить статью: ${slug}`, e)
     }
   }
 } catch (e) {
-  console.warn('⚠️ Папка data не найдена или пуста')
+  // На клиенте или при сборке — просто игнорируем
 }
 
 // ===== ЗАГРУЗКА МЕТАДАННЫХ =====
 try {
-  const metaFiles = fs.readdirSync(metaDir).filter(f => f.endsWith('.ts') && f !== '_template.ts')
+  const fs = require('fs')
+  const path = require('path')
   
-  for (const file of metaFiles) {
-    const slug = file.replace('.ts', '')
-    try {
-      const module = require(`./metadata/${slug}`)
-      // Ищем: либо module[slug + 'Meta'], либо module.default
-      const meta = module[slug + 'Meta'] || module.default
-      if (meta) {
-        METADATA[slug] = meta
+  const metaDir = path.join(process.cwd(), 'lib/articles/metadata')
+  
+  if (fs.existsSync(metaDir)) {
+    const metaFiles = fs.readdirSync(metaDir).filter((f: string) => f.endsWith('.ts') && f !== '_template.ts')
+    
+    for (const file of metaFiles) {
+      const slug = file.replace('.ts', '')
+      try {
+        const module = require(`./metadata/${slug}`)
+        const meta = module[slug + 'Meta'] || module.default
+        if (meta) {
+          METADATA[slug] = meta
+        }
+      } catch (e) {
+        // метаданные не обязательны
       }
-    } catch (e) {
-      // Метаданные не обязательны — пропускаем
     }
   }
 } catch (e) {
-  // Папка metadata может не существовать
+  // папка metadata может не существовать
 }
 
 // ===== ФУНКЦИИ =====
@@ -67,10 +72,4 @@ export function getMetadata(slug: string): ArticleMeta | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return Object.keys(ARTICLES)
-}
-
-// ===== ВЫВОД В КОНСОЛЬ ДЛЯ ОТЛАДКИ =====
-if (process.env.NODE_ENV !== 'production') {
-  console.log(`📚 Загружено статей: ${Object.keys(ARTICLES).length}`)
-  console.log(`📋 Загружено метаданных: ${Object.keys(METADATA).length}`)
 }
