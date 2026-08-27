@@ -7,7 +7,8 @@ import { compression } from './data/compression'
 import { reverb } from './data/reverb'
 import { delay } from './data/delay'
 import { stereo } from './data/stereo'
-import { saturation } from './data/saturation'  // ← ДОБАВЛЕНО
+import { saturation } from './data/saturation'
+import { limiter } from './data/limiter'  // ← ДОБАВЛЕНО
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -15,7 +16,8 @@ import { compressionMeta } from './metadata/compression'
 import { reverbMeta } from './metadata/reverb'
 import { delayMeta } from './metadata/delay'
 import { stereoMeta } from './metadata/stereo'
-import { saturationMeta } from './metadata/saturation'  // ← ДОБАВЛЕНО
+import { saturationMeta } from './metadata/saturation'
+import { limiterMeta } from './metadata/limiter'  // ← ДОБАВЛЕНО
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -24,7 +26,8 @@ export const ARTICLES: Record<string, ArticleData> = {
   reverb,
   delay,
   stereo,
-  saturation,  // ← ДОБАВЛЕНО
+  saturation,
+  limiter,  // ← ДОБАВЛЕНО
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -33,7 +36,8 @@ export const METADATA: Record<string, ArticleMeta> = {
   reverb: reverbMeta,
   delay: delayMeta,
   stereo: stereoMeta,
-  saturation: saturationMeta,  // ← ДОБАВЛЕНО
+  saturation: saturationMeta,
+  limiter: limiterMeta,  // ← ДОБАВЛЕНО
 }
 
 // ===== ФУНКЦИИ =====
