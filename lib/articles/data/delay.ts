@@ -206,5 +206,6 @@ export const delay: ArticleData = {
     { url: 'https://www.soundonsound.com/techniques/delay-effects', label: 'Sound on Sound' },
   ],
 
+  // ===== ДОБАВЛЕН ВИДЖЕТ =====
   widget: 'DelayWidget',
 }
