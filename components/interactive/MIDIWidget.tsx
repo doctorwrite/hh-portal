@@ -133,7 +133,7 @@ const MIDIWidget: React.FC = () => {
       msg.className = 'msg'
       msg.innerHTML = `[${time}] 🎹 <span class="hl">Note On</span> ${note} (${noteName}) · <span class="hl2">Vel:</span> ${params.velocity} · <span class="hl">Ch:</span> ${params.channel}`
       messages.appendChild(msg)
-      if (messages.children.length > 10) {
+      if (messages.children.length > 10 && messages.firstChild) {
         messages.removeChild(messages.firstChild)
       }
     }
@@ -154,7 +154,7 @@ const MIDIWidget: React.FC = () => {
       msg.className = 'msg'
       msg.innerHTML = `[${time}] ⏹ <span class="hl">Note Off</span> ${note} · <span class="hl">Ch:</span> ${params.channel}`
       messages.appendChild(msg)
-      if (messages.children.length > 10) {
+      if (messages.children.length > 10 && messages.firstChild) {
         messages.removeChild(messages.firstChild)
       }
     }
