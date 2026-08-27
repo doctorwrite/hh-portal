@@ -86,7 +86,6 @@ const MIDIWidget: React.FC = () => {
       // === События на клавиши ===
       keyboardGroup.querySelectorAll('rect').forEach(el => {
         const note = parseInt(el.dataset.note || '0')
-        const isBlack = notes.find(n => n.note === note)?.type === 'black'
 
         el.addEventListener('mousedown', () => playNote(note))
         el.addEventListener('mouseup', () => stopNote(note))
@@ -303,22 +302,27 @@ const MIDIWidget: React.FC = () => {
 
           {/* MIDI Сообщения */}
           <foreignObject x={L} y={B - 60} width={R - L} height="50">
-            <div xmlns="http://www.w3.org/1999/xhtml" data-group="midi-messages" style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '3px 8px',
-              padding: '4px 6px',
-              background: 'rgba(0,0,0,0.3)',
-              borderRadius: '6px',
-              height: '100%',
-              overflow: 'hidden',
-              alignItems: 'center',
-              alignContent: 'center',
-              fontFamily: 'monospace',
-              fontSize: '0.5rem',
-              color: '#888'
-            }}>
-              <span style={{ color: '#666', fontFamily: 'monospace' }}>MIDI-сообщения будут здесь</span>
+            <div
+              data-group="midi-messages"
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '3px 8px',
+                padding: '4px 6px',
+                background: 'rgba(0,0,0,0.3)',
+                borderRadius: '6px',
+                height: '100%',
+                overflow: 'hidden',
+                alignItems: 'center',
+                alignContent: 'center',
+                fontFamily: 'monospace',
+                fontSize: '0.5rem',
+                color: '#888'
+              }}
+            >
+              <span style={{ color: '#666', fontFamily: 'monospace' }}>
+                MIDI-сообщения будут здесь
+              </span>
             </div>
           </foreignObject>
 
