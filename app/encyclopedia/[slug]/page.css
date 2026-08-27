@@ -1,4 +1,5 @@
-/* app/encyclopedia/[slug]/page.css */
+/* app/encyclopedia/[slug]/page.css — полный файл */
+
 .article-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -18,13 +19,16 @@
   color: #888;
   transition: color 0.3s;
 }
+
 .breadcrumb a:hover {
   color: var(--gold-mid);
   text-decoration: none;
 }
+
 .breadcrumb .sep {
   color: #444;
 }
+
 .breadcrumb .current {
   color: var(--gold-mid);
 }
@@ -48,10 +52,33 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
 }
+
 .article-content .meta a {
   color: var(--gold-mid);
 }
 
+.article-content h2 {
+  color: var(--gold-mid);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Oswald', sans-serif;
+}
+
+.article-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.article-content h3 {
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 20px 0 10px;
+}
+
+/* ===== TOC ===== */
 .toc {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -60,9 +87,11 @@
   margin-bottom: 24px;
   transition: all 0.3s;
 }
+
 .toc:hover {
   border-color: rgba(245, 197, 66, 0.15);
 }
+
 .toc-title {
   color: var(--gold-mid);
   font-weight: 700;
@@ -72,14 +101,18 @@
   align-items: center;
   gap: 8px;
 }
+
 .toc-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
-  padding: 0;
+}
+
+.toc-list li {
   margin: 0;
 }
+
 .toc-list a {
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -87,12 +120,14 @@
   padding: 2px 0;
   border-bottom: 1px solid transparent;
 }
+
 .toc-list a:hover {
   color: var(--gold-mid);
   border-bottom-color: var(--gold-mid);
   text-decoration: none;
 }
 
+/* ===== QUICK ANSWER ===== */
 .quick-answer {
   background: rgba(245, 197, 66, 0.04);
   border: 1px solid rgba(245, 197, 66, 0.08);
@@ -101,9 +136,11 @@
   margin-bottom: 24px;
   transition: all 0.3s;
 }
+
 .quick-answer:hover {
   border-color: rgba(245, 197, 66, 0.2);
 }
+
 .quick-answer-label {
   color: var(--gold-mid);
   font-weight: 700;
@@ -112,15 +149,18 @@
   letter-spacing: 0.5px;
   margin-bottom: 4px;
 }
+
 .quick-answer p {
   color: var(--text-secondary);
   margin: 0;
   font-size: 1rem;
 }
+
 .quick-answer strong {
   color: #fff;
 }
 
+/* ===== QA БЛОКИ ===== */
 .qa-block {
   padding: 20px 24px;
   margin: 16px 0;
@@ -128,14 +168,19 @@
   border-radius: 14px;
   border-left: 3px solid var(--gold-mid);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
   scroll-margin-top: 80px;
 }
+
 .qa-block:hover {
   background: rgba(255, 255, 255, 0.04);
   border-left-color: var(--gold-mid);
   transform: translateX(6px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
+
 .qa-block .question {
   color: var(--gold-mid);
   font-weight: 700;
@@ -145,6 +190,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .qa-block .question .num {
   display: inline-flex;
   align-items: center;
@@ -156,26 +202,34 @@
   font-size: 0.75rem;
   color: var(--gold-mid);
 }
+
 .qa-block .answer {
   color: var(--text-secondary);
   line-height: 1.9;
 }
+
 .qa-block .answer strong {
   color: #fff;
 }
+
 .qa-block .answer ul,
 .qa-block .answer ol {
   padding-left: 24px;
   margin: 6px 0;
 }
+
 .qa-block .answer li {
   margin: 4px 0;
 }
 
+/* ===== ТАБЛИЦЫ ===== */
 .comparison-table-wrap {
   overflow-x: auto;
-  margin: 12px 0;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+  border-radius: 12px;
 }
+
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
@@ -184,6 +238,7 @@
   overflow: hidden;
   font-size: 0.85rem;
 }
+
 .comparison-table th {
   background: rgba(245, 197, 66, 0.1);
   color: var(--gold-mid);
@@ -191,22 +246,27 @@
   text-align: left;
   font-weight: 600;
 }
+
 .comparison-table td {
   padding: 10px 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text-secondary);
   transition: background 0.3s;
 }
+
 .comparison-table tr:last-child td {
   border-bottom: none;
 }
+
 .comparison-table tr:hover td {
   background: rgba(255, 255, 255, 0.02);
 }
+
 .comparison-table td strong {
   color: #fff;
 }
 
+/* ===== МИКРО-ГЛОССАРИЙ ===== */
 .micro-glossary {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -214,109 +274,238 @@
   padding: 20px 24px;
   margin: 16px 0;
 }
+
 .micro-glossary-title {
   color: var(--gold-mid);
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 12px;
 }
+
 .micro-glossary dl {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 6px 16px;
 }
+
 .micro-glossary dt {
   color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 4px 0;
 }
+
 .micro-glossary dd {
   color: var(--text-secondary);
   font-size: 0.9rem;
   margin: 0;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-.micro-glossary dl dt:last-of-type,
-.micro-glossary dl dd:last-of-type {
-  border-bottom: none;
 }
 
 @media (max-width: 600px) {
   .micro-glossary dl {
     grid-template-columns: 1fr;
+    gap: 2px 0;
+  }
+  .micro-glossary dt {
+    margin-top: 8px;
+  }
+  .micro-glossary dt:first-child {
+    margin-top: 0;
   }
 }
 
-.tip-with-photo {
-  padding: 20px 24px;
-  margin: 16px 0;
+/* ===== BOTTOM LINKS ===== */
+.bottom-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 20px 0 0;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 14px;
-  border-left: 3px solid #ff6b6b;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.tip-with-photo:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-left-color: #ff6b6b;
-  transform: translateX(6px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-}
-.tip-with-photo .question {
-  color: #ff6b6b;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.tip-with-photo .tip-content {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-.tip-with-photo .tip-text {
-  flex: 1;
-  color: var(--text-secondary);
-  line-height: 1.9;
-}
-.tip-with-photo .tip-text strong {
-  color: #fff;
-}
-.tip-with-photo .tip-text ul {
-  padding-left: 24px;
-  margin: 6px 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
 }
 
-.related-terms {
+.bottom-links .sources {
+  padding: 16px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bottom-links .sources h3 {
+  color: var(--gold-mid);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.bottom-links .sources .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0 0;
+  gap: 6px 14px;
 }
-.related-terms a {
-  background: rgba(245, 197, 66, 0.06);
+
+.bottom-links .sources .links a {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.bottom-links .sources .links a:hover {
   color: var(--gold-mid);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(245, 197, 66, 0.08);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.related-terms a:hover {
-  background: rgba(245, 197, 66, 0.12);
-  border-color: var(--gold-mid);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 6px 25px rgba(245, 197, 66, 0.15);
   text-decoration: none;
 }
 
-.widget-wrapper {
-  margin: 24px 0;
+.bottom-links .terms {
+  padding: 16px 20px;
 }
 
+.bottom-links .terms h3 {
+  color: var(--gold-mid);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.bottom-links .terms .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bottom-links .terms .tags a {
+  background: rgba(245, 197, 66, 0.06);
+  color: var(--gold-mid);
+  padding: 3px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(245, 197, 66, 0.06);
+  transition: all 0.3s;
+}
+
+.bottom-links .terms .tags a:hover {
+  background: rgba(245, 197, 66, 0.12);
+  border-color: var(--gold-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 197, 66, 0.08);
+  text-decoration: none;
+}
+
+/* ===== БРЕНДОВЫЙ БЛОК ===== */
+.brand-block {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 197, 66, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  margin: 40px 0 20px;
+  text-align: center;
+  transition: all 0.4s;
+}
+
+.brand-block:hover {
+  border-color: rgba(245, 197, 66, 0.12);
+  box-shadow: 0 8px 40px rgba(245, 197, 66, 0.03);
+}
+
+.brand-block h2 {
+  color: var(--gold-mid);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.brand-block p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 16px;
+}
+
+.brand-block .btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* ===== SHARE BUTTONS ===== */
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  text-decoration: none !important;
+}
+
+.share-btn .share-label {
+  font-weight: 600;
+}
+
+.share-btn.vk {
+  background: #0077FF;
+}
+
+.share-btn.tg {
+  background: #0088cc;
+}
+
+.share-btn.copy {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.share-btn.copy:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#copyNotification {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  z-index: 9999;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+#copyNotification.show {
+  display: block;
+}
+
+/* ===== BOTTOM NAV ===== */
 .bottom-nav {
   display: flex;
   gap: 20px;
@@ -326,6 +515,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .bottom-nav a {
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -334,96 +524,102 @@
   align-items: center;
   gap: 6px;
 }
+
 .bottom-nav a:hover {
   color: var(--gold-mid);
 }
+
+/* ===== ARTICLE FOOTER ===== */
+.article-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px 0;
+  text-align: center;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+.article-footer a {
+  color: #555;
+  transition: color 0.3s;
+}
+
+.article-footer a:hover {
+  color: var(--gold-mid);
+}
+
+/* ================================================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ
+   ================================================================ */
 
 @media (max-width: 768px) {
   .article-content {
     padding: 20px 16px;
   }
+
+  .brand-block {
+    padding: 24px 16px;
+  }
+
+  .qa-block {
+    padding: 14px 16px;
+  }
+
+  .hero-article .hero-title-wrapper {
+    padding: 12px 16px;
+  }
+
+  .hero-article h1 {
+    font-size: 1.4rem;
+  }
+
   .toc {
     padding: 16px 18px;
   }
+
   .toc-list {
     flex-direction: column;
     gap: 4px;
   }
-  .comparison-table {
-    font-size: 0.75rem;
-  }
-  .comparison-table th,
-  .comparison-table td {
-    padding: 6px 8px;
-  }
-  .qa-block {
-    padding: 14px 16px;
-  }
-  .qa-block .question {
-    font-size: 0.95rem;
-  }
-  .tip-with-photo .tip-content {
-    flex-direction: column;
-    align-items: center;
-  }
-  .bottom-nav {
-    gap: 12px;
-  }
-}
 
-@media (max-width: 480px) {
-  .article-content {
-    padding: 14px 12px;
-  }
-  .qa-block .question {
-    font-size: 0.9rem;
-  }
-  .qa-block .question .num {
-    min-width: 24px;
-    height: 24px;
-    font-size: 0.65rem;
-  }
-  .micro-glossary dl {
-    grid-template-columns: 1fr;
-  }
-  .bottom-nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-  .bottom-nav a {
-    justify-content: center;
-    padding: 10px 12px;
+  .share-btn {
+    padding: 8px 16px;
     font-size: 0.8rem;
   }
-}
-/* app/encyclopedia/[slug]/page.css — добавить в конец файла */
 
-/* ===== ТАБЛИЦЫ НА ТЕЛЕФОНАХ ===== */
-@media (max-width: 768px) {
+  .share-btn .share-label {
+    font-size: 0.75rem;
+  }
+
+  .bottom-nav {
+    justify-content: center;
+  }
+
+  .bottom-links {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-links .sources {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* ===== ТАБЛИЦЫ НА ТЕЛЕФОНАХ ===== */
   .article-content .comparison-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 12px -8px;
-    padding: 0 8px;
-    border-radius: 0;
+    margin: 12px -16px;
+    padding: 0 16px;
   }
 
   .article-content .comparison-table {
     font-size: 0.6rem !important;
-    min-width: 400px;
+    min-width: 480px;
   }
 
   .article-content .comparison-table th,
   .article-content .comparison-table td {
     padding: 6px 10px !important;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .article-content .comparison-table th:first-child,
-  .article-content .comparison-table td:first-child {
-    min-width: 65px;
+    white-space: nowrap;
   }
 
   .article-content .comparison-table td strong {
@@ -432,24 +628,62 @@
 }
 
 @media (max-width: 480px) {
+  .article-content {
+    padding: 14px 12px;
+  }
+
+  .qa-block .question {
+    font-size: 0.95rem;
+  }
+
+  .hero-article .hero-title-wrapper {
+    padding: 10px 12px;
+  }
+
+  .hero-article h1 {
+    font-size: 1.2rem;
+  }
+
+  .share-btn {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+
+  .share-btn .share-label {
+    display: none;
+  }
+
+  .micro-glossary dl {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-block .btn-row .btn {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+  }
+
+  .brand-block .brand-contacts {
+    font-size: 0.7rem;
+  }
+
+  .brand-block .brand-contacts .sep {
+    margin: 0 4px;
+  }
+
+  /* ===== ТАБЛИЦЫ НА МАЛЕНЬКИХ ТЕЛЕФОНАХ ===== */
   .article-content .comparison-table-wrap {
-    margin: 8px -4px;
-    padding: 0 4px;
+    margin: 8px -12px;
+    padding: 0 12px;
   }
 
   .article-content .comparison-table {
     font-size: 0.5rem !important;
-    min-width: 320px;
+    min-width: 380px;
   }
 
   .article-content .comparison-table th,
   .article-content .comparison-table td {
     padding: 4px 6px !important;
-  }
-
-  .article-content .comparison-table th:first-child,
-  .article-content .comparison-table td:first-child {
-    min-width: 50px;
   }
 
   .article-content .comparison-table td strong {
