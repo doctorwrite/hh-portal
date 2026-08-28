@@ -53,6 +53,8 @@ export const AutomationWidget = dynamic(() => import('./AutomationWidget'), { ss
 
 export const SessionPrepWidget = dynamic(() => import('./SessionPrepWidget'), { ssr: false })
 
+export const VocalMixMinusWidget = dynamic(() => import('./VocalMixMinusWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -80,6 +82,7 @@ export const widgetMap: Record<string, any> = {
   EditingWidget: EditingWidget,
   AutomationWidget: AutomationWidget,
   SessionPrepWidget: SessionPrepWidget,
+  VocalMixMinusWidget: VocalMixMinusWidget,
 }
 
 export function getWidget(name: string): any {
