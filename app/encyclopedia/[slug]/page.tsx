@@ -1,12 +1,16 @@
 // app/encyclopedia/[slug]/page.tsx
 import './page.css'
 
-import { getArticle, getMetadata, getAllArticleSlugs } from '@/lib/articles'
+import { getArticle, getMetadata } from '@/lib/articles'
 import { getWidget } from '@/components/interactive'
 import ArticleLayout from '@/components/article/ArticleLayout'
 import BottomNav from '@/components/article/BottomNav'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+
+// ===== ВРЕМЕННО УБИРАЕМ generateStaticParams =====
+// Статьи будут рендериться на лету (SSR), а не статически
+// Это решит проблему с размером Edge Function
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const meta = getMetadata(params.slug)
@@ -54,12 +58,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export async function generateStaticParams() {
-  const slugs = getAllArticleSlugs()
-  return slugs.map((slug) => ({
-    slug,
-  }))
-}
+// ===== УБИРАЕМ generateStaticParams =====
+// export async function generateStaticParams() {
+//   const slugs = getAllArticleSlugs()
+//   return slugs.map((slug) => ({
+//     slug,
+//   }))
+// }
 
 function getJsonLd(slug: string, article: any, meta: any) {
   if (!meta || !article) return null
