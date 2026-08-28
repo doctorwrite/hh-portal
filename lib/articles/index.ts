@@ -28,6 +28,7 @@ import { tracking } from './data/tracking'
 import { editing } from './data/editing'
 import { automation } from './data/automation'
 import { prepareTracks } from './data/prepare-tracks'
+import { vocalMixMinus } from './data/vocal-mix-minus'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -56,6 +57,7 @@ import { trackingMeta } from './metadata/tracking'
 import { editingMeta } from './metadata/editing'
 import { automationMeta } from './metadata/automation'
 import { prepareTracksMeta } from './metadata/prepare-tracks'
+import { vocalMixMinusMeta } from './metadata/vocal-mix-minus'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -85,6 +87,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'editing': editing,
   'automation': automation,
   'prepare-tracks': prepareTracks,
+  'vocal-mix-minus': vocalMixMinus,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -114,6 +117,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'editing': editingMeta,
   'automation': automationMeta,
   'prepare-tracks': prepareTracksMeta,
+  'vocal-mix-minus': vocalMixMinusMeta,
 }
 
 // ===== ФУНКЦИИ =====
