@@ -11,12 +11,11 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  // ===== ДИНАМИЧЕСКИЙ ИМПОРТ — НЕ ТЯНЕТ ВСЕ СТАТЬИ =====
-  const { getArticle } = await import('@/lib/articles')
-  const article = getArticle(params.slug)
-
-  // Если статья не найдена — показываем slug
-  const title = article?.title || params.slug
+  // ===== НИКАКИХ ИМПОРТОВ СТАТЕЙ =====
+  // Преобразуем slug в читаемый заголовок
+  const title = params.slug
+    .replace(/-/g, ' ')
+    .replace(/(^\w|\s\w)/g, (m) => m.toUpperCase())
 
   return new ImageResponse(
     (
