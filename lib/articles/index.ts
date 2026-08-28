@@ -26,6 +26,7 @@ import { mixing } from './data/mixing'
 import { mastering } from './data/mastering'
 import { tracking } from './data/tracking'
 import { editing } from './data/editing'
+import { automation } from './data/automation'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -52,6 +53,7 @@ import { mixingMeta } from './metadata/mixing'
 import { masteringMeta } from './metadata/mastering'
 import { trackingMeta } from './metadata/tracking'
 import { editingMeta } from './metadata/editing'
+import { automationMeta } from './metadata/automation'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -79,6 +81,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'mastering': mastering,
   'tracking': tracking,
   'editing': editing,
+  'automation': automation,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -106,6 +109,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'mastering': masteringMeta,
   'tracking': trackingMeta,
   'editing': editingMeta,
+  'automation': automationMeta,
 }
 
 // ===== ФУНКЦИИ =====
