@@ -34,6 +34,7 @@ import { sidechain } from './data/sidechain'
 import { depthWidth } from './data/depth-width'
 import { recordingMistakes } from './data/recording-mistakes'
 import { eqVocal } from './data/eq-vocal'
+import { rapVocal } from './data/rap-vocal'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -68,6 +69,7 @@ import { sidechainMeta } from './metadata/sidechain'
 import { depthWidthMeta } from './metadata/depth-width'
 import { recordingMistakesMeta } from './metadata/recording-mistakes'
 import { eqVocalMeta } from './metadata/eq-vocal'
+import { rapVocalMeta } from './metadata/rap-vocal'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -103,6 +105,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'depth-width': depthWidth,
   'recording-mistakes': recordingMistakes,
   'eq-vocal': eqVocal,
+  'rap-vocal': rapVocal,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -138,6 +141,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'depth-width': depthWidthMeta,
   'recording-mistakes': recordingMistakesMeta,
   'eq-vocal': eqVocalMeta,
+  'rap-vocal': rapVocalMeta,
 }
 
 // ===== ФУНКЦИИ =====
