@@ -65,6 +65,8 @@ export const RecordingMistakesWidget = dynamic(() => import('./RecordingMistakes
 
 export const VocalEQWidget = dynamic(() => import('./VocalEQWidget'), { ssr: false })
 
+export const RapVocalWidget = dynamic(() => import('./RapVocalWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -98,6 +100,7 @@ export const widgetMap: Record<string, any> = {
   DepthWidthWidget: DepthWidthWidget,
   RecordingMistakesWidget: RecordingMistakesWidget,
   VocalEQWidget: VocalEQWidget,
+  RapVocalWidget: RapVocalWidget,
 }
 
 export function getWidget(name: string): any {
