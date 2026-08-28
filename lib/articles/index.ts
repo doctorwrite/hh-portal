@@ -36,6 +36,7 @@ import { recordingMistakes } from './data/recording-mistakes'
 import { eqVocal } from './data/eq-vocal'
 import { rapVocal } from './data/rap-vocal'
 import { vocalProcessing } from './data/vocal-processing'
+import { rockGuitar } from './data/rock-guitar'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -72,6 +73,7 @@ import { recordingMistakesMeta } from './metadata/recording-mistakes'
 import { eqVocalMeta } from './metadata/eq-vocal'
 import { rapVocalMeta } from './metadata/rap-vocal'
 import { vocalProcessingMeta } from './metadata/vocal-processing'
+import { rockGuitarMeta } from './metadata/rock-guitar'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -109,6 +111,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'eq-vocal': eqVocal,
   'rap-vocal': rapVocal,
   'vocal-processing': vocalProcessing,
+  'rock-guitar': rockGuitar,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -146,6 +149,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'eq-vocal': eqVocalMeta,
   'rap-vocal': rapVocalMeta,
   'vocal-processing': vocalProcessingMeta,
+  'rock-guitar': rockGuitarMeta,
 }
 
 // ===== ФУНКЦИИ =====
