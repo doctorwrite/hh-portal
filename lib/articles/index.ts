@@ -25,6 +25,7 @@ import { phase } from './data/phase'
 import { mixing } from './data/mixing'
 import { mastering } from './data/mastering'
 import { tracking } from './data/tracking'
+import { editing } from './data/editing'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -50,6 +51,7 @@ import { phaseMeta } from './metadata/phase'
 import { mixingMeta } from './metadata/mixing'
 import { masteringMeta } from './metadata/mastering'
 import { trackingMeta } from './metadata/tracking'
+import { editingMeta } from './metadata/editing'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -76,6 +78,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'mixing': mixing,
   'mastering': mastering,
   'tracking': tracking,
+  'editing': editing,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -102,6 +105,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'mixing': mixingMeta,
   'mastering': masteringMeta,
   'tracking': trackingMeta,
+  'editing': editingMeta,
 }
 
 // ===== ФУНКЦИИ =====
