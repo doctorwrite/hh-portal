@@ -37,6 +37,8 @@ export const BitrateWidget = dynamic(() => import('./BitrateWidget'), { ssr: fal
 
 export const FilterWidget = dynamic(() => import('./FilterWidget'), { ssr: false })
 
+export const ClippingWidget = dynamic(() => import('./ClippingWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -56,6 +58,7 @@ export const widgetMap: Record<string, any> = {
   LUFSWidget: LUFSWidget,
   BitrateWidget: BitrateWidget,
   FilterWidget: FilterWidget,
+  ClippingWidget: ClippingWidget,
 }
 
 export function getWidget(name: string): any {
