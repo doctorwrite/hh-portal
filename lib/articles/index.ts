@@ -19,6 +19,7 @@ import { bitDepth } from './data/bit-depth'
 import { sampleRate } from './data/sample-rate'
 import { lufs } from './data/lufs'
 import { bitrate } from './data/bitrate'
+import { filter } from './data/filter'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -38,6 +39,7 @@ import { bitDepthMeta } from './metadata/bit-depth'
 import { sampleRateMeta } from './metadata/sample-rate'
 import { lufsMeta } from './metadata/lufs'
 import { bitrateMeta } from './metadata/bitrate'
+import { filterMeta } from './metadata/filter'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -58,6 +60,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'sample-rate': sampleRate,
   'lufs': lufs,
   'bitrate': bitrate,
+  'filter': filter,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -78,6 +81,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'sample-rate': sampleRateMeta,
   'lufs': lufsMeta,
   'bitrate': bitrateMeta,
+  'filter': filterMeta,
 }
 
 // ===== ФУНКЦИИ =====
