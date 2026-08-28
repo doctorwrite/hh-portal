@@ -35,6 +35,7 @@ import { depthWidth } from './data/depth-width'
 import { recordingMistakes } from './data/recording-mistakes'
 import { eqVocal } from './data/eq-vocal'
 import { rapVocal } from './data/rap-vocal'
+import { vocalProcessing } from './data/vocal-processing'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -70,6 +71,7 @@ import { depthWidthMeta } from './metadata/depth-width'
 import { recordingMistakesMeta } from './metadata/recording-mistakes'
 import { eqVocalMeta } from './metadata/eq-vocal'
 import { rapVocalMeta } from './metadata/rap-vocal'
+import { vocalProcessingMeta } from './metadata/vocal-processing'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -106,6 +108,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'recording-mistakes': recordingMistakes,
   'eq-vocal': eqVocal,
   'rap-vocal': rapVocal,
+  'vocal-processing': vocalProcessing,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -142,6 +145,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'recording-mistakes': recordingMistakesMeta,
   'eq-vocal': eqVocalMeta,
   'rap-vocal': rapVocalMeta,
+  'vocal-processing': vocalProcessingMeta,
 }
 
 // ===== ФУНКЦИИ =====
