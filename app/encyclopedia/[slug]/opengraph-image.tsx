@@ -1,7 +1,8 @@
 // app/encyclopedia/[slug]/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
-
-export const runtime = 'edge'
+// ===== УБИРАЕМ runtime: 'edge' =====
+// Теперь это обычный серверный компонент (Node.js)
+// Лимит на Node.js функции — 50 MB, а не 1 MB
 
 export const size = {
   width: 1200,
@@ -11,7 +12,6 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  // ===== НИКАКИХ ИМПОРТОВ СТАТЕЙ =====
   // Преобразуем slug в читаемый заголовок
   const title = params.slug
     .replace(/-/g, ' ')
