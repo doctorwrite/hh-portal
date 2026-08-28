@@ -18,6 +18,7 @@ import { midiController } from './data/midi-controller'
 import { bitDepth } from './data/bit-depth'
 import { sampleRate } from './data/sample-rate'
 import { lufs } from './data/lufs'
+import { bitrate } from './data/bitrate'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -36,6 +37,7 @@ import { midiControllerMeta } from './metadata/midi-controller'
 import { bitDepthMeta } from './metadata/bit-depth'
 import { sampleRateMeta } from './metadata/sample-rate'
 import { lufsMeta } from './metadata/lufs'
+import { bitrateMeta } from './metadata/bitrate'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -55,6 +57,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'bit-depth': bitDepth,
   'sample-rate': sampleRate,
   'lufs': lufs,
+  'bitrate': bitrate,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -74,6 +77,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'bit-depth': bitDepthMeta,
   'sample-rate': sampleRateMeta,
   'lufs': lufsMeta,
+  'bitrate': bitrateMeta,
 }
 
 // ===== ФУНКЦИИ =====
