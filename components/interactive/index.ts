@@ -57,6 +57,8 @@ export const VocalMixMinusWidget = dynamic(() => import('./VocalMixMinusWidget')
 
 export const ParallelCompressionWidget = dynamic(() => import('./ParallelCompressionWidget'), { ssr: false })
 
+export const SidechainWidget = dynamic(() => import('./SidechainWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -86,6 +88,7 @@ export const widgetMap: Record<string, any> = {
   SessionPrepWidget: SessionPrepWidget,
   VocalMixMinusWidget: VocalMixMinusWidget,
   ParallelCompressionWidget: ParallelCompressionWidget,
+  SidechainWidget: SidechainWidget,
 }
 
 export function getWidget(name: string): any {
