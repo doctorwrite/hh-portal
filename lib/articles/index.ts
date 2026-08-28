@@ -14,7 +14,8 @@ import { midi } from './data/midi'
 import { vst } from './data/vst'
 import { sample } from './data/sample'
 import { monitors } from './data/monitors'
-import { midiController } from './data/midi-controller'  // ← ДОБАВЛЕНО
+import { midiController } from './data/midi-controller'
+import { bitDepth } from './data/bit-depth'  // ← НОВОЕ
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -29,7 +30,8 @@ import { midiMeta } from './metadata/midi'
 import { vstMeta } from './metadata/vst'
 import { sampleMeta } from './metadata/sample'
 import { monitorsMeta } from './metadata/monitors'
-import { midiControllerMeta } from './metadata/midi-controller'  // ← ДОБАВЛЕНО
+import { midiControllerMeta } from './metadata/midi-controller'
+import { bitDepthMeta } from './metadata/bit-depth'  // ← НОВОЕ
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -45,7 +47,8 @@ export const ARTICLES: Record<string, ArticleData> = {
   'vst': vst,
   'sample': sample,
   'monitors': monitors,
-  'midi-controller': midiController,  // ← ДОБАВЛЕНО
+  'midi-controller': midiController,
+  'bit-depth': bitDepth,  // ← НОВОЕ
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -61,7 +64,8 @@ export const METADATA: Record<string, ArticleMeta> = {
   'vst': vstMeta,
   'sample': sampleMeta,
   'monitors': monitorsMeta,
-  'midi-controller': midiControllerMeta,  // ← ДОБАВЛЕНО
+  'midi-controller': midiControllerMeta,
+  'bit-depth': bitDepthMeta,  // ← НОВОЕ
 }
 
 // ===== ФУНКЦИИ =====
