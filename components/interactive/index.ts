@@ -61,6 +61,8 @@ export const SidechainWidget = dynamic(() => import('./SidechainWidget'), { ssr:
 
 export const DepthWidthWidget = dynamic(() => import('./DepthWidthWidget'), { ssr: false })
 
+export const RecordingMistakesWidget = dynamic(() => import('./RecordingMistakesWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -92,6 +94,7 @@ export const widgetMap: Record<string, any> = {
   ParallelCompressionWidget: ParallelCompressionWidget,
   SidechainWidget: SidechainWidget,
   DepthWidthWidget: DepthWidthWidget,
+  RecordingMistakesWidget: RecordingMistakesWidget,
 }
 
 export function getWidget(name: string): any {
