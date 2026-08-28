@@ -32,6 +32,7 @@ import { vocalMixMinus } from './data/vocal-mix-minus'
 import { parallelCompression } from './data/parallel-compression'
 import { sidechain } from './data/sidechain'
 import { depthWidth } from './data/depth-width'
+import { recordingMistakes } from './data/recording-mistakes'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -64,6 +65,7 @@ import { vocalMixMinusMeta } from './metadata/vocal-mix-minus'
 import { parallelCompressionMeta } from './metadata/parallel-compression'
 import { sidechainMeta } from './metadata/sidechain'
 import { depthWidthMeta } from './metadata/depth-width'
+import { recordingMistakesMeta } from './metadata/recording-mistakes'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -97,6 +99,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'parallel-compression': parallelCompression,
   'sidechain': sidechain,
   'depth-width': depthWidth,
+  'recording-mistakes': recordingMistakes,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -130,6 +133,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'parallel-compression': parallelCompressionMeta,
   'sidechain': sidechainMeta,
   'depth-width': depthWidthMeta,
+  'recording-mistakes': recordingMistakesMeta,
 }
 
 // ===== ФУНКЦИИ =====
