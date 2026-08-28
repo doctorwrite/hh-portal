@@ -47,6 +47,8 @@ export const MasteringWidget = dynamic(() => import('./MasteringWidget'), { ssr:
 
 export const TrackingWidget = dynamic(() => import('./TrackingWidget'), { ssr: false })
 
+export const EditingWidget = dynamic(() => import('./EditingWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -71,6 +73,7 @@ export const widgetMap: Record<string, any> = {
   MixingWidget: MixingWidget,
   MasteringWidget: MasteringWidget,
   TrackingWidget: TrackingWidget,
+  EditingWidget: EditingWidget,
 }
 
 export function getWidget(name: string): any {
