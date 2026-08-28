@@ -69,6 +69,8 @@ export const RapVocalWidget = dynamic(() => import('./RapVocalWidget'), { ssr: f
 
 export const VocalProcessingWidget = dynamic(() => import('./VocalProcessingWidget'), { ssr: false })
 
+export const RockMetalWidget = dynamic(() => import('./RockMetalWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -104,6 +106,7 @@ export const widgetMap: Record<string, any> = {
   VocalEQWidget: VocalEQWidget,
   RapVocalWidget: RapVocalWidget,
   VocalProcessingWidget: VocalProcessingWidget,
+  RockMetalWidget: RockMetalWidget,
 }
 
 export function getWidget(name: string): any {
