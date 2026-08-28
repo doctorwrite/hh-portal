@@ -52,7 +52,13 @@ const SessionPrepWidget: React.FC = () => {
   const [progress, setProgress] = useState(0)
   const [selectedTrack, setSelectedTrack] = useState<number | null>(null)
   const timeRef = useRef(0)
-  const isPlaying = true // Всегда активен
+
+  // ===== КОНСТАНТЫ =====
+  const TRACK_H = 18
+  const TRACK_GAP = 2
+  const CAT_H = 22
+  const PROGRESS_H = 12
+  const MARGIN = 8
 
   // ===== РАСЧЁТ ПРОГРЕССА =====
   const calculateProgress = useCallback(() => {
@@ -109,13 +115,8 @@ const SessionPrepWidget: React.FC = () => {
 
     ctx.clearRect(0, 0, W, H)
 
-    const margin = 8
     const leftCol = 110
-    const trackH = 18
-    const trackGap = 2
-    const catH = 22
-    const statusW = 16
-    const progressH = 12
+    const prog = calculateProgress()
 
     // === Фон ===
     ctx.fillStyle = 'rgba(0,0,0,0.2)'
@@ -127,17 +128,16 @@ const SessionPrepWidget: React.FC = () => {
     ctx.font = '6px sans-serif'
     ctx.textAlign = 'left'
     ctx.textBaseline = 'top'
-    ctx.fillText('📂 Органайзер проекта', margin, headerY)
+    ctx.fillText('📂 Органайзер проекта', MARGIN, headerY)
 
     // === Прогресс ===
-    const progX = margin + leftCol
+    const progX = MARGIN + leftCol
     const progY = 4
-    const progW = W - margin * 2 - leftCol - 20
-    const prog = calculateProgress()
+    const progW = W - MARGIN * 2 - leftCol - 20
 
     ctx.fillStyle = 'rgba(255,255,255,0.03)'
     ctx.beginPath()
-    ctx.roundRect(progX, progY, progW, progressH, 6)
+    ctx.roundRect(progX, progY, progW, PROGRESS_H, 6)
     ctx.fill()
 
     const grad = ctx.createLinearGradient(progX, 0, progX + progW, 0)
@@ -146,36 +146,34 @@ const SessionPrepWidget: React.FC = () => {
     grad.addColorStop(1, '#ff6b6b')
     ctx.fillStyle = grad
     ctx.beginPath()
-    ctx.roundRect(progX, progY, (prog / 100) * progW, progressH, 6)
+    ctx.roundRect(progX, progY, (prog / 100) * progW, PROGRESS_H, 6)
     ctx.fill()
 
     ctx.fillStyle = 'rgba(255,255,255,0.6)'
     ctx.font = 'bold 6px sans-serif'
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
-    ctx.fillText(`${prog}% готово`, progX + progW / 2, progY + progressH / 2)
+    ctx.fillText(`${prog}% готово`, progX + progW / 2, progY + PROGRESS_H / 2)
 
     // === Категории ===
-    let yPos = 4 + progressH + 4
+    let yPos = 4 + PROGRESS_H + 4
 
     for (const cat of state.categories) {
-      // Заголовок категории
       const catY = yPos
-      const catW = W - margin * 2
+      const catW = W - MARGIN * 2
 
       ctx.fillStyle = 'rgba(255,255,255,0.02)'
       ctx.beginPath()
-      ctx.roundRect(margin, catY, catW, catH, 3)
+      ctx.roundRect(MARGIN, catY, catW, CAT_H, 3)
       ctx.fill()
 
       ctx.fillStyle = cat.color
       ctx.font = 'bold 6px sans-serif'
       ctx.textAlign = 'left'
       ctx.textBaseline = 'middle'
-      ctx.fillText(cat.expanded ? '▾' : '▸', margin + 4, catY + catH / 2)
-      ctx.fillText(cat.name, margin + 18, catY + catH / 2)
+      ctx.fillText(cat.expanded ? '▾' : '▸', MARGIN + 4, catY + CAT_H / 2)
+      ctx.fillText(cat.name, MARGIN + 18, catY + CAT_H / 2)
 
-      // Количество готовых дорожек
       const catTracks = state.tracks.filter(t => t.category === cat.id)
       const readyCount = catTracks.filter(t => t.ready).length
       const totalCount = catTracks.length
@@ -184,62 +182,56 @@ const SessionPrepWidget: React.FC = () => {
       ctx.font = '5px sans-serif'
       ctx.textAlign = 'right'
       ctx.textBaseline = 'middle'
-      ctx.fillText(`${readyCount}/${totalCount}`, margin + catW - 4, catY + catH / 2)
+      ctx.fillText(`${readyCount}/${totalCount}`, MARGIN + catW - 4, catY + CAT_H / 2)
 
-      // Индикатор готовности категории
       const catProg = totalCount > 0 ? (readyCount / totalCount) * 100 : 0
-      const catProgX = margin + catW - 50
-      const catProgW = 36
-      const catProgY = catY + (catH - 4) / 2 + 2
+      const catProgX = MARGIN + catW - 50
+      const catProgW2 = 36
+      const catProgY = catY + (CAT_H - 4) / 2 + 2
       ctx.fillStyle = 'rgba(255,255,255,0.05)'
-      ctx.fillRect(catProgX, catProgY, catProgW, 4)
-      const catGrad = ctx.createLinearGradient(catProgX, 0, catProgX + catProgW, 0)
+      ctx.fillRect(catProgX, catProgY, catProgW2, 4)
+      const catGrad = ctx.createLinearGradient(catProgX, 0, catProgX + catProgW2, 0)
       catGrad.addColorStop(0, '#50c878')
       catGrad.addColorStop(1, '#f5c542')
       ctx.fillStyle = catGrad
-      ctx.fillRect(catProgX, catProgY, (catProg / 100) * catProgW, 4)
+      ctx.fillRect(catProgX, catProgY, (catProg / 100) * catProgW2, 4)
 
-      yPos += catH
+      yPos += CAT_H
 
-      // Дорожки в категории
       if (cat.expanded) {
         for (const track of state.tracks.filter(t => t.category === cat.id)) {
           const trY = yPos
-          const trW = W - margin * 2 - 4
+          const trW = W - MARGIN * 2 - 4
 
-          // Фон дорожки
           const isSelected = selectedTrack === track.id
           ctx.fillStyle = isSelected ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.01)'
           ctx.beginPath()
-          ctx.roundRect(margin + 12, trY, trW - 12, trackH, 2)
+          ctx.roundRect(MARGIN + 12, trY, trW - 12, TRACK_H, 2)
           ctx.fill()
 
-          // Цветной индикатор
           ctx.fillStyle = track.color
-          ctx.fillRect(margin + 14, trY + 2, 3, trackH - 4)
+          ctx.fillRect(MARGIN + 14, trY + 2, 3, TRACK_H - 4)
 
-          // Название
           ctx.fillStyle = track.ready ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.25)'
           ctx.font = '5px sans-serif'
           ctx.textAlign = 'left'
           ctx.textBaseline = 'middle'
-          ctx.fillText(track.name, margin + 22, trY + trackH / 2)
+          ctx.fillText(track.name, MARGIN + 22, trY + TRACK_H / 2)
 
-          // Статус готовности
-          const statusX = margin + trW - 20
+          const statusX = MARGIN + trW - 20
           ctx.fillStyle = track.ready ? '#50c878' : 'rgba(255,255,255,0.1)'
           ctx.beginPath()
-          ctx.arc(statusX, trY + trackH / 2, 5, 0, Math.PI * 2)
+          ctx.arc(statusX, trY + TRACK_H / 2, 5, 0, Math.PI * 2)
           ctx.fill()
           if (track.ready) {
             ctx.fillStyle = '#fff'
             ctx.font = '4px sans-serif'
             ctx.textAlign = 'center'
             ctx.textBaseline = 'middle'
-            ctx.fillText('✓', statusX, trY + trackH / 2 + 0.5)
+            ctx.fillText('✓', statusX, trY + TRACK_H / 2 + 0.5)
           }
 
-          yPos += trackH + trackGap
+          yPos += TRACK_H + TRACK_GAP
         }
       }
 
@@ -254,9 +246,8 @@ const SessionPrepWidget: React.FC = () => {
     ctx.font = '3px sans-serif'
     ctx.textAlign = 'left'
     ctx.textBaseline = 'middle'
-    ctx.fillText('🟢 Готово  ●  🔴 Не готово  ●  🖱️ Клик по дорожке — переключить', margin + 4, legendY + 5)
+    ctx.fillText('🟢 Готово  ●  🔴 Не готово  ●  🖱️ Клик по дорожке — переключить', MARGIN + 4, legendY + 5)
 
-    // Обновляем прогресс
     setProgress(prog)
 
   }, [state, selectedTrack, calculateProgress])
@@ -287,25 +278,20 @@ const SessionPrepWidget: React.FC = () => {
     const getTrackAt = (x: number, y: number): number | null => {
       const W = canvas.width
       const H = canvas.height
-      const margin = 8
-      const trackH = 18
-      const trackGap = 2
-      const catH = 22
-      const progressH = 12
 
-      let yPos = 4 + progressH + 4
+      let yPos = 4 + PROGRESS_H + 4
 
       for (const cat of state.categories) {
-        yPos += catH
+        yPos += CAT_H
         if (cat.expanded) {
           for (const track of state.tracks.filter(t => t.category === cat.id)) {
             const trY = yPos
-            const trW = W - margin * 2 - 4
-            if (x >= margin + 12 && x <= margin + 12 + trW - 12 &&
-                y >= trY && y <= trY + trackH) {
+            const trW = W - MARGIN * 2 - 4
+            if (x >= MARGIN + 12 && x <= MARGIN + 12 + trW - 12 &&
+                y >= trY && y <= trY + TRACK_H) {
               return track.id
             }
-            yPos += trackH + trackGap
+            yPos += TRACK_H + TRACK_GAP
           }
         }
         yPos += 2
@@ -318,27 +304,23 @@ const SessionPrepWidget: React.FC = () => {
       const x = (e.clientX - rect.left) / rect.width * canvas.width
       const y = (e.clientY - rect.top) / rect.height * canvas.height
 
-      // Проверяем клик по заголовку категории
       const W = canvas.width
-      const margin = 8
-      const progressH = 12
-      const catH = 22
-      let yPos = 4 + progressH + 4
+
+      let yPos = 4 + PROGRESS_H + 4
 
       for (const cat of state.categories) {
-        if (x >= margin && x <= margin + W - margin * 2 && y >= yPos && y <= yPos + catH) {
+        if (x >= MARGIN && x <= MARGIN + W - MARGIN * 2 && y >= yPos && y <= yPos + CAT_H) {
           toggleCategory(cat.id)
           return
         }
-        yPos += catH
+        yPos += CAT_H
         if (cat.expanded) {
           const tracks = state.tracks.filter(t => t.category === cat.id)
-          yPos += tracks.length * (trackH + trackGap)
+          yPos += tracks.length * (TRACK_H + TRACK_GAP)
         }
         yPos += 2
       }
 
-      // Проверяем клик по дорожке
       const trackId = getTrackAt(x, y)
       if (trackId !== null) {
         toggleTrackReady(trackId)
