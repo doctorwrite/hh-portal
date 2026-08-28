@@ -23,6 +23,7 @@ import { filter } from './data/filter'
 import { clipping } from './data/clipping'
 import { phase } from './data/phase'
 import { mixing } from './data/mixing'
+import { mastering } from './data/mastering'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -46,6 +47,7 @@ import { filterMeta } from './metadata/filter'
 import { clippingMeta } from './metadata/clipping'
 import { phaseMeta } from './metadata/phase'
 import { mixingMeta } from './metadata/mixing'
+import { masteringMeta } from './metadata/mastering'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -70,6 +72,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'clipping': clipping,
   'phase': phase,
   'mixing': mixing,
+  'mastering': mastering,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -94,6 +97,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'clipping': clippingMeta,
   'phase': phaseMeta,
   'mixing': mixingMeta,
+  'mastering': masteringMeta,
 }
 
 // ===== ФУНКЦИИ =====
