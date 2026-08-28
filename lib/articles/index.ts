@@ -21,6 +21,7 @@ import { lufs } from './data/lufs'
 import { bitrate } from './data/bitrate'
 import { filter } from './data/filter'
 import { clipping } from './data/clipping'
+import { phase } from './data/phase'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -42,6 +43,7 @@ import { lufsMeta } from './metadata/lufs'
 import { bitrateMeta } from './metadata/bitrate'
 import { filterMeta } from './metadata/filter'
 import { clippingMeta } from './metadata/clipping'
+import { phaseMeta } from './metadata/phase'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -64,6 +66,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'bitrate': bitrate,
   'filter': filter,
   'clipping': clipping,
+  'phase': phase,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -86,6 +89,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'bitrate': bitrateMeta,
   'filter': filterMeta,
   'clipping': clippingMeta,
+  'phase': phaseMeta,
 }
 
 // ===== ФУНКЦИИ =====
