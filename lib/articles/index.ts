@@ -29,6 +29,7 @@ import { editing } from './data/editing'
 import { automation } from './data/automation'
 import { prepareTracks } from './data/prepare-tracks'
 import { vocalMixMinus } from './data/vocal-mix-minus'
+import { parallelCompression } from './data/parallel-compression'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -58,6 +59,7 @@ import { editingMeta } from './metadata/editing'
 import { automationMeta } from './metadata/automation'
 import { prepareTracksMeta } from './metadata/prepare-tracks'
 import { vocalMixMinusMeta } from './metadata/vocal-mix-minus'
+import { parallelCompressionMeta } from './metadata/parallel-compression'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -88,6 +90,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'automation': automation,
   'prepare-tracks': prepareTracks,
   'vocal-mix-minus': vocalMixMinus,
+  'parallel-compression': parallelCompression,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -118,6 +121,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'automation': automationMeta,
   'prepare-tracks': prepareTracksMeta,
   'vocal-mix-minus': vocalMixMinusMeta,
+  'parallel-compression': parallelCompressionMeta,
 }
 
 // ===== ФУНКЦИИ =====
