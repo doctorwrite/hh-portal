@@ -46,261 +46,9 @@
   min-height: 400px !important;
 }
 
-/* ===== ГАЙД ===== */
-.eq-guide {
-  padding: 40px 0;
-}
-
-.eq-guide h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
-}
-
-.guide-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.guide-card {
-  background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 24px 20px;
-  transition: all 0.3s ease;
-}
-
-.guide-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(245, 197, 66, 0.2);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.guide-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #bf953f, #b38728);
-  color: #000;
-  font-weight: 800;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  margin-bottom: 12px;
-}
-
-.guide-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--gold-mid);
-  margin-bottom: 8px;
-}
-
-.guide-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 8px;
-}
-
-.guide-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.guide-card ul li {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  padding: 4px 0 4px 20px;
-  position: relative;
-}
-
-.guide-card ul li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--gold-mid);
-}
-
-/* ===== FAQ ===== */
-.eq-faq {
-  padding: 40px 0;
-}
-
-.eq-faq h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
-}
-
-.eq-faq-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
 /* ================================================================
-   ПРЕМИУМ-ОФОРМЛЕНИЕ ВИДЖЕТА ЭКВАЛАЙЗЕРА
+   ОПИСАНИЕ ВОЗМОЖНОСТЕЙ
    ================================================================ */
-
-.eq-widget-wrapper {
-  position: relative;
-  background: linear-gradient(145deg, rgba(15, 15, 20, 0.95), rgba(8, 8, 10, 0.98));
-  border-radius: 24px;
-  padding: 20px;
-  margin: 10px 0 20px 0;
-  border: 1px solid rgba(245, 197, 66, 0.15);
-  box-shadow: 
-    0 10px 60px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(245, 197, 66, 0.05),
-    0 0 40px rgba(191, 149, 63, 0.05);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
-}
-
-/* ===== ЗОЛОТОЕ СВЕЧЕНИЕ (ГЛОУ) ===== */
-.eq-widget-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    ellipse at 30% 20%,
-    rgba(245, 197, 66, 0.04) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ===== ВНУТРЕННЯЯ ОБВОДКА ===== */
-.eq-widget-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border-radius: 22px;
-  border: 1px solid rgba(245, 197, 66, 0.06);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ===== УГОЛКИ (ДЕКОРАТИВНЫЕ) ===== */
-.eq-widget-wrapper::after {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 30%;
-  right: 30%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.3), transparent);
-  border-radius: 50%;
-  filter: blur(1px);
-  z-index: 2;
-}
-
-/* ===== ХОВЕР ===== */
-.eq-widget-wrapper:hover {
-  border-color: rgba(245, 197, 66, 0.3);
-  box-shadow: 
-    0 15px 80px rgba(0, 0, 0, 0.7),
-    inset 0 1px 0 rgba(245, 197, 66, 0.08),
-    0 0 60px rgba(191, 149, 63, 0.08);
-  transform: translateY(-2px);
-}
-
-/* ===== ВИДЖЕТ ВНУТРИ ===== */
-.eq-widget-wrapper .hh-eq-wrapper,
-.eq-widget-wrapper #eqContainer {
-  position: relative;
-  z-index: 3;
-  min-height: 400px !important;
-}
-
-/* ===== ТЕНЬ ПОД ВИДЖЕТОМ (ДЛЯ ГЛУБИНЫ) ===== */
-.eq-widget-wrapper .hh-eq-wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 10%;
-  right: 10%;
-  height: 40px;
-  background: radial-gradient(ellipse, rgba(245, 197, 66, 0.04) 0%, transparent 70%);
-  filter: blur(20px);
-  z-index: -1;
-}
-
-/* ================================================================
-   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
-   ================================================================ */
-
-@media (max-width: 768px) {
-  .eq-page {
-    padding: 12px;
-  }
-
-  .guide-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .eq-faq-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .guide-card {
-    padding: 16px;
-  }
-
-  /* КОСТЫЛЬ: отступ для заголовка на телефоне */
-  .eq-page h1 {
-    margin-top: 15px !important;
-    padding-top: 10px !important;
-    display: block !important;
-  }
-
-  /* ПРЕМИУМ-ОБЕРТКА НА ТЕЛЕФОНЕ */
-  .eq-widget-wrapper {
-    padding: 8px;
-    border-radius: 16px;
-    margin: 5px 0 15px 0;
-  }
-
-  .eq-widget-wrapper::before {
-    border-radius: 14px;
-    inset: 1px;
-  }
-
-  .eq-widget-wrapper::after {
-    left: 20%;
-    right: 20%;
-  }
-
-  .eq-widget-wrapper:hover {
-    transform: none !important;
-  }
-
-  .eq-widget-wrapper .hh-eq-wrapper,
-  .eq-widget-wrapper #eqContainer {
-    min-height: 320px !important;
-  }
-}
-
-/* ================================================================
-   АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ
-   ================================================================ */
-
-@media (max-width: 1024px) and (min-width: 769px) {
-  .eq-widget-wrapper {
-    padding: 14px;
-  }
-}
-/* ================================================================
-   СТИЛИ ДЛЯ СТРАНИЦЫ ЭКВАЛАЙЗЕРА (НОВЫЕ БЛОКИ)
-   ================================================================ */
-
-/* ----- ОПИСАНИЕ ВОЗМОЖНОСТЕЙ ----- */
 .eq-features {
   padding: 40px 0;
 }
@@ -365,63 +113,9 @@
   margin: 0;
 }
 
-/* ----- ГОРЯЧИЕ КЛАВИШИ ----- */
-.eq-shortcuts {
-  padding: 40px 0;
-}
-
-.eq-shortcuts h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 32px;
-  font-family: var(--font-oswald);
-  background: linear-gradient(to right, var(--gold-start), var(--gold-mid), var(--gold-end));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.shortcuts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 8px;
-}
-
-.shortcut-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  transition: var(--transition);
-}
-
-.shortcut-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(245, 197, 66, 0.1);
-}
-
-.shortcut-item .key {
-  display: inline-block;
-  padding: 2px 10px;
-  background: rgba(245, 197, 66, 0.12);
-  color: var(--gold-mid);
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  font-family: monospace;
-  min-width: 60px;
-  text-align: center;
-  border: 1px solid rgba(245, 197, 66, 0.08);
-}
-
-.shortcut-item .action {
-  color: var(--text-secondary);
-  font-size: 0.85rem;
-}
-
-/* ----- ГАЙД (КАК ПОЛЬЗОВАТЬСЯ) ----- */
+/* ================================================================
+   ГАЙД (КАК ПОЛЬЗОВАТЬСЯ)
+   ================================================================ */
 .eq-guide {
   padding: 40px 0;
 }
@@ -507,7 +201,67 @@
   color: var(--gold-mid);
 }
 
-/* ----- FAQ (ИСПРАВЛЕННЫЙ) ----- */
+/* ================================================================
+   ГОРЯЧИЕ КЛАВИШИ
+   ================================================================ */
+.eq-shortcuts {
+  padding: 40px 0;
+}
+
+.eq-shortcuts h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+  font-family: var(--font-oswald);
+  background: linear-gradient(to right, var(--gold-start), var(--gold-mid), var(--gold-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: var(--transition);
+}
+
+.shortcut-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 197, 66, 0.1);
+}
+
+.shortcut-item .key {
+  display: inline-block;
+  padding: 2px 10px;
+  background: rgba(245, 197, 66, 0.12);
+  color: var(--gold-mid);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: monospace;
+  min-width: 60px;
+  text-align: center;
+  border: 1px solid rgba(245, 197, 66, 0.08);
+}
+
+.shortcut-item .action {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ================================================================
+   FAQ
+   ================================================================ */
 .eq-faq {
   padding: 40px 0;
 }
@@ -582,72 +336,30 @@
   margin-top: 12px;
 }
 
-/* ----- АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ----- */
-@media (max-width: 768px) {
-  .guide-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .eq-faq-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .shortcuts-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .shortcut-item {
-    padding: 8px 12px;
-  }
-
-  .shortcut-item .key {
-    min-width: 44px;
-    font-size: 0.6rem;
-  }
-
-  .shortcut-item .action {
-    font-size: 0.75rem;
-  }
-
-  .guide-card {
-    padding: 18px 16px;
-  }
-
-  .feature-card {
-    padding: 18px 16px;
-  }
-
-  .faq-card {
-    padding: 14px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .shortcuts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .eq-features h2,
-  .eq-shortcuts h2,
-  .eq-guide h2,
-  .eq-faq h2 {
-    font-size: 1.5rem;
-  }
-}
 /* ================================================================
-   SEO-ТЕКСТ (обновлённый)
+   СЕО-ТЕКСТ (обновлённый с сеткой)
    ================================================================ */
 .seo-text {
   padding: 40px 0;
+}
+
+.seo-text .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.seo-text .seo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ---- ЛЕВАЯ КОЛОНКА ---- */
+.seo-text .seo-main {
+  min-width: 0;
+  overflow: hidden;
 }
 
 .seo-text .seo-badge {
@@ -668,7 +380,7 @@
 }
 
 .seo-text h2 {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
   color: #fff;
   margin-bottom: 16px;
@@ -680,10 +392,10 @@
 }
 
 .seo-text .seo-lead {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--text-secondary);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .seo-text .seo-lead strong {
@@ -691,18 +403,18 @@
   -webkit-text-fill-color: var(--gold-mid);
 }
 
-.seo-text .seo-features-list {
+.seo-text .seo-features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .seo-text .seo-feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 10px;
+  padding: 12px 14px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -715,20 +427,20 @@
 }
 
 .seo-text .seo-feature-item .seo-feature-icon {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .seo-text .seo-feature-item h4 {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 2px;
 }
 
 .seo-text .seo-feature-item p {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   margin: 0;
   line-height: 1.4;
@@ -738,15 +450,15 @@
   background: rgba(245, 197, 66, 0.04);
   border: 1px solid rgba(245, 197, 66, 0.08);
   border-radius: 12px;
-  padding: 20px 24px;
+  padding: 18px 22px;
   margin-bottom: 16px;
 }
 
 .seo-text .seo-cta-text {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.8;
   color: var(--text-secondary);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .seo-text .seo-cta-text strong {
@@ -756,7 +468,7 @@
 
 .seo-text .seo-cta-buttons {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -764,9 +476,9 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 18px;
+  padding: 7px 16px;
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-decoration: none;
   transition: var(--transition);
@@ -811,14 +523,14 @@
 }
 
 .seo-text .seo-footer {
-  padding: 16px 20px;
+  padding: 14px 18px;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .seo-text .seo-footer p {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin: 0;
@@ -829,19 +541,288 @@
   -webkit-text-fill-color: var(--gold-mid);
 }
 
-/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
+/* ---- ПРАВАЯ КОЛОНКА ---- */
+.seo-text .seo-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.seo-text .seo-sidebar-card {
+  background: linear-gradient(145deg, rgba(245, 197, 66, 0.04), rgba(0, 0, 0, 0.3));
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.seo-text .seo-sidebar-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.seo-text .seo-sidebar-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-mid);
+  margin-bottom: 8px;
+}
+
+.seo-text .seo-sidebar-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.seo-text .seo-sidebar-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.seo-text .seo-sidebar-stat {
+  text-align: center;
+}
+
+.seo-text .seo-sidebar-num {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--gold-start), var(--gold-mid), var(--gold-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.seo-text .seo-sidebar-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.seo-text .seo-sidebar-link {
+  display: inline-block;
+  color: var(--gold-mid);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.seo-text .seo-sidebar-link:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* ================================================================
+   ПРЕМИУМ-ОФОРМЛЕНИЕ ВИДЖЕТА ЭКВАЛАЙЗЕРА
+   ================================================================ */
+.eq-widget-wrapper {
+  position: relative;
+  background: linear-gradient(145deg, rgba(15, 15, 20, 0.95), rgba(8, 8, 10, 0.98));
+  border-radius: 24px;
+  padding: 20px;
+  margin: 10px 0 20px 0;
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  box-shadow: 
+    0 10px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(245, 197, 66, 0.05),
+    0 0 40px rgba(191, 149, 63, 0.05);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+.eq-widget-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(245, 197, 66, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eq-widget-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  border: 1px solid rgba(245, 197, 66, 0.06);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.eq-widget-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245, 197, 66, 0.3), transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+  z-index: 2;
+}
+
+.eq-widget-wrapper:hover {
+  border-color: rgba(245, 197, 66, 0.3);
+  box-shadow: 
+    0 15px 80px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(245, 197, 66, 0.08),
+    0 0 60px rgba(191, 149, 63, 0.08);
+  transform: translateY(-2px);
+}
+
+.eq-widget-wrapper .hh-eq-wrapper,
+.eq-widget-wrapper #eqContainer {
+  position: relative;
+  z-index: 3;
+  min-height: 400px !important;
+}
+
+.eq-widget-wrapper .hh-eq-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 10%;
+  right: 10%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(245, 197, 66, 0.04) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* ================================================================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
+   ================================================================ */
+@media (max-width: 1024px) {
+  .seo-text .seo-wrapper {
+    grid-template-columns: 1fr 260px;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
-  .seo-text .seo-features-list {
+  .eq-page {
+    padding: 12px;
+  }
+
+  .guide-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .eq-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .shortcuts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .shortcut-item {
+    padding: 8px 12px;
+  }
+
+  .shortcut-item .key {
+    min-width: 44px;
+    font-size: 0.6rem;
+  }
+
+  .shortcut-item .action {
+    font-size: 0.75rem;
+  }
+
+  .guide-card {
+    padding: 18px 16px;
+  }
+
+  .feature-card {
+    padding: 18px 16px;
+  }
+
+  .faq-card {
+    padding: 14px 16px;
+  }
+
+  .eq-features h2,
+  .eq-shortcuts h2,
+  .eq-guide h2,
+  .eq-faq h2 {
+    font-size: 1.5rem;
+  }
+
+  /* КОСТЫЛЬ: отступ для заголовка на телефоне */
+  .eq-page h1 {
+    margin-top: 15px !important;
+    padding-top: 10px !important;
+    display: block !important;
+  }
+
+  /* ПРЕМИУМ-ОБЕРТКА НА ТЕЛЕФОНЕ */
+  .eq-widget-wrapper {
+    padding: 8px;
+    border-radius: 16px;
+    margin: 5px 0 15px 0;
+  }
+
+  .eq-widget-wrapper::before {
+    border-radius: 14px;
+    inset: 1px;
+  }
+
+  .eq-widget-wrapper::after {
+    left: 20%;
+    right: 20%;
+  }
+
+  .eq-widget-wrapper:hover {
+    transform: none !important;
+  }
+
+  .eq-widget-wrapper .hh-eq-wrapper,
+  .eq-widget-wrapper #eqContainer {
+    min-height: 320px !important;
+  }
+
+  /* ---- SEO-ТЕКСТ НА ТЕЛЕФОНЕ ---- */
+  .seo-text .seo-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .seo-text .seo-sidebar {
+    position: static;
+  }
+
+  .seo-text .seo-sidebar-card {
+    padding: 20px 16px;
+  }
+
+  .seo-text .seo-features-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
   .seo-text .seo-feature-item {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   .seo-text .seo-cta {
-    padding: 16px 18px;
+    padding: 14px 16px;
   }
 
   .seo-text .seo-cta-buttons {
@@ -854,11 +835,42 @@
   }
 
   .seo-text .seo-footer {
-    padding: 14px 16px;
+    padding: 12px 14px;
+  }
+
+  .seo-text .seo-footer p {
+    font-size: 0.78rem;
+  }
+
+  .seo-text .seo-sidebar-stats {
+    gap: 16px;
+  }
+
+  .seo-text .seo-sidebar-num {
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shortcuts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-features h2,
+  .eq-shortcuts h2,
+  .eq-guide h2,
+  .eq-faq h2 {
+    font-size: 1.3rem;
+  }
+
+  .seo-text .seo-features-grid {
+    grid-template-columns: 1fr;
+  }
+
   .seo-text .seo-cta-buttons {
     flex-direction: column;
     align-items: stretch;
@@ -869,4 +881,53 @@
     padding: 10px 16px;
     font-size: 0.75rem;
   }
+
+  .seo-text .seo-sidebar-stats {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .seo-text .seo-sidebar-stat {
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .seo-text .seo-sidebar-card {
+    padding: 16px 12px;
+  }
+
+  .seo-text .seo-sidebar-icon {
+    font-size: 2.4rem;
+  }
+
+  .seo-text .seo-sidebar-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* ================================================================
+   АДАПТАЦИЯ ДЛЯ ПЛАНШЕТОВ
+   ================================================================ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .eq-widget-wrapper {
+    padding: 14px;
+  }
+}
+
+/* ================================================================
+   КОНТЕЙНЕР
+   ================================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ================================================================
+   РАЗДЕЛИТЕЛЬ
+   ================================================================ */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  margin: 30px 0;
 }
