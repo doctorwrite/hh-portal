@@ -89,6 +89,8 @@ export const RapArtistWidget = dynamic(() => import('./RapArtistWidget'), { ssr:
 
 export const RawMaterialWidget = dynamic(() => import('./RawMaterialWidget'), { ssr: false })
 
+export const PowerSoundWidget = dynamic(() => import('./PowerSoundWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -134,6 +136,7 @@ export const widgetMap: Record<string, any> = {
   MasteringTimerWidget: MasteringTimerWidget,
   RapArtistWidget: RapArtistWidget,
   RawMaterialWidget: RawMaterialWidget,
+  PowerSoundWidget: PowerSoundWidget,
 }
 
 export function getWidget(name: string): any {
