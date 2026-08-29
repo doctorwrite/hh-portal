@@ -40,6 +40,7 @@ import { rockGuitar } from './data/rock-guitar'
 import { bassMixing } from './data/bass-mixing'
 import { harmonics } from './data/harmonics'
 import { philosophy } from './data/philosophy'
+import { gearCase } from './data/gear-case'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -80,6 +81,7 @@ import { rockGuitarMeta } from './metadata/rock-guitar'
 import { bassMixingMeta } from './metadata/bass-mixing'
 import { harmonicsMeta } from './metadata/harmonics'
 import { philosophyMeta } from './metadata/philosophy'
+import { gearCaseMeta } from './metadata/gear-case'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -121,6 +123,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'bass-mixing': bassMixing,
   'harmonics': harmonics,
   'philosophy': philosophy,
+  'gear-case': gearCase,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -162,6 +165,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'bass-mixing': bassMixingMeta,
   'harmonics': harmonicsMeta,
   'philosophy': philosophyMeta,
+  'gear-case': gearCaseMeta,
 }
 
 // ===== ФУНКЦИИ =====
