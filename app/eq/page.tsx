@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
 }
 
-// ===== JSON-LD (микроразметка для AI и поисковиков) =====
+// ===== JSON-LD =====
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -111,7 +111,6 @@ const jsonLd = {
 export default function EQPage() {
   return (
     <>
-      {/* ===== МИКРОРАЗМЕТКА ===== */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -119,10 +118,8 @@ export default function EQPage() {
 
       <main id="main-content">
         <div className="eq-page">
-          {/* ===== H1 ===== */}
           <h1>Онлайн-эквалайзер — профессиональная обработка звука в браузере</h1>
 
-          {/* ===== САМ ЭКВАЛАЙЗЕР ===== */}
           <div className="hh-eq-container">
             <div className="eq-widget-wrapper">
               <div className="eq-widget-glow"></div>
@@ -130,7 +127,6 @@ export default function EQPage() {
             </div>
           </div>
 
-          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
           {/* ===== ОПИСАНИЕ ВОЗМОЖНОСТЕЙ ===== */}
@@ -246,7 +242,6 @@ export default function EQPage() {
             </div>
           </section>
 
-          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
           {/* ===== КАК ПОЛЬЗОВАТЬСЯ ===== */}
@@ -258,10 +253,7 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">1</span>
                   <h3>Загрузите аудио</h3>
-                  <p>
-                    Нажмите кнопку <strong>🎤 Микрофон</strong>, <strong>🔊 Системный звук</strong> или <strong>📁 Файл</strong>
-                    и выберите источник.
-                  </p>
+                  <p>Нажмите <strong>🎤 Микрофон</strong>, <strong>🔊 Системный звук</strong> или <strong>📁 Файл</strong>.</p>
                   <ul>
                     <li>Поддерживаются: MP3, WAV, FLAC, AAC, OGG</li>
                     <li>Запись с микрофона в реальном времени</li>
@@ -272,13 +264,10 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">2</span>
                   <h3>Добавьте полосы</h3>
-                  <p>
-                    Кликните на график — появится новая полоса. Перетаскивайте её,
-                    чтобы изменить <strong>частоту</strong> и <strong>усиление</strong>.
-                  </p>
+                  <p>Кликните на график — появится новая полоса. Перетаскивайте её.</p>
                   <ul>
-                    <li>Максимум <strong>8 полос</strong> одновременно</li>
-                    <li>Выберите тип фильтра: Bell, LowSh, HiSh, L-Cut, H-Cut, Notch, Band</li>
+                    <li>Максимум <strong>8 полос</strong></li>
+                    <li>Типы: Bell, LowSh, HiSh, L-Cut, H-Cut, Notch, Band</li>
                     <li>Настройте Q (ширину полосы)</li>
                   </ul>
                 </div>
@@ -286,13 +275,11 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">3</span>
                   <h3>Настройте параметры</h3>
-                  <p>
-                    Используйте панель управления для точной настройки каждой полосы:
-                  </p>
+                  <p>Используйте панель управления для точной настройки.</p>
                   <ul>
-                    <li><strong>F</strong> — частота (от 20 Гц до 20 кГц)</li>
-                    <li><strong>G</strong> — усиление (от -20 дБ до +20 дБ)</li>
-                    <li><strong>Q</strong> — добротность (от 0.1 до 10)</li>
+                    <li><strong>F</strong> — частота (20 Гц – 20 кГц)</li>
+                    <li><strong>G</strong> — усиление (-20 дБ – +20 дБ)</li>
+                    <li><strong>Q</strong> — добротность (0.1 – 10)</li>
                     <li><strong>Режим</strong> — Stereo, Mid, Side, Left, Right</li>
                   </ul>
                 </div>
@@ -300,9 +287,7 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">4</span>
                   <h3>Примените эффекты</h3>
-                  <p>
-                    В меню <strong>🎛️ Эффекты</strong> доступны мощные инструменты:
-                  </p>
+                  <p>В меню <strong>🎛️ Эффекты</strong> доступны мощные инструменты:</p>
                   <ul>
                     <li><strong>Обрезка</strong> — удаление фрагментов</li>
                     <li><strong>Fade In/Out</strong> — плавное затухание</li>
@@ -315,9 +300,7 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">5</span>
                   <h3>Визуализация и контроль</h3>
-                  <p>
-                    Следите за звуком в реальном времени:
-                  </p>
+                  <p>Следите за звуком в реальном времени:</p>
                   <ul>
                     <li><strong>Спектроанализатор</strong> — визуализация частот</li>
                     <li><strong>VU-метры</strong> — входной и выходной уровень</li>
@@ -328,9 +311,7 @@ export default function EQPage() {
                 <div className="guide-card">
                   <span className="guide-icon">6</span>
                   <h3>Сохраните результат</h3>
-                  <p>
-                    Экспортируйте обработанное аудио в нужном формате:
-                  </p>
+                  <p>Экспортируйте обработанное аудио в нужном формате:</p>
                   <ul>
                     <li><strong>WAV</strong> — для профессионального использования</li>
                     <li><strong>MP3</strong> — для публикации в соцсетях</li>
@@ -341,7 +322,6 @@ export default function EQPage() {
             </div>
           </section>
 
-          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
           {/* ===== ГОРЯЧИЕ КЛАВИШИ ===== */}
@@ -401,10 +381,9 @@ export default function EQPage() {
             </div>
           </section>
 
-          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
-          {/* ===== ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ ===== */}
+          {/* ===== FAQ ===== */}
           <section className="eq-faq">
             <div className="container">
               <h2>Часто задаваемые вопросы об онлайн-эквалайзере</h2>
@@ -493,7 +472,6 @@ export default function EQPage() {
             </div>
           </section>
 
-          {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
           <div className="divider"></div>
 
           {/* ===== СЕО-ТЕКСТ ===== */}
@@ -527,6 +505,41 @@ export default function EQPage() {
           </section>
         </div>
       </main>
+
+      {/* ===== СКРИПТ ДЛЯ FAQ ===== */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              // FAQ
+              document.querySelectorAll('.faq-card').forEach(function(card) {
+                card.addEventListener('click', function() {
+                  this.classList.toggle('active');
+                });
+              });
+
+              // Анимация при скролле
+              if (typeof IntersectionObserver !== 'undefined') {
+                const observer = new IntersectionObserver(function(entries) {
+                  entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                      entry.target.style.opacity = '1';
+                      entry.target.style.transform = 'translateY(0)';
+                    }
+                  });
+                }, { threshold: 0.1 });
+
+                document.querySelectorAll('.feature-card, .guide-card, .faq-card, .shortcut-item').forEach(function(el) {
+                  el.style.opacity = '0';
+                  el.style.transform = 'translateY(20px)';
+                  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                  observer.observe(el);
+                });
+              }
+            })();
+          `,
+        }}
+      />
     </>
   )
 }
