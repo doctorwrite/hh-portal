@@ -44,6 +44,7 @@ import { gearCase } from './data/gear-case'
 import { case1 } from './data/case1'
 import { case2 } from './data/case2'
 import { case3 } from './data/case3'
+import { case4 } from './data/case4'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -88,6 +89,7 @@ import { gearCaseMeta } from './metadata/gear-case'
 import { case1Meta } from './metadata/case1'
 import { case2Meta } from './metadata/case2'
 import { case3Meta } from './metadata/case3'
+import { case4Meta } from './metadata/case4'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -133,6 +135,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'case1': case1,
   'case2': case2,
   'case3': case3,
+  'case4': case4,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -178,6 +181,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'case1': case1Meta,
   'case2': case2Meta,
   'case3': case3Meta,
+  'case4': case4Meta,
 }
 
 // ===== ФУНКЦИИ =====
