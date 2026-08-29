@@ -38,6 +38,7 @@ import { rapVocal } from './data/rap-vocal'
 import { vocalProcessing } from './data/vocal-processing'
 import { rockGuitar } from './data/rock-guitar'
 import { bassMixing } from './data/bass-mixing'
+import { harmonics } from './data/harmonics'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -76,6 +77,7 @@ import { rapVocalMeta } from './metadata/rap-vocal'
 import { vocalProcessingMeta } from './metadata/vocal-processing'
 import { rockGuitarMeta } from './metadata/rock-guitar'
 import { bassMixingMeta } from './metadata/bass-mixing'
+import { harmonicsMeta } from './metadata/harmonics'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -115,6 +117,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'vocal-processing': vocalProcessing,
   'rock-guitar': rockGuitar,
   'bass-mixing': bassMixing,
+  'harmonics': harmonics,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -154,6 +157,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'vocal-processing': vocalProcessingMeta,
   'rock-guitar': rockGuitarMeta,
   'bass-mixing': bassMixingMeta,
+  'harmonics': harmonicsMeta,
 }
 
 // ===== ФУНКЦИИ =====
