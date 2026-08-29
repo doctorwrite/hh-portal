@@ -484,62 +484,19 @@ export default function EQPage() {
           <span className="seo-badge-icon">🎛️</span>
           Онлайн-эквалайзер HHRecords
         </div>
-        <h2>Профессиональный онлайн-эквалайзер для музыки, вокала и подкастов</h2>
+        <h2>Профессиональная обработка звука в браузере — сведение, мастеринг, подготовка вокала</h2>
         <p className="seo-lead">
-          <strong>Онлайн-эквалайзер HHRecords</strong> — это мощный инструмент для обработки звука, доступный прямо в браузере. Используйте его для <strong>сведения треков</strong>, <strong>мастеринга</strong>, подготовки вокала и инструментов. Работает с файлами, микрофоном и системным звуком.
+          <strong>Онлайн-эквалайзер HHRecords</strong> — это полноценная студийная обработка звука прямо в браузере. Инструмент создан для музыкантов, битмейкеров, звукорежиссёров и подкастеров, которым нужен чистый, плотный и профессиональный звук без установки сложного ПО.
         </p>
-
-        <div className="seo-features-grid">
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">🎛️</span>
-            <div>
-              <h4>8 полос EQ</h4>
-              <p>Параметрический эквалайзер с 7 типами фильтров</p>
-            </div>
-          </div>
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">📊</span>
-            <div>
-              <h4>Динамический EQ</h4>
-              <p>Компрессия на каждой полосе с настраиваемыми параметрами</p>
-            </div>
-          </div>
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">✂️</span>
-            <div>
-              <h4>Эффекты и обрезка</h4>
-              <p>Fade In/Out, нормализация, реверс, изменение скорости</p>
-            </div>
-          </div>
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">💾</span>
-            <div>
-              <h4>Экспорт WAV и MP3</h4>
-              <p>Сохраняйте обработанное аудио в любом формате</p>
-            </div>
-          </div>
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">🎤</span>
-            <div>
-              <h4>Захват аудио</h4>
-              <p>Микрофон, системный звук, загрузка файлов</p>
-            </div>
-          </div>
-          <div className="seo-feature-item">
-            <span className="seo-feature-icon">📈</span>
-            <div>
-              <h4>Спектроанализатор</h4>
-              <p>Визуализация частот в реальном времени</p>
-            </div>
-          </div>
-        </div>
+        <p className="seo-lead">
+          Загружайте аудиофайлы, подключайте микрофон или захватывайте системный звук — всё работает в реальном времени. Эквалайзер подходит для быстрой обрезки треков, выравнивания громкости, создания плавных переходов и финальной подготовки к релизу. А если вам нужна помощь со сведением или мастерингом — мы всегда рядом.
+        </p>
 
         <div className="seo-cta">
           <p className="seo-cta-text">
-            <strong>Студия HHRecords</strong> — профессиональная студия звукозаписи.
+            <strong>Студия HHRecords</strong> — это профессиональная звукозапись, сведение и мастеринг.
             Мы работаем <strong>очно в Красноярске</strong> и <strong>онлайн по всей России</strong>.
-            Присылайте ваши треки на сведение или мастеринг — мы сделаем ваш звук профессиональным,
-            где бы вы ни находились.
+            Присылайте свои треки, и мы сделаем их звучание конкурентоспособным на любых платформах.
           </p>
           <div className="seo-cta-buttons">
             <a href="tel:+79138376772" className="seo-btn seo-btn-phone">
@@ -552,14 +509,14 @@ export default function EQPage() {
               📱 VK
             </a>
             <a href="/encyclopedia" className="seo-btn seo-btn-secondary">
-              📚 Энциклопедия
+              📚 Энциклопедия звукозаписи
             </a>
           </div>
         </div>
 
         <div className="seo-footer">
           <p>
-            <strong>📍 Для записи в студии:</strong> приходите к нам на Дудинскую 3с5.
+            <strong>📍 Для записи в студии:</strong> Красноярск, ул. Дудинская 3с5, 3 этаж, офис 311.
             <br />
             <strong>🌐 Для онлайн-работы:</strong> отправляйте файлы через Telegram или ВКонтакте —
             мы работаем с артистами из любого города. Качество звука не зависит от расстояния.
@@ -567,7 +524,7 @@ export default function EQPage() {
         </div>
       </div>
 
-      {/* ПРАВАЯ КОЛОНКА — БЛОК С КОНТАКТАМИ ИЛИ ИЗОБРАЖЕНИЕМ */}
+      {/* ПРАВАЯ КОЛОНКА — КОНТАКТЫ И СТАТИСТИКА */}
       <div className="seo-sidebar">
         <div className="seo-sidebar-card">
           <div className="seo-sidebar-icon">🎧</div>
