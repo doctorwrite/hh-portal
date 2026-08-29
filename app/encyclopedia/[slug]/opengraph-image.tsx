@@ -1,6 +1,6 @@
 // app/encyclopedia/[slug]/opengraph-image.tsx
 import { ImageResponse } from 'next/og'
-import { getArticle } from '@/lib/articles'
+import { getTitle } from '@/lib/articles/titles'
 
 export const runtime = 'edge'
 
@@ -12,7 +12,7 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image({ params }: { params: { slug: string } }) {
-  const article = getArticle(params.slug)
+  const title = getTitle(params.slug)
 
   return new ImageResponse(
     (
@@ -29,7 +29,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
           fontFamily: 'Arial, sans-serif',
         }}
       >
-        {/* ===== ЗОЛОТАЯ ЛИНИЯ ===== */}
         <div
           style={{
             position: 'absolute',
@@ -41,7 +40,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
           }}
         />
 
-        {/* ===== НАЗВАНИЕ САЙТА (МЕЛКИМ) ===== */}
         <div
           style={{
             fontSize: 24,
@@ -54,7 +52,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
           HHRecords • Энциклопедия звукозаписи
         </div>
 
-        {/* ===== ЗАГОЛОВОК СТАТЬИ ===== */}
         <div
           style={{
             fontSize: 52,
@@ -65,10 +62,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
             lineHeight: 1.2,
           }}
         >
-          {article?.title || 'Статья о звукозаписи'}
+          {title}
         </div>
 
-        {/* ===== ЗОЛОТАЯ ЛИНИЯ ВНИЗУ ===== */}
         <div
           style={{
             position: 'absolute',
