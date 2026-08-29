@@ -85,6 +85,8 @@ export const GuitarRescueWidget = dynamic(() => import('./GuitarRescueWidget'), 
 
 export const MasteringTimerWidget = dynamic(() => import('./MasteringTimerWidget'), { ssr: false })
 
+export const RapArtistWidget = dynamic(() => import('./RapArtistWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -128,6 +130,7 @@ export const widgetMap: Record<string, any> = {
   BeforeAfterWidget: BeforeAfterWidget,
   GuitarRescueWidget: GuitarRescueWidget,
   MasteringTimerWidget: MasteringTimerWidget,
+  RapArtistWidget: RapArtistWidget,
 }
 
 export function getWidget(name: string): any {
