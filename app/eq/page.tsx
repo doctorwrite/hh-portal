@@ -506,35 +506,69 @@ export default function EQPage() {
         </div>
       </main>
 
-      {/* ===== СКРИПТ ДЛЯ FAQ ===== */}
+      {/* ===== СКРИПТ ДЛЯ FAQ (ИСПРАВЛЕННЫЙ) ===== */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
             (function() {
-              // FAQ
-              document.querySelectorAll('.faq-card').forEach(function(card) {
-                card.addEventListener('click', function() {
-                  this.classList.toggle('active');
-                });
-              });
-
-              // Анимация при скролле
-              if (typeof IntersectionObserver !== 'undefined') {
-                const observer = new IntersectionObserver(function(entries) {
-                  entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                      entry.target.style.opacity = '1';
-                      entry.target.style.transform = 'translateY(0)';
+              // ===== FAQ =====
+              function initFAQ() {
+                var cards = document.querySelectorAll('.faq-card');
+                for (var i = 0; i < cards.length; i++) {
+                  (function(card) {
+                    var question = card.querySelector('.faq-question');
+                    if (question) {
+                      card.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleFAQ(card);
+                      });
+                      question.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        toggleFAQ(card);
+                      });
+                      card.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        toggleFAQ(card);
+                      }, { passive: false });
                     }
-                  });
+                  })(cards[i]);
+                }
+              }
+
+              function toggleFAQ(card) {
+                var allCards = document.querySelectorAll('.faq-card');
+                for (var i = 0; i < allCards.length; i++) {
+                  if (allCards[i] !== card && allCards[i].classList.contains('active')) {
+                    allCards[i].classList.remove('active');
+                  }
+                }
+                card.classList.toggle('active');
+              }
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initFAQ);
+              } else {
+                initFAQ();
+              }
+
+              // ===== АНИМАЦИЯ ПРИ СКРОЛЛЕ =====
+              if (typeof IntersectionObserver !== 'undefined') {
+                var observer = new IntersectionObserver(function(entries) {
+                  for (var i = 0; i < entries.length; i++) {
+                    if (entries[i].isIntersecting) {
+                      entries[i].target.style.opacity = '1';
+                      entries[i].target.style.transform = 'translateY(0)';
+                    }
+                  }
                 }, { threshold: 0.1 });
 
-                document.querySelectorAll('.feature-card, .guide-card, .faq-card, .shortcut-item').forEach(function(el) {
-                  el.style.opacity = '0';
-                  el.style.transform = 'translateY(20px)';
-                  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                  observer.observe(el);
-                });
+                var elements = document.querySelectorAll('.feature-card, .guide-card, .faq-card, .shortcut-item');
+                for (var i = 0; i < elements.length; i++) {
+                  elements[i].style.opacity = '0';
+                  elements[i].style.transform = 'translateY(20px)';
+                  elements[i].style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                  observer.observe(elements[i]);
+                }
               }
             })();
           `,
