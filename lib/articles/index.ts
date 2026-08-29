@@ -46,6 +46,7 @@ import { case2 } from './data/case2'
 import { case3 } from './data/case3'
 import { case4 } from './data/case4'
 import { case5 } from './data/case5'
+import { case6 } from './data/case6'
 
 // ===== ИМПОРТ МЕТАДАННЫХ =====
 import { eqMeta } from './metadata/eq'
@@ -92,6 +93,7 @@ import { case2Meta } from './metadata/case2'
 import { case3Meta } from './metadata/case3'
 import { case4Meta } from './metadata/case4'
 import { case5Meta } from './metadata/case5'
+import { case6Meta } from './metadata/case6'
 
 // ===== РЕЕСТРЫ =====
 export const ARTICLES: Record<string, ArticleData> = {
@@ -139,6 +141,7 @@ export const ARTICLES: Record<string, ArticleData> = {
   'case3': case3,
   'case4': case4,
   'case5': case5,
+  'case6': case6,
 }
 
 export const METADATA: Record<string, ArticleMeta> = {
@@ -186,6 +189,7 @@ export const METADATA: Record<string, ArticleMeta> = {
   'case3': case3Meta,
   'case4': case4Meta,
   'case5': case5Meta,
+  'case6': case6Meta,
 }
 
 // ===== ФУНКЦИИ =====
