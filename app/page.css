@@ -249,3 +249,641 @@ section {
   border-radius: var(--radius-lg);
   filter: grayscale(20%);
 }
+
+/* ================================================================
+   ФИКС: ЦЕНТРИРОВАНИЕ ИКОНОК ОБОРУДОВАНИЯ НА МОБИЛЬНЫХ
+   ================================================================ */
+@media (max-width: 768px) {
+  /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+  .services-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .equipment-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .equipment-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .equipment-item .eq-icon {
+    min-width: 0 !important;
+    margin-bottom: 8px !important;
+    font-size: 2.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .equipment-item .eq-content h3 {
+    text-align: center !important;
+  }
+
+  .equipment-item .eq-content p {
+    text-align: center !important;
+  }
+
+  .contacts-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contacts-list {
+    padding: 16px 20px;
+  }
+
+  .map-container {
+    min-height: 200px !important;
+  }
+
+  .map-container iframe {
+    min-height: 200px !important;
+  }
+
+  /* ===== ЭНЦИКЛОПЕДИЯ ===== */
+  .encyclopedia-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card .desc,
+  .section-card .count {
+    padding-left: 0;
+  }
+
+  .section-card .card-header {
+    flex-wrap: wrap;
+  }
+
+  .section-card .article-item {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .section-card .article-item .art-badge {
+    font-size: 0.55rem;
+    padding: 1px 8px;
+  }
+
+  .hero-encyclopedia h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-encyclopedia p {
+    font-size: 1rem;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .encyclopedia-stats {
+    gap: 12px;
+  }
+
+  .encyclopedia-stats .stat {
+    padding: 8px 12px;
+    min-width: 70px;
+  }
+
+  .encyclopedia-stats .stat .num {
+    font-size: 1.5rem;
+  }
+
+  .brand-block {
+    padding: 24px 16px;
+  }
+
+  .brand-block h2 {
+    font-size: 1.3rem;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding: 12px 44px 12px 16px;
+    min-height: 44px;
+  }
+
+  .search-clear {
+    min-width: 36px;
+    min-height: 36px;
+    right: 8px;
+  }
+
+  .section-filter {
+    gap: 4px;
+  }
+
+  .filter-btn {
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    min-height: 36px;
+  }
+
+  .share-top a,
+  .share-top button {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  /* ===== СТРАНИЦА СТАТЬИ ===== */
+  .article-content {
+    padding: 14px 12px !important;
+  }
+
+  .article-content h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .article-content h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .article-content h3 {
+    font-size: 1rem !important;
+  }
+
+  .article-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    padding-left: 18px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .article-content li {
+    margin: 3px 0 !important;
+  }
+
+  .article-content .article-image {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 12px 0 !important;
+  }
+
+  .article-content .article-image img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .article-content .article-image figcaption {
+    font-size: 0.55rem !important;
+  }
+
+  .article-content table {
+    font-size: 0.6rem !important;
+    white-space: nowrap !important;
+  }
+
+  .article-content table th,
+  .article-content table td {
+    padding: 4px 6px !important;
+    min-width: 50px !important;
+  }
+
+  /* ===== БЛОКИ В СТАТЬЕ ===== */
+  .qa-block {
+    padding: 12px 14px !important;
+    margin: 12px 0 !important;
+    border-left-width: 2px !important;
+  }
+
+  .qa-block .question {
+    font-size: 0.95rem !important;
+  }
+
+  .qa-block .question .num {
+    min-width: 24px !important;
+    height: 24px !important;
+    font-size: 0.65rem !important;
+  }
+
+  .qa-block .answer {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .toc {
+    padding: 14px 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .toc-title {
+    font-size: 0.95rem !important;
+  }
+
+  .toc-list {
+    gap: 4px 10px !important;
+  }
+
+  .toc-list a {
+    font-size: 0.8rem !important;
+  }
+
+  .quick-answer {
+    padding: 12px 14px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .quick-answer p {
+    font-size: 0.9rem !important;
+  }
+
+  .meta {
+    font-size: 0.7rem !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* ===== МИКРО-ГЛОССАРИЙ ===== */
+  .micro-glossary {
+    padding: 16px 18px !important;
+  }
+
+  .micro-glossary dl {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+
+  .micro-glossary dt {
+    padding-bottom: 2px !important;
+    border-bottom: none !important;
+  }
+
+  .micro-glossary dd {
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .micro-glossary dt:last-child,
+  .micro-glossary dd:last-child {
+    border-bottom: none !important;
+  }
+
+  /* ===== СОВЕТ ОТ ЗВУКОРЕЖИССЁРА ===== */
+  .tip-with-photo {
+    padding: 20px 18px !important;
+  }
+
+  .tip-content {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .tip-photo {
+    width: 100% !important;
+    max-width: 280px !important;
+  }
+
+  .tip-text p,
+  .tip-text ul li {
+    font-size: 0.9rem !important;
+  }
+
+  .tip-text ul {
+    padding-left: 16px !important;
+  }
+
+  /* ===== ПОХОЖИЕ ТЕРМИНЫ ===== */
+  .related-terms {
+    gap: 8px !important;
+  }
+
+  .related-terms a {
+    font-size: 0.75rem !important;
+    padding: 6px 14px !important;
+  }
+
+  /* ===== НАВИГАЦИЯ ВНИЗУ ===== */
+  .bottom-nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  .bottom-nav a {
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* ===== КАРУСЕЛЬ ===== */
+  .carousel-container {
+    height: 250px;
+  }
+
+  .carousel-btn {
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-btn.prev {
+    left: 8px;
+  }
+
+  .carousel-btn.next {
+    right: 8px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* ===== ВИДЖЕТЫ ===== */
+  .flex-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .playlist-container,
+  .reviews-container {
+    flex: 1;
+  }
+
+  .widget-box iframe {
+    min-height: 300px;
+  }
+
+  /* ===== ЛАЙТБОКС ===== */
+  .lightbox-prev,
+  .lightbox-next {
+    padding: 10px 14px;
+    font-size: 1.8rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 16px;
+    font-size: 2rem;
+  }
+
+  .lightbox-image {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  /* ===== ПОДВАЛ ===== */
+  .site-footer {
+    padding: 20px 10px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .site-footer .footer-links {
+    gap: 8px;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.7rem;
+  }
+
+  .site-footer p {
+    font-size: 0.7rem;
+    max-width: 280px;
+  }
+
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .not-found-page h1,
+  .error-page h1 {
+    font-size: 4rem;
+  }
+
+  .not-found-page h2,
+  .error-page h2 {
+    font-size: 1.4rem;
+  }
+
+  .seo-text {
+    padding: 18px 16px;
+  }
+
+  .seo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .eq-page {
+    padding: 12px;
+  }
+
+  .eq-page-title {
+    font-size: 1.2rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .eq-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    padding: 16px;
+  }
+
+  /* ===== ФИКС: FAQ ===== */
+  .faq-card {
+    padding: 14px 16px;
+  }
+
+  .faq-card .faq-question {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ (ДО 480PX) ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 0 6px;
+    padding-top: 90px;
+  }
+
+  .main-nav a {
+    font-size: 0.65rem !important;
+    padding: 3px 6px !important;
+  }
+
+  .btn {
+    font-size: 0.5rem !important;
+    padding: 0 6px !important;
+    height: 24px !important;
+    min-height: 26px !important;
+  }
+
+  .btn svg {
+    width: 10px !important;
+    height: 10px !important;
+    margin-right: 2px !important;
+  }
+
+  .logo-name {
+    font-size: 0.85rem !important;
+  }
+
+  .logo-img {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    padding: 2px !important;
+  }
+
+  .logo-sub {
+    font-size: 0.4rem !important;
+  }
+
+  .section-card {
+    padding: 16px;
+  }
+
+  .section-card .article-item {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .article-content {
+    padding: 12px 10px !important;
+  }
+
+  .article-content h1 {
+    font-size: 1.2rem !important;
+  }
+
+  .article-content h2 {
+    font-size: 1.1rem !important;
+  }
+
+  .article-content p {
+    font-size: 0.85rem !important;
+  }
+
+  .brand-block {
+    padding: 20px 16px;
+  }
+
+  .brand-block h2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-tag {
+    font-size: 0.6rem;
+    padding: 3px 10px;
+  }
+
+  .seo-list {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-text {
+    padding: 14px 12px;
+  }
+
+  .site-footer {
+    padding: 15px 6px;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.6rem;
+  }
+
+  .site-footer p {
+    font-size: 0.6rem;
+    max-width: 220px;
+  }
+
+  .equipment-item .eq-icon {
+    font-size: 2rem !important;
+  }
+
+  .equipment-item {
+    padding: 16px 12px !important;
+  }
+
+  .contacts-list {
+    padding: 12px 14px;
+  }
+
+  .contact-row {
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .contact-row .value {
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== ПЛАНШЕТЫ (ДО 820PX) ===== */
+@media (max-width: 820px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+  }
+
+  body {
+    padding: 0 16px;
+    padding-top: 90px;
+  }
+
+  .main-nav {
+    gap: 16px;
+    font-size: 0.8rem;
+  }
+
+  .cta-buttons {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+    padding: 0 14px;
+    height: 36px;
+    min-height: 38px;
+  }
+
+  .logo-name {
+    font-size: 1.3rem;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+}
