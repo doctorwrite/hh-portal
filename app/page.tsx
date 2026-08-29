@@ -135,202 +135,138 @@ export default function Home() {
       {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
       <div className="divider"></div>
 
-      {/* ===== ОТЗЫВЫ ===== */}
-      <section className="reviews-section">
-        <div className="container">
-          <h2>Отзывы клиентов</h2>
-          <div className="reviews-wrapper">
-            <div className="widget-box" style={{ 
-              padding: '16px',
-              maxHeight: '620px',
-              overflowY: 'auto',
-              display: 'flex',
-              flexDirection: 'column'
-            }}>
-              <div style={{ 
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                alignItems: 'center',
-                marginBottom: '16px',
-                paddingBottom: '12px',
-                borderBottom: '1px solid var(--border, rgba(255,255,255,0.06))',
-                flexShrink: 0
-              }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: '700', color: 'var(--text, #fff)' }}>
-                  ⭐ Что говорят клиенты
-                </h3>
-                <a 
-                  href="https://go.2gis.com/XYibr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ 
-                    fontSize: '0.8rem', 
-                    color: 'var(--accent, #f5c542)',
-                    textDecoration: 'none'
-                  }}
-                >
-                  Все отзывы →
-                </a>
-              </div>
+     {/* ===== ОТЗЫВЫ ===== */}
+<section className="reviews-section">
+  <div className="container">
+    <h2>Отзывы клиентов</h2>
+    <div className="reviews-wrapper">
+      <div className="widget-box" style={{
+        padding: '16px',
+        maxHeight: '620px',
+        overflowY: 'auto',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '16px',
+          paddingBottom: '12px',
+          borderBottom: '1px solid var(--border, rgba(255,255,255,0.06))',
+          flexShrink: 0
+        }}>
+          <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text, #fff)' }}>
+            ⭐ Что говорят клиенты
+          </h3>
+          <a
+            href="https://go.2gis.com/XYibr"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontSize: '0.8rem',
+              color: 'var(--accent, #f5c542)',
+              textDecoration: 'none'
+            }}
+          >
+            Все отзывы →
+          </a>
+        </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
-                {/* ОТЗЫВ 1 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Елена Кожевникова</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Спасибо большое за помощь в создании подарка детям на свадьбу. Специалист Никита очень хорошо помогал в правильности как спеть, как лучше. Огромное спасибо)) рекомендую
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>20 мая 2026</span>
-                    <span>❤️ 3</span>
-                  </div>
-                </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
+          {/* ОТЗЫВ 1 */}
+          <div style={{
+            padding: '12px 14px',
+            background: 'var(--bg3, #1a1a24)',
+            borderRadius: '8px',
+            border: '1px solid var(--border, rgba(255,255,255,0.04))'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Елена Кожевникова</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
+              Спасибо большое за помощь в создании подарка детям на свадьбу. Специалист Никита очень хорошо помогал в правильности как спеть, как лучше. Огромное спасибо)) рекомендую
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
+              <span>20 мая 2026</span>
+            </div>
+          </div>
 
-                {/* ОТЗЫВ 2 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Третьякова Диана</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Ну я однозначно ставлю 5 звезд, было бы больше — поставила бы! Пришла к Никите по рекомендациям друзей и знакомых, многие хвалили его, и оказалось, что совсем не зря. Мне очень понравилась атмосфера, как Никита меня подбадривал 😅 Записывала песню бабушке в подарок, очень довольна результатом, обязательно приду еще, опыт очень крутой 😎
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>27 апреля 2026</span>
-                    <span>❤️ 8</span>
-                  </div>
-                </div>
+          {/* ОТЗЫВ 2 */}
+          <div style={{
+            padding: '12px 14px',
+            background: 'var(--bg3, #1a1a24)',
+            borderRadius: '8px',
+            border: '1px solid var(--border, rgba(255,255,255,0.04))'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Третьякова Диана</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
+              Ну я однозначно ставлю 5 звезд, было бы больше — поставила бы! Пришла к Никите по рекомендациям друзей и знакомых, многие хвалили его, и оказалось, что совсем не зря. Мне очень понравилась атмосфера, как Никита меня подбадривал 😅 Записывала песню бабушке в подарок, очень довольна результатом, обязательно приду еще, опыт очень крутой 😎
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
+              <span>27 апреля 2026</span>
+            </div>
+          </div>
 
-                {/* ОТЗЫВ 3 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Диля Валеева</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Хочу выразить благодарность Никите! Записывала песню сестре на свадьбу. Я довольна, получилось супер 👍 Профессионально, быстро и качественно 👍👍👍
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>20 апреля 2026</span>
-                    <span>❤️ 6</span>
-                  </div>
-                </div>
+          {/* ОТЗЫВ 3 */}
+          <div style={{
+            padding: '12px 14px',
+            background: 'var(--bg3, #1a1a24)',
+            borderRadius: '8px',
+            border: '1px solid var(--border, rgba(255,255,255,0.04))'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Диля Валеева</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
+              Хочу выразить благодарность Никите! Записывала песню сестре на свадьбу. Я довольна, получилось супер 👍 Профессионально, быстро и качественно 👍👍👍
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
+              <span>20 апреля 2026</span>
+            </div>
+          </div>
 
-                {/* ОТЗЫВ 4 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Кристина С</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Большое спасибо Никите! Стойко выдержал наше кошачье пение 😅 и забабахал офигенную песню) 👍
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>3 февраля 2026</span>
-                    <span>❤️ 8</span>
-                  </div>
-                </div>
-
-                {/* ОТЗЫВ 5 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Юлия Бордукова</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Обратились с сестрой в студию, чтобы записать песню маме на юбилей! Никита помог подобрать песню, записал нас качественно и быстро! Мы довольны, мама в восторге! Очень благодарны Никите за помощь и быструю работу!!!! Будем рекомендовать друзьям и придем снова!!!!
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>2 февраля 2026</span>
-                    <span>❤️ 5</span>
-                  </div>
-                </div>
-
-                {/* ОТЗЫВ 6 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Fgh Васен</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Хорошая студия, оборудование все для записи и обработки. За час записали песню дочери. Помогают, как и что лучше спеть или перепеть, дружелюбное отношение.
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>24 декабря 2025</span>
-                    <span>❤️ 25</span>
-                  </div>
-                </div>
-
-                {/* ОТЗЫВ 7 */}
-                <div style={{
-                  padding: '12px 14px',
-                  background: 'var(--bg3, #1a1a24)',
-                  borderRadius: '8px',
-                  border: '1px solid var(--border, rgba(255,255,255,0.04))'
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontWeight: '600', fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Татьяна Баринова</span>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
-                    Никита все сделал очень круто 🙌 рекомендую на 💯
-                  </p>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
-                    <span>9 июля 2025</span>
-                    <span>❤️ 2</span>
-                  </div>
-                </div>
-              </div>
-
-              <style>{`
-                .widget-box::-webkit-scrollbar {
-                  width: 4px;
-                }
-                .widget-box::-webkit-scrollbar-thumb {
-                  background: var(--accent, #f5c542);
-                  border-radius: 2px;
-                }
-                .widget-box::-webkit-scrollbar-track {
-                  background: var(--bg3, #1a1a24);
-                }
-              `}</style>
+          {/* ОТЗЫВ 4 */}
+          <div style={{
+            padding: '12px 14px',
+            background: 'var(--bg3, #1a1a24)',
+            borderRadius: '8px',
+            border: '1px solid var(--border, rgba(255,255,255,0.04))'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+              <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text, #fff)' }}>Кристина С</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text3, #666)' }}>⭐⭐⭐⭐⭐</span>
+            </div>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text2, #999)', lineHeight: '1.5', margin: '4px 0 6px' }}>
+              Большое спасибо Никите! Стойко выдержал наше кошачье пение 😅 и забабахал офигенную песню) 👍
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: 'var(--text3, #666)' }}>
+              <span>3 февраля 2026</span>
             </div>
           </div>
         </div>
-      </section>
+
+        <style>{`
+          .widget-box::-webkit-scrollbar {
+            width: 4px;
+          }
+          .widget-box::-webkit-scrollbar-thumb {
+            background: var(--accent, #f5c542);
+            border-radius: 2px;
+          }
+          .widget-box::-webkit-scrollbar-track {
+            background: var(--bg3, #1a1a24);
+          }
+        `}</style>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ===== РАЗДЕЛИТЕЛЬ ===== */}
       <div className="divider"></div>
