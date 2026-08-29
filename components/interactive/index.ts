@@ -79,6 +79,8 @@ export const PhilosophyWidget = dynamic(() => import('./PhilosophyWidget'), { ss
 
 export const GearWidget = dynamic(() => import('./GearWidget'), { ssr: false })
 
+export const BeforeAfterWidget = dynamic(() => import('./BeforeAfterWidget'), { ssr: false })
+
 export const widgetMap: Record<string, any> = {
   EQVisualizer: EQVisualizer,
   CompressorWidget: CompressorWidget,
@@ -119,6 +121,7 @@ export const widgetMap: Record<string, any> = {
   HarmonicsWidget: HarmonicsWidget,
   PhilosophyWidget: PhilosophyWidget,
   GearWidget: GearWidget,
+  BeforeAfterWidget: BeforeAfterWidget,
 }
 
 export function getWidget(name: string): any {
