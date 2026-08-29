@@ -477,8 +477,9 @@ export default function EQPage() {
 {/* ===== СЕО-ТЕКСТ ===== */}
 <section className="seo-text">
   <div className="container">
-    <div className="seo-grid">
-      <div className="seo-content">
+    <div className="seo-wrapper">
+      {/* ЛЕВАЯ КОЛОНКА — ТЕКСТ */}
+      <div className="seo-main">
         <div className="seo-badge">
           <span className="seo-badge-icon">🎛️</span>
           Онлайн-эквалайзер HHRecords
@@ -487,12 +488,13 @@ export default function EQPage() {
         <p className="seo-lead">
           <strong>Онлайн-эквалайзер HHRecords</strong> — это мощный инструмент для обработки звука, доступный прямо в браузере. Используйте его для <strong>сведения треков</strong>, <strong>мастеринга</strong>, подготовки вокала и инструментов. Работает с файлами, микрофоном и системным звуком.
         </p>
-        <div className="seo-features-list">
+
+        <div className="seo-features-grid">
           <div className="seo-feature-item">
             <span className="seo-feature-icon">🎛️</span>
             <div>
               <h4>8 полос EQ</h4>
-              <p>До 8 полос параметрического эквалайзера с 7 типами фильтров</p>
+              <p>Параметрический эквалайзер с 7 типами фильтров</p>
             </div>
           </div>
           <div className="seo-feature-item">
@@ -516,7 +518,22 @@ export default function EQPage() {
               <p>Сохраняйте обработанное аудио в любом формате</p>
             </div>
           </div>
+          <div className="seo-feature-item">
+            <span className="seo-feature-icon">🎤</span>
+            <div>
+              <h4>Захват аудио</h4>
+              <p>Микрофон, системный звук, загрузка файлов</p>
+            </div>
+          </div>
+          <div className="seo-feature-item">
+            <span className="seo-feature-icon">📈</span>
+            <div>
+              <h4>Спектроанализатор</h4>
+              <p>Визуализация частот в реальном времени</p>
+            </div>
+          </div>
         </div>
+
         <div className="seo-cta">
           <p className="seo-cta-text">
             <strong>Студия HHRecords</strong> — профессиональная студия звукозаписи.
@@ -539,13 +556,40 @@ export default function EQPage() {
             </a>
           </div>
         </div>
+
         <div className="seo-footer">
           <p>
-            <strong>Для записи в студии:</strong> приходите к нам на Дудинскую 3с5.
+            <strong>📍 Для записи в студии:</strong> приходите к нам на Дудинскую 3с5.
             <br />
-            <strong>Для онлайн-работы:</strong> отправляйте файлы через Telegram или ВКонтакте —
+            <strong>🌐 Для онлайн-работы:</strong> отправляйте файлы через Telegram или ВКонтакте —
             мы работаем с артистами из любого города. Качество звука не зависит от расстояния.
           </p>
+        </div>
+      </div>
+
+      {/* ПРАВАЯ КОЛОНКА — БЛОК С КОНТАКТАМИ ИЛИ ИЗОБРАЖЕНИЕМ */}
+      <div className="seo-sidebar">
+        <div className="seo-sidebar-card">
+          <div className="seo-sidebar-icon">🎧</div>
+          <h3>Работаем онлайн по всей России</h3>
+          <p>Присылайте треки на сведение и мастеринг из любого города. Мы сделаем ваш звук профессиональным.</p>
+          <div className="seo-sidebar-stats">
+            <div className="seo-sidebar-stat">
+              <span className="seo-sidebar-num">10+</span>
+              <span className="seo-sidebar-label">лет опыта</span>
+            </div>
+            <div className="seo-sidebar-stat">
+              <span className="seo-sidebar-num">500+</span>
+              <span className="seo-sidebar-label">треков</span>
+            </div>
+            <div className="seo-sidebar-stat">
+              <span className="seo-sidebar-num">4.9</span>
+              <span className="seo-sidebar-label">рейтинг</span>
+            </div>
+          </div>
+          <a href="/" className="seo-sidebar-link">
+            🏠 На главную →
+          </a>
         </div>
       </div>
     </div>
