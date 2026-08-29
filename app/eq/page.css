@@ -643,3 +643,230 @@
     font-size: 1.5rem;
   }
 }
+/* ================================================================
+   SEO-ТЕКСТ (обновлённый)
+   ================================================================ */
+.seo-text {
+  padding: 40px 0;
+}
+
+.seo-text .seo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 197, 66, 0.08);
+  border: 1px solid rgba(245, 197, 66, 0.12);
+  border-radius: 50px;
+  padding: 6px 16px 6px 10px;
+  font-size: 0.75rem;
+  color: var(--gold-mid);
+  margin-bottom: 16px;
+}
+
+.seo-text .seo-badge-icon {
+  font-size: 1rem;
+}
+
+.seo-text h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  font-family: var(--font-oswald);
+  background: linear-gradient(to right, var(--gold-start), var(--gold-mid), var(--gold-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.seo-text .seo-lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.seo-text .seo-lead strong {
+  color: var(--gold-mid);
+  -webkit-text-fill-color: var(--gold-mid);
+}
+
+.seo-text .seo-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.seo-text .seo-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: var(--transition);
+}
+
+.seo-text .seo-feature-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 197, 66, 0.1);
+}
+
+.seo-text .seo-feature-item .seo-feature-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.seo-text .seo-feature-item h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.seo-text .seo-feature-item p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.seo-text .seo-cta {
+  background: rgba(245, 197, 66, 0.04);
+  border: 1px solid rgba(245, 197, 66, 0.08);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.seo-text .seo-cta-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.seo-text .seo-cta-text strong {
+  color: var(--gold-mid);
+  -webkit-text-fill-color: var(--gold-mid);
+}
+
+.seo-text .seo-cta-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.seo-text .seo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  font-family: var(--font-montserrat);
+  border: none;
+  cursor: pointer;
+}
+
+.seo-text .seo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.seo-text .seo-btn-phone {
+  background: linear-gradient(135deg, var(--gold-start), var(--gold-mid), var(--gold-end));
+  color: #000;
+}
+
+.seo-text .seo-btn-telegram {
+  background: linear-gradient(135deg, #0088cc, #005f8a);
+  color: #fff;
+}
+
+.seo-text .seo-btn-vk {
+  background: #0077ff;
+  color: #fff;
+}
+
+.seo-text .seo-btn-vk:hover {
+  background: #0066dd;
+}
+
+.seo-text .seo-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seo-text .seo-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.seo-text .seo-footer {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.seo-text .seo-footer p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.seo-text .seo-footer strong {
+  color: var(--gold-mid);
+  -webkit-text-fill-color: var(--gold-mid);
+}
+
+/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
+@media (max-width: 768px) {
+  .seo-text .seo-features-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .seo-text .seo-feature-item {
+    padding: 12px 14px;
+  }
+
+  .seo-text .seo-cta {
+    padding: 16px 18px;
+  }
+
+  .seo-text .seo-cta-buttons {
+    justify-content: center;
+  }
+
+  .seo-text .seo-btn {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+  }
+
+  .seo-text .seo-footer {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seo-text .seo-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .seo-text .seo-btn {
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.75rem;
+  }
+}
